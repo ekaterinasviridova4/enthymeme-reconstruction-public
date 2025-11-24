@@ -76,7 +76,7 @@ def parse_args():
     parser.add_argument(
         "--model",
         type=str,
-        default="gemini/gemini-2.0-flash",
+        default="openai/gpt-4o",
         help="Model to use (e.g., 'gemini/gemini-2.0-flash', 'gpt-4o', 'openai/gpt-4-turbo')"
     )
     parser.add_argument(
@@ -126,7 +126,7 @@ Output:
 def save_predictions(predictions, output_dir):
     """Save reconstructed texts to JSONL file"""
     timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-    output_file = os.path.join(output_dir, f"reconstructed_texts_{timestamp}.jsonl")
+    output_file = os.path.join(output_dir, f"reconstructed_gpt_texts_{timestamp}.jsonl")
     
     with open(output_file, "w", encoding="utf-8") as f:
         for pred in predictions:
