@@ -1,0 +1,33 @@
+2025-11-24 13:45:37,806 - INFO - ==================================================
+2025-11-24 13:45:37,806 - INFO - Starting text reconstruction process
+2025-11-24 13:45:37,806 - INFO - Input file: out_jsonl/dev.jsonl
+2025-11-24 13:45:37,806 - INFO - Output directory: ./reconstructed_litellm
+2025-11-24 13:45:37,806 - INFO - Model: gemini/gemini-2.0-flash
+2025-11-24 13:45:37,806 - INFO - Seed: 42
+2025-11-24 13:45:37,806 - INFO - Temperature: 0.0
+2025-11-24 13:45:37,806 - INFO - ==================================================
+2025-11-24 13:45:38,062 - INFO - Loading dataset...
+2025-11-24 13:45:38,076 - INFO - Loaded 7 examples
+2025-11-24 13:45:38,076 - INFO - Limited to first 5 examples
+2025-11-24 13:45:38,076 - INFO - Processing 5 texts with model: gemini/gemini-2.0-flash
+2025-11-24 13:45:38,174 - INFO - 
+LiteLLM completion() model= gemini-2.0-flash; provider = gemini
+2025-11-24 13:45:43,726 - INFO - Wrapper: Completed Call, calling success_handler
+2025-11-24 13:45:43,729 - INFO - 
+LiteLLM completion() model= gemini-2.0-flash; provider = gemini
+2025-11-24 13:45:47,509 - INFO - Wrapper: Completed Call, calling success_handler
+2025-11-24 13:45:47,511 - INFO - 
+LiteLLM completion() model= gemini-2.0-flash; provider = gemini
+2025-11-24 13:45:52,954 - INFO - Wrapper: Completed Call, calling success_handler
+2025-11-24 13:45:52,956 - INFO - 
+LiteLLM completion() model= gemini-2.0-flash; provider = gemini
+2025-11-24 13:45:58,922 - INFO - Wrapper: Completed Call, calling success_handler
+2025-11-24 13:45:58,923 - INFO - 
+LiteLLM completion() model= gemini-2.0-flash; provider = gemini
+2025-11-24 13:46:05,321 - INFO - Wrapper: Completed Call, calling success_handler
+2025-11-24 13:46:05,325 - INFO - Reconstructed texts saved to ./reconstructed_litellm/reconstructed_texts_20251124_134605.jsonl
+2025-11-24 13:46:05,325 - INFO - ==================================================
+2025-11-24 13:46:05,325 - INFO - Reconstruction complete! Processed 5 examples
+2025-11-24 13:46:05,325 - INFO - Results saved to: ./reconstructed_litellm/reconstructed_texts_20251124_134605.jsonl
+2025-11-24 13:46:05,325 - INFO - Log file: ./reconstructed_litellm/reconstruction_20251124_134537.log
+2025-11-24 13:46:05,325 - INFO - ==================================================
