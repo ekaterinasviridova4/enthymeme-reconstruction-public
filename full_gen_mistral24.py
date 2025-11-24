@@ -126,7 +126,7 @@ def build_prompt(text):
     """Build prompt for text reconstruction"""
     prompt = f"""Your task is to analyze the given text and reconstruct implicit parts of the text. The text is argumentative, so implicit parts can be premises or conclusions that are not explicitly stated but are necessary for the argument to hold.
 
-As an output, provide a complete list of all sentences in the text, including both explicit and reconstructed implicit sentences. Mark each sentence with either <Explicit> or <Implicit> tags.
+As an output, provide a complete text including all original and reconstructed implicit sentences.
 
 Text:
 {text}
@@ -134,7 +134,6 @@ Text:
 Instructions:
 - Identify all explicit sentences that are already present in the text
 - Identify and reconstruct any implicit premises or conclusions
-- Mark each sentence with <Explicit> or <Implicit> tags
 - Maintain the logical flow of the argument
 
 Output:
