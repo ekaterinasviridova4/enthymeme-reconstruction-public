@@ -5,6 +5,7 @@ PROJECT_DIR="$HOME/phd/test1"
 EMAIL="ekaterina.sviridova@inria.fr"
 LOGDIR="$HOME/logs"
 export HUGGINGFACE_HUB_TOKEN=$(cat /home/esvirido/.huggingface/token)
+#export GOOGLE_API_KEY=$(cat /home/esvirido/.google/api_key)
 
 # Make sure the log directory exists
 mkdir -p "$LOGDIR"
