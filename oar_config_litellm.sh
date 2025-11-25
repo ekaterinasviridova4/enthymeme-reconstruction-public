@@ -25,7 +25,7 @@ OAR_OUT=$(oarsub \
     --stderr="$LOGDIR/%jobid%.stderr" \
     --l "nodes=1,walltime=$W_HOURS" \
     --notify "[ERROR,INFO]mail:$EMAIL" \
-    "export API_KEY=$OPENAI_API_KEY; \
+    "export OPENAI_API_KEY=$OPENAI_API_KEY; \
      module load conda; \
      source /home/esvirido/miniconda3/bin/activate /home/esvirido/miniconda3/envs/llm-env; \
      echo 'Starting LiteLLM text reconstruction...'; \
