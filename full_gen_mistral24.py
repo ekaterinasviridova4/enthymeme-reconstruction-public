@@ -77,7 +77,7 @@ def parse_args():
     parser.add_argument(
         "--output_dir",
         type=str,
-        default="./reconstructed_outputs",
+        default="./reconstructed_mistral",
         help="Directory to save reconstructed outputs"
     )
     parser.add_argument(

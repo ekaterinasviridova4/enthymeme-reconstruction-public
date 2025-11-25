@@ -31,7 +31,7 @@ OAR_OUT=$(oarsub \
      echo 'Starting Mistral text reconstruction...'; \
      python3 full_gen_mistral24.py \
         --input_file out_jsonl/dev.jsonl \
-        --output_dir ./reconstructed_outputs \
+        --output_dir ./reconstructed_mistral \
         --limit 5; \
      echo 'Mistral text reconstruction completed.'
     " \
