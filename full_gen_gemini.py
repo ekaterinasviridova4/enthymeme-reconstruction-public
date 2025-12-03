@@ -107,7 +107,7 @@ def parse_args():
 
 def build_prompt(text):
     """Build prompt for text reconstruction"""
-    prompt = f"""Your task is to analyze the given dialogue and reconstruct implicit parts of it. There are two speakers in the dialogue, speaker1 and speaker2. The change of roles is determined by "speaker1:" and "speaker2:" marks. The dialogue is argumentative, so implicit parts can be premises or conclusions that are not explicitly stated but are necessary for the argument to hold.
+    prompt = f"""Your task is to analyze the given dialogue and reconstruct implicit parts of it. There are two speakers in the dialogue, speaker1 and speaker2. The change of roles is determined by "speaker1:" and "speaker2:" marks. The dialogue is argumentative, so implicit parts can be premises or conclusions of each speaker that are not explicitly stated but are necessary for the argument to hold.
 
 As an output, provide a complete dialogue including all original and reconstructed implicit sentences in the same format as the input.
 
@@ -115,8 +115,11 @@ Text:
 {text}
 
 Instructions:
-- Identify all explicit sentences that are already present in the dialogue
-- Identify and reconstruct any implicit premises or conclusions
+- First, reproduce the entire original dialogue exactly as provided
+- Then, at the end, add reconstructed implicit content in the format: [Implicit premise: ...] or [Implicit conclusion: ...]
+- You MUST identify and add at least 3-5 implicit premises or conclusions for each dialogue
+- Even if the dialogue contains many questions or is philosophical in nature, identify the underlying assumptions and logical connections
+- For long speaker turns, break down the argument into components and identify what is assumed but not stated
 - Maintain the logical flow of the argument
 
 Output:
