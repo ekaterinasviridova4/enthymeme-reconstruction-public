@@ -1,0 +1,63 @@
+2025-12-03 14:06:08,145 - INFO - ==================================================
+2025-12-03 14:06:08,145 - INFO - Starting text reconstruction process
+2025-12-03 14:06:08,146 - INFO - Input file: out_dial_jsonl/dev.jsonl
+2025-12-03 14:06:08,146 - INFO - Output directory: ./reconstructed_litellm
+2025-12-03 14:06:08,146 - INFO - Model: gemini/gemini-2.0-flash
+2025-12-03 14:06:08,146 - INFO - Seed: 42
+2025-12-03 14:06:08,146 - INFO - Temperature: 0.0
+2025-12-03 14:06:08,146 - INFO - ==================================================
+2025-12-03 14:06:08,351 - INFO - Loading dataset...
+2025-12-03 14:06:08,361 - INFO - Loaded 7 examples
+2025-12-03 14:06:08,361 - INFO - Limited to first 5 examples
+2025-12-03 14:06:08,362 - INFO - Processing 5 texts with model: gemini/gemini-2.0-flash
+2025-12-03 14:06:08,416 - INFO - 
+LiteLLM completion() model= gemini-2.0-flash; provider = gemini
+2025-12-03 14:06:09,922 - ERROR - Error in generation: litellm.RateLimitError: litellm.RateLimitError: geminiException - {
+  "error": {
+    "code": 429,
+    "message": "Resource exhausted. Please try again later. Please refer to https://cloud.google.com/vertex-ai/generative-ai/docs/error-code-429 for more details.",
+    "status": "RESOURCE_EXHAUSTED"
+  }
+}
+
+2025-12-03 14:06:09,922 - ERROR - Error processing example 0: litellm.RateLimitError: litellm.RateLimitError: geminiException - {
+  "error": {
+    "code": 429,
+    "message": "Resource exhausted. Please try again later. Please refer to https://cloud.google.com/vertex-ai/generative-ai/docs/error-code-429 for more details.",
+    "status": "RESOURCE_EXHAUSTED"
+  }
+}
+
+2025-12-03 14:06:09,923 - INFO - 
+LiteLLM completion() model= gemini-2.0-flash; provider = gemini
+2025-12-03 14:06:14,273 - INFO - Wrapper: Completed Call, calling success_handler
+2025-12-03 14:06:14,277 - INFO - 
+LiteLLM completion() model= gemini-2.0-flash; provider = gemini
+2025-12-03 14:06:16,348 - ERROR - Error in generation: litellm.RateLimitError: litellm.RateLimitError: geminiException - {
+  "error": {
+    "code": 429,
+    "message": "Resource exhausted. Please try again later. Please refer to https://cloud.google.com/vertex-ai/generative-ai/docs/error-code-429 for more details.",
+    "status": "RESOURCE_EXHAUSTED"
+  }
+}
+
+2025-12-03 14:06:16,348 - ERROR - Error processing example 2: litellm.RateLimitError: litellm.RateLimitError: geminiException - {
+  "error": {
+    "code": 429,
+    "message": "Resource exhausted. Please try again later. Please refer to https://cloud.google.com/vertex-ai/generative-ai/docs/error-code-429 for more details.",
+    "status": "RESOURCE_EXHAUSTED"
+  }
+}
+
+2025-12-03 14:06:16,349 - INFO - 
+LiteLLM completion() model= gemini-2.0-flash; provider = gemini
+2025-12-03 14:06:23,845 - INFO - Wrapper: Completed Call, calling success_handler
+2025-12-03 14:06:23,846 - INFO - 
+LiteLLM completion() model= gemini-2.0-flash; provider = gemini
+2025-12-03 14:06:28,384 - INFO - Wrapper: Completed Call, calling success_handler
+2025-12-03 14:06:28,388 - INFO - Reconstructed texts saved to ./reconstructed_litellm/reconstructed_gemini_texts_20251203_140628.jsonl
+2025-12-03 14:06:28,388 - INFO - ==================================================
+2025-12-03 14:06:28,388 - INFO - Reconstruction complete! Processed 5 examples
+2025-12-03 14:06:28,388 - INFO - Results saved to: ./reconstructed_litellm/reconstructed_gemini_texts_20251203_140628.jsonl
+2025-12-03 14:06:28,388 - INFO - Log file: ./reconstructed_litellm/reconstruction_20251203_140608.log
+2025-12-03 14:06:28,388 - INFO - ==================================================
