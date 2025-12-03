@@ -76,8 +76,8 @@ def parse_args():
     parser.add_argument(
         "--model",
         type=str,
-        default="openai/gpt-4o",
-        help="Model to use (e.g., 'gemini/gemini-2.0-flash', 'gpt-4o', 'openai/gpt-4-turbo')"
+        default="gemini/gemini-2.0-flash",
+        help="Model to use (e.g., 'gemini/gemini-2.0-flash', 'openai/gpt-4o', 'openai/gpt-4-turbo')"
     )
     parser.add_argument(
         "--limit",
@@ -107,15 +107,15 @@ def parse_args():
 
 def build_prompt(text):
     """Build prompt for text reconstruction"""
-    prompt = f"""Your task is to analyze the given text and reconstruct implicit parts of the text. The text is argumentative, so implicit parts can be premises or conclusions that are not explicitly stated but are necessary for the argument to hold.
+    prompt = f"""Your task is to analyze the given dialogue and reconstruct implicit parts of it. There are two speakers in the dialogue, speaker1 and speaker2. The change of roles is determined by "speaker1:" and "speaker2:" marks. The dialogue is argumentative, so implicit parts can be premises or conclusions that are not explicitly stated but are necessary for the argument to hold.
 
-As an output, provide a complete text including all original and reconstructed implicit sentences.
+As an output, provide a complete dialogue including all original and reconstructed implicit sentences in the same format as the input.
 
 Text:
 {text}
 
 Instructions:
-- Identify all explicit sentences that are already present in the text
+- Identify all explicit sentences that are already present in the dialogue
 - Identify and reconstruct any implicit premises or conclusions
 - Maintain the logical flow of the argument
 
@@ -123,10 +123,28 @@ Output:
 """
     return prompt
 
+# def build_prompt(text):
+#     """Build prompt for text reconstruction"""
+#     prompt = f"""Your task is to analyze the given text and reconstruct implicit parts of the text. The text is argumentative, so implicit parts can be premises or conclusions that are not explicitly stated but are necessary for the argument to hold.
+
+# As an output, provide a complete text including all original and reconstructed implicit sentences.
+
+# Text:
+# {text}
+
+# Instructions:
+# - Identify all explicit sentences that are already present in the text
+# - Identify and reconstruct any implicit premises or conclusions
+# - Maintain the logical flow of the argument
+
+# Output:
+# """
+#     return prompt
+
 def save_predictions(predictions, output_dir):
     """Save reconstructed texts to JSONL file"""
     timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-    output_file = os.path.join(output_dir, f"reconstructed_gpt_texts_{timestamp}.jsonl")
+    output_file = os.path.join(output_dir, f"reconstructed_gemini_texts_{timestamp}.jsonl")
     
     with open(output_file, "w", encoding="utf-8") as f:
         for pred in predictions:
