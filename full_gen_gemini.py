@@ -116,8 +116,10 @@ Text:
 
 Instructions:
 - First, reproduce the entire original dialogue exactly as provided
-- Then, at the end, add reconstructed implicit content in the format: [Implicit premise: ...] or [Implicit conclusion: ...]
+- Then, at the end, add reconstructed implicit content attributed to the appropriate speaker
+- Format: "speaker1: [Implicit premise: ...]" or "speaker1: [Implicit conclusion: ...]" or "speaker2: [Implicit premise: ...]" or "speaker2: [Implicit conclusion: ...]"
 - You MUST identify and add at least 3-5 implicit premises or conclusions for each dialogue
+- Each implicit premise/conclusion should be attributed to the speaker who holds that assumption or reaches that conclusion
 - Even if the dialogue contains many questions or is philosophical in nature, identify the underlying assumptions and logical connections
 - For long speaker turns, break down the argument into components and identify what is assumed but not stated
 - Maintain the logical flow of the argument
