@@ -7,9 +7,9 @@ LOGDIR="$HOME/logs"
 
 # Export API keys
 # Google API key
-export GOOGLE_API_KEY=$(cat /home/esvirido/.google/api_key)
+#export GOOGLE_API_KEY=$(cat /home/esvirido/.google/api_key)
 # OpenAI API key
-#export OPENAI_API_KEY=$(cat /home/esvirido/.openai/api_key)
+export OPENAI_API_KEY=$(cat /home/esvirido/.openai/api_key)
 
 # Make sure the log directory exists
 mkdir -p "$LOGDIR"
@@ -25,14 +25,14 @@ OAR_OUT=$(oarsub \
     --stderr="$LOGDIR/%jobid%.stderr" \
     --l "nodes=1,walltime=$W_HOURS" \
     --notify "[ERROR,INFO]mail:$EMAIL" \
-    "export GOOGLE_API_KEY=$GOOGLE_API_KEY; \
+    "export OPENAI_API_KEY=$OPENAI_API_KEY; \
      module load conda; \
      source /home/esvirido/miniconda3/bin/activate /home/esvirido/miniconda3/envs/llm-env; \
      echo 'Starting LiteLLM text reconstruction...'; \
      python3 full_gen_gemini.py \
         --input_file out_dial_jsonl/dev.jsonl \
         --output_dir ./reconstructed_litellm \
-        --model 'gemini/gemini-2.0-flash' \
+        --model 'openai/gpt-4o' \
         --limit 5 \
         --temperature 0.0; \
      echo 'LiteLLM text reconstruction completed.'
