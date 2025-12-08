@@ -1,0 +1,33 @@
+2025-12-08 13:27:04,206 - INFO - ==================================================
+2025-12-08 13:27:04,206 - INFO - Starting text reconstruction process
+2025-12-08 13:27:04,206 - INFO - Input file: out_dial_jsonl/dev.jsonl
+2025-12-08 13:27:04,206 - INFO - Output directory: ./reconstructed_litellm
+2025-12-08 13:27:04,207 - INFO - Model: openai/gpt-4o
+2025-12-08 13:27:04,207 - INFO - Seed: 42
+2025-12-08 13:27:04,207 - INFO - Temperature: 0.0
+2025-12-08 13:27:04,207 - INFO - ==================================================
+2025-12-08 13:27:04,254 - INFO - Loading dataset...
+2025-12-08 13:27:04,256 - INFO - Loaded 7 examples
+2025-12-08 13:27:04,256 - INFO - Limited to first 5 examples
+2025-12-08 13:27:04,256 - INFO - Processing 5 texts with model: openai/gpt-4o
+2025-12-08 13:27:04,281 - INFO - 
+LiteLLM completion() model= gpt-4o; provider = openai
+2025-12-08 13:27:15,538 - INFO - Wrapper: Completed Call, calling success_handler
+2025-12-08 13:27:15,542 - INFO - 
+LiteLLM completion() model= gpt-4o; provider = openai
+2025-12-08 13:27:26,587 - INFO - Wrapper: Completed Call, calling success_handler
+2025-12-08 13:27:26,588 - INFO - 
+LiteLLM completion() model= gpt-4o; provider = openai
+2025-12-08 13:27:35,279 - INFO - Wrapper: Completed Call, calling success_handler
+2025-12-08 13:27:35,280 - INFO - 
+LiteLLM completion() model= gpt-4o; provider = openai
+2025-12-08 13:27:49,185 - INFO - Wrapper: Completed Call, calling success_handler
+2025-12-08 13:27:49,187 - INFO - 
+LiteLLM completion() model= gpt-4o; provider = openai
+2025-12-08 13:27:57,137 - INFO - Wrapper: Completed Call, calling success_handler
+2025-12-08 13:27:57,141 - INFO - Reconstructed texts saved to ./reconstructed_litellm/reconstructed_gpt_texts_20251208_132757.jsonl
+2025-12-08 13:27:57,141 - INFO - ==================================================
+2025-12-08 13:27:57,141 - INFO - Reconstruction complete! Processed 5 examples
+2025-12-08 13:27:57,141 - INFO - Results saved to: ./reconstructed_litellm/reconstructed_gpt_texts_20251208_132757.jsonl
+2025-12-08 13:27:57,141 - INFO - Log file: ./reconstructed_litellm/reconstruction_20251208_132704.log
+2025-12-08 13:27:57,141 - INFO - ==================================================
