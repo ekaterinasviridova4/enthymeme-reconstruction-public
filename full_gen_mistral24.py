@@ -124,18 +124,22 @@ def setup_model(model_id):
 
 def build_prompt(text):
     """Build prompt for text reconstruction"""
-    prompt = f"""Your task is to analyze the given text and reconstruct implicit parts of the text. The text is argumentative, so implicit parts can be premises or conclusions that are not explicitly stated but are necessary for the argument to hold.
+    prompt = f"""Your task is to analyze the given dialogue and reconstruct implicit parts of it. There are two speakers in the dialogue, speaker1 and speaker2. The change of roles is determined by "speaker1:" and "speaker2:" marks. The dialogue is argumentative, so implicit parts can be premises or conclusions of each speaker that are not explicitly stated but are necessary for the argument to hold.
 
-As an output, provide a complete text including all original and reconstructed sentences. Insert the reconstructed sentences in their appropriate places to maintain logical flow.
+As an output, provide a complete dialogue including all original and reconstructed implicit sentences in the same format as the input.
 
 Text:
 {text}
 
 Instructions:
-- Identify all explicit sentences that are already present in the text
-- Identify and reconstruct any implicit premises or conclusions within the text
+- First, reproduce the entire original dialogue exactly as provided
+- Then, at the end, add reconstructed implicit content attributed to the appropriate speaker
+- Format: "speaker1: [Implicit premise: ...]" or "speaker1: [Implicit conclusion: ...]" or "speaker2: [Implicit premise: ...]" or "speaker2: [Implicit conclusion: ...]"
+- You MUST identify and add at least 3-5 implicit premises or conclusions for each dialogue
+- Each implicit premise/conclusion should be attributed to the speaker who holds that assumption or reaches that conclusion
+- Even if the dialogue contains many questions or is philosophical in nature, identify the underlying assumptions and logical connections
+- For long speaker turns, break down the argument into components and identify what is assumed but not stated
 - Maintain the logical flow of the argument
-- Output complete natural language text without any special formatting
 
 Output:
 """
@@ -144,7 +148,7 @@ Output:
 def save_predictions(predictions, output_dir):
     """Save reconstructed texts to JSONL file"""
     timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-    output_file = os.path.join(output_dir, f"reconstructed_texts_{timestamp}.jsonl")
+    output_file = os.path.join(output_dir, f"reconstructed_mistral_{timestamp}.jsonl")
     
     with open(output_file, "w", encoding="utf-8") as f:
         for pred in predictions:
