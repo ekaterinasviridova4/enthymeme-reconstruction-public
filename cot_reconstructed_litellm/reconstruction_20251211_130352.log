@@ -1,0 +1,33 @@
+2025-12-11 13:03:52,129 - INFO - ==================================================
+2025-12-11 13:03:52,129 - INFO - Starting text reconstruction process
+2025-12-11 13:03:52,129 - INFO - Input file: speaker_exchanges_dev.jsonl
+2025-12-11 13:03:52,129 - INFO - Output directory: ./cot_reconstructed_litellm
+2025-12-11 13:03:52,129 - INFO - Model: openai/gpt-4o
+2025-12-11 13:03:52,129 - INFO - Seed: 42
+2025-12-11 13:03:52,129 - INFO - Temperature: 0.0
+2025-12-11 13:03:52,129 - INFO - ==================================================
+2025-12-11 13:03:52,349 - INFO - Loading dataset...
+2025-12-11 13:03:52,351 - INFO - Loaded 21 examples
+2025-12-11 13:03:52,351 - INFO - Limited to first 5 examples
+2025-12-11 13:03:52,351 - INFO - Processing 5 texts with model: openai/gpt-4o
+2025-12-11 13:03:52,419 - INFO - 
+LiteLLM completion() model= gpt-4o; provider = openai
+2025-12-11 13:04:13,449 - INFO - Wrapper: Completed Call, calling success_handler
+2025-12-11 13:04:13,454 - INFO - 
+LiteLLM completion() model= gpt-4o; provider = openai
+2025-12-11 13:04:26,434 - INFO - Wrapper: Completed Call, calling success_handler
+2025-12-11 13:04:26,436 - INFO - 
+LiteLLM completion() model= gpt-4o; provider = openai
+2025-12-11 13:04:35,531 - INFO - Wrapper: Completed Call, calling success_handler
+2025-12-11 13:04:35,533 - INFO - 
+LiteLLM completion() model= gpt-4o; provider = openai
+2025-12-11 13:04:47,078 - INFO - Wrapper: Completed Call, calling success_handler
+2025-12-11 13:04:47,081 - INFO - 
+LiteLLM completion() model= gpt-4o; provider = openai
+2025-12-11 13:04:56,695 - INFO - Wrapper: Completed Call, calling success_handler
+2025-12-11 13:04:56,702 - INFO - Reconstructed texts saved to ./cot_reconstructed_litellm/cot_reconstructed_gpt_20251211_130456.jsonl
+2025-12-11 13:04:56,703 - INFO - ==================================================
+2025-12-11 13:04:56,703 - INFO - Reconstruction complete! Processed 5 examples
+2025-12-11 13:04:56,703 - INFO - Results saved to: ./cot_reconstructed_litellm/cot_reconstructed_gpt_20251211_130456.jsonl
+2025-12-11 13:04:56,703 - INFO - Log file: ./cot_reconstructed_litellm/reconstruction_20251211_130352.log
+2025-12-11 13:04:56,703 - INFO - ==================================================
