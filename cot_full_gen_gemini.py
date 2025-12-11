@@ -122,12 +122,7 @@ Step 1 - Reproduce the dialogue:
 First, write out the entire original dialogue exactly as provided.
 
 Step 2 - Chain-of-Thought Reasoning:
-Think step-by-step about what is implicit:
-a) What assumptions does speaker1 make but not state explicitly?
-b) What logical conclusions are assumed but not stated in speaker1's argument?
-c) What unstated beliefs underlie speaker2's response?
-d) What premises does speaker2 assume when responding to speaker1?
-e) Are there any implicit conclusions that follow from the stated premises but are left unstated?
+Think step-by-step about what is implicit in the dialogue
 
 Step 3 - Reconstruct the dialogue:
 Insert the identified implicit premises and conclusions into the dialogue at appropriate points.
