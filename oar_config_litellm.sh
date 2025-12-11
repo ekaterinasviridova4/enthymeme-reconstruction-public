@@ -1,4 +1,4 @@
-NAME="litellm_text_reconstruction"
+NAME="cot_speaker_exchanges_gpt4o"
 PROJECT_NAME="test1"
 HOME="/home/esvirido"
 PROJECT_DIR="$HOME/phd/test1"
@@ -15,9 +15,9 @@ export OPENAI_API_KEY=$(cat /home/esvirido/.openai/api_key)
 mkdir -p "$LOGDIR"
 
 # No GPU needed for API-based models!
-W_HOURS=2                  # Walltime in hours
+W_HOURS=4                  # Walltime in hours
 
-# Submit the job (no GPU required)
+# Submit the job 
 OAR_OUT=$(oarsub \
     --name "$NAME" \
     --directory "$PROJECT_DIR" \
@@ -28,10 +28,10 @@ OAR_OUT=$(oarsub \
     "export OPENAI_API_KEY=$OPENAI_API_KEY; \
      module load conda; \
      source /home/esvirido/miniconda3/bin/activate /home/esvirido/miniconda3/envs/llm-env; \
-     echo 'Starting LiteLLM text reconstruction...'; \
-     python3 full_gen_gemini.py \
-        --input_file out_dial_jsonl/dev.jsonl \
-        --output_dir ./reconstructed_litellm \
+     echo 'Starting CoT speaker exchange reconstruction with GPT-4o...'; \
+     python3 cot_full_gen_gemini.py \
+        --input_file speaker_exchanges_dev.jsonl \
+        --output_dir ./cot_reconstructed_litellm \
         --model 'openai/gpt-4o' \
         --limit 5 \
         --temperature 0.0; \
