@@ -118,13 +118,13 @@ Text:
 
 Instructions:
 
-Step 1 - Reproduce the dialogue:
-First, write out the entire original dialogue exactly as provided.
+Step 1 
+Write out the entire original dialogue exactly as provided.
 
-Step 2 - Chain-of-Thought Reasoning:
-Think step-by-step about what is implicit in the dialogue
+Step 2 
+Think step-by-step about what is missing in the dialogue and how the argument could be made more explicit.
 
-Step 3 - Reconstruct the dialogue:
+Step 3 
 Insert the identified implicit premises and conclusions into the dialogue at appropriate points.
 - Format implicit elements as: "speaker1: [Implicit premise: ...]" or "speaker2: [Implicit conclusion: ...]"
 - Place implicit elements near the related explicit statements
