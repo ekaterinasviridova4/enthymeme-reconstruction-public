@@ -1,4 +1,4 @@
-NAME="mistral24_text_reconstruction"
+NAME="ann_mistral_text_reconstruction"
 PROJECT_NAME="test1"
 HOME="/home/esvirido"
 PROJECT_DIR="$HOME/phd/test1"
@@ -30,8 +30,8 @@ OAR_OUT=$(oarsub \
      source /home/esvirido/miniconda3/bin/activate /home/esvirido/miniconda3/envs/llm-env; \
      echo 'Starting Mistral text reconstruction...'; \
      python3 scripts/generation/full_gen_mistral24.py \
-        --input_file data/dialogue/out_dial_jsonl/dev.jsonl \
-        --output_dir results/reconstructed_mistral \
+        --input_file data/dialogue/out_dial_jsonl/dev_labeled.jsonl \
+        --output_dir results/ann_reconstructed_mistral \
         --limit 5; \
      echo 'Mistral text reconstruction completed.'
     " \
