@@ -2,7 +2,6 @@
 """
 Zero-shot text reconstruction using LiteLLM (Gemini/GPT)
 Analyzes JSONL input texts and reconstructs implicit parts
-Uses CoT prompting for better reasoning
 """
 
 import os
@@ -55,10 +54,7 @@ def load_jsonl_dataset(path):
             if input_text:
                 texts.append({
                     "input": input_text,
-                    "original_output": ex.get("output", ""),  # Keep for optional comparison
-                    "dialogue_id": ex.get("dialogue_id"),  # Preserve dialogue metadata
-                    "exchange_id": ex.get("exchange_id"),
-                    "total_exchanges": ex.get("total_exchanges")
+                    "original_output": ex.get("output", "")  # Keep for optional comparison
                 })
     return texts
 
@@ -74,7 +70,7 @@ def parse_args():
     parser.add_argument(
         "--output_dir",
         type=str,
-        default="./cot_reconstructed_litellm",
+        default="../../results/reconstructed_litellm",
         help="Directory to save reconstructed outputs"
     )
     parser.add_argument(
@@ -105,34 +101,28 @@ def parse_args():
         "--temperature",
         type=float,
         default=0.0,
-        help="Temperature for generation"
+        help="Temperature for generation (0.0 = deterministic)"
     )
     return parser.parse_args()
 
 def build_prompt(text):
-    """Build prompt for text reconstruction with Chain-of-Thought reasoning"""
-    prompt = f"""Analyze the given dialogue exchange and reconstruct implicit parts of it. This is an argumentative exchange between two speakers (speaker1 and speaker2). Your goal is to identify unstated premises and conclusions that are necessary for the argument to work logically.
+    """Build prompt for text reconstruction"""
+    prompt = f"""Your task is to analyze the given dialogue and reconstruct implicit parts of it. There are two speakers in the dialogue, speaker1 and speaker2. The change of roles is determined by "speaker1:" and "speaker2:" marks. The dialogue is argumentative, so implicit parts can be premises or conclusions of each speaker that are not explicitly stated but are necessary for the argument to hold.
+
+As an output, provide a complete dialogue including all original and reconstructed implicit sentences in the same format as the input.
 
 Text:
 {text}
 
 Instructions:
-
-Step 1 
-Write out the entire original dialogue exactly as provided.
-
-Step 2 
-Think step-by-step about what is missing in the dialogue and how the argument could be made more explicit.
-
-Step 3 
-Insert the identified implicit premises and conclusions into the dialogue at appropriate points.
-- Format implicit elements as: "speaker1: [Implicit premise: ...]" or "speaker2: [Implicit conclusion: ...]"
-- Place implicit elements near the related explicit statements
-- Identify at least 2-4 implicit elements per speaker (depending on the length of their turn)
-- Each implicit element should be necessary for the logical coherence of the argument
-- Maintain the chronological flow of the dialogue
-
-Important: Focus on logical necessity - only include premises/conclusions that are truly required for the argument to work, not just tangentially related ideas.
+- First, reproduce the entire original dialogue exactly as provided
+- Then, at the end, add reconstructed implicit content attributed to the appropriate speaker
+- Format: "speaker1: [Implicit premise: ...]" or "speaker1: [Implicit conclusion: ...]" or "speaker2: [Implicit premise: ...]" or "speaker2: [Implicit conclusion: ...]"
+- You MUST identify and add at least 3-5 implicit premises or conclusions for each dialogue
+- Each implicit premise/conclusion should be attributed to the speaker who holds that assumption or reaches that conclusion
+- Even if the dialogue contains many questions or is philosophical in nature, identify the underlying assumptions and logical connections
+- For long speaker turns, break down the argument into components and identify what is assumed but not stated
+- Maintain the logical flow of the argument
 
 Output:
 """
@@ -156,10 +146,10 @@ Output:
 # """
 #     return prompt
 
-def save_predictions(predictions, output_dir, model_name):
+def save_predictions(predictions, output_dir):
     """Save reconstructed texts to JSONL file"""
     timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-    output_file = os.path.join(output_dir, f"cot_reconstructed_gpt_{timestamp}.jsonl")
+    output_file = os.path.join(output_dir, f"reconstructed_gpt_texts_{timestamp}.jsonl")
     
     with open(output_file, "w", encoding="utf-8") as f:
         for pred in predictions:
@@ -239,9 +229,6 @@ def main():
             
             predictions.append({
                 "index": idx,
-                "dialogue_id": item.get("dialogue_id"),
-                "exchange_id": item.get("exchange_id"),
-                "total_exchanges": item.get("total_exchanges"),
                 "original_text": item["input"],
                 "reconstructed_text": reconstruction,
                 "original_output": item.get("original_output", ""),
@@ -256,9 +243,6 @@ def main():
             logging.error(f"Error processing example {idx}: {str(e)}")
             predictions.append({
                 "index": idx,
-                "dialogue_id": item.get("dialogue_id"),
-                "exchange_id": item.get("exchange_id"),
-                "total_exchanges": item.get("total_exchanges"),
                 "original_text": item["input"],
                 "reconstructed_text": f"ERROR: {str(e)}",
                 "original_output": item.get("original_output", ""),
@@ -266,7 +250,7 @@ def main():
             })
     
     # Save results
-    output_file = save_predictions(predictions, args.output_dir, args.model)
+    output_file = save_predictions(predictions, args.output_dir)
     
     logging.info("="*50)
     logging.info(f"Reconstruction complete! Processed {len(predictions)} examples")

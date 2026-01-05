@@ -1,45 +1,52 @@
 # -*- coding: utf-8 -*-
 """
-Zero-shot text reconstruction using LiteLLM (Gemini/GPT)
+Zero-shot text reconstruction using Mistral
 Analyzes JSONL input texts and reconstructs implicit parts
 """
 
 import os
+import re
 import json
+import torch
 import argparse
 import random
 import numpy as np
 from tqdm import tqdm
-from litellm import completion
+from huggingface_hub import login
+from transformers import (
+    Mistral3ForConditionalGeneration,
+    BitsAndBytesConfig
+)
+from mistral_common.tokens.tokenizers.mistral import MistralTokenizer
+from mistral_common.protocol.instruct.request import ChatCompletionRequest
+
 import logging
 from datetime import datetime
 
 # Configure logging
 logging.basicConfig(
-    filename="litellm_generation.log",
+    filename="mistral_zero_generation.log",
     level=logging.INFO,
     format="%(asctime)s - %(levelname)s - %(message)s"
 )
 
-def ensure_api_keys():
-    """Ensure necessary API keys are set"""
-    google_key = os.getenv("GOOGLE_API_KEY")
-    openai_key = os.getenv("OPENAI_API_KEY")
-    
-    if not google_key and not openai_key:
-        raise ValueError("No API keys found. Set GOOGLE_API_KEY or OPENAI_API_KEY.")
-    
-    if google_key:
-        logging.info("Google API key found.")
-    if openai_key:
-        logging.info("OpenAI API key found.")
+def ensure_huggingface_token():
+    token = os.getenv("HUGGINGFACE_HUB_TOKEN")
+    if not token:
+        raise ValueError("Hugging Face token not found. Please ensure it is set in the environment.")
+    else:
+        logging.info("Hugging Face token found. Logging in...")
+        login(token=token)
 
-ensure_api_keys()
+ensure_huggingface_token()
 
 def set_seed(seed):
     """Set random seeds for reproducibility"""
     random.seed(seed)
     np.random.seed(seed)
+    torch.manual_seed(seed)
+    if torch.cuda.is_available():
+        torch.cuda.manual_seed_all(seed)
 
 def load_jsonl_dataset(path):
     """Load JSONL dataset with input texts"""
@@ -60,7 +67,7 @@ def load_jsonl_dataset(path):
 
 def parse_args():
     """Parse command line arguments"""
-    parser = argparse.ArgumentParser(description="Text reconstruction using LiteLLM (Gemini/GPT)")
+    parser = argparse.ArgumentParser(description="Text reconstruction using Mistral")
     parser.add_argument(
         "--input_file",
         type=str,
@@ -70,14 +77,14 @@ def parse_args():
     parser.add_argument(
         "--output_dir",
         type=str,
-        default="./reconstructed_litellm",
+        default="../../results/reconstructed_mistral",
         help="Directory to save reconstructed outputs"
     )
     parser.add_argument(
-        "--model",
+        "--model_id",
         type=str,
-        default="openai/gpt-4o",
-        help="Model to use (e.g., 'gemini/gemini-2.0-flash', 'openai/gpt-4o', 'openai/gpt-4-turbo')"
+        default="mistralai/Mistral-Small-3.2-24B-Instruct-2506",
+        help="Hugging Face model ID"
     )
     parser.add_argument(
         "--limit",
@@ -92,18 +99,28 @@ def parse_args():
         help="Random seed for reproducibility"
     )
     parser.add_argument(
-        "--max_tokens",
+        "--max_new_tokens",
         type=int,
         default=2048,
         help="Maximum number of tokens to generate"
     )
-    parser.add_argument(
-        "--temperature",
-        type=float,
-        default=0.0,
-        help="Temperature for generation (0.0 = deterministic)"
-    )
     return parser.parse_args()
+
+def setup_model(model_id):
+    """Setup Mistral model with 4-bit quantization"""
+    logging.info(f"Loading model: {model_id}")
+    bnb_config = BitsAndBytesConfig(
+        load_in_4bit=True,
+        bnb_4bit_use_double_quant=True,
+        bnb_4bit_quant_type="nf4",
+        bnb_4bit_compute_dtype=torch.float16
+    )
+    tokenizer = MistralTokenizer.from_hf_hub(model_id)
+    model = Mistral3ForConditionalGeneration.from_pretrained(
+        model_id, device_map="auto", quantization_config=bnb_config
+    )
+    logging.info("Model loaded successfully")
+    return model, tokenizer
 
 def build_prompt(text):
     """Build prompt for text reconstruction"""
@@ -128,28 +145,10 @@ Output:
 """
     return prompt
 
-# def build_prompt(text):
-#     """Build prompt for text reconstruction"""
-#     prompt = f"""Your task is to analyze the given text and reconstruct implicit parts of the text. The text is argumentative, so implicit parts can be premises or conclusions that are not explicitly stated but are necessary for the argument to hold.
-
-# As an output, provide a complete text including all original and reconstructed implicit sentences.
-
-# Text:
-# {text}
-
-# Instructions:
-# - Identify all explicit sentences that are already present in the text
-# - Identify and reconstruct any implicit premises or conclusions
-# - Maintain the logical flow of the argument
-
-# Output:
-# """
-#     return prompt
-
 def save_predictions(predictions, output_dir):
     """Save reconstructed texts to JSONL file"""
     timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-    output_file = os.path.join(output_dir, f"reconstructed_gpt_texts_{timestamp}.jsonl")
+    output_file = os.path.join(output_dir, f"reconstructed_mistral_{timestamp}.jsonl")
     
     with open(output_file, "w", encoding="utf-8") as f:
         for pred in predictions:
@@ -158,24 +157,26 @@ def save_predictions(predictions, output_dir):
     logging.info(f"Reconstructed texts saved to {output_file}")
     return output_file
 
-def generate_reconstruction(model, text, max_tokens=2048, temperature=0.0):
-    """Generate reconstruction for a single text using LiteLLM"""
+def generate_reconstruction(model, tokenizer, text, max_new_tokens=2048):
+    """Generate reconstruction for a single text"""
     prompt = build_prompt(text)
     
-    try:
-        response = completion(
-            model=model,
-            messages=[{"role": "user", "content": prompt}],
-            max_tokens=max_tokens,
-            temperature=temperature
+    messages = [{"role": "user", "content": prompt}]
+    chat_request = ChatCompletionRequest(messages=messages)
+    tokenized = tokenizer.encode_chat_completion(chat_request)
+    input_ids = torch.tensor([tokenized.tokens], device=model.device)
+    
+    with torch.no_grad():
+        outputs = model.generate(
+            input_ids=input_ids,
+            max_new_tokens=max_new_tokens,
+            do_sample=False
         )
-        
-        reconstruction = response.choices[0].message.content.strip()
-        return reconstruction
-        
-    except Exception as e:
-        logging.error(f"Error in generation: {str(e)}")
-        raise
+    
+    generated_tokens = outputs[0][len(tokenized.tokens):]
+    reconstruction = tokenizer.decode(generated_tokens).strip()
+    
+    return reconstruction
 
 def main():
     """Main function to run text reconstruction"""
@@ -188,17 +189,15 @@ def main():
     logging.basicConfig(
         filename=log_file,
         level=logging.INFO,
-        format="%(asctime)s - %(levelname)s - %(message)s",
-        force=True
+        format="%(asctime)s - %(levelname)s - %(message)s"
     )
     
     logging.info("="*50)
     logging.info("Starting text reconstruction process")
     logging.info(f"Input file: {args.input_file}")
     logging.info(f"Output directory: {args.output_dir}")
-    logging.info(f"Model: {args.model}")
+    logging.info(f"Model: {args.model_id}")
     logging.info(f"Seed: {args.seed}")
-    logging.info(f"Temperature: {args.temperature}")
     logging.info("="*50)
     
     # Set seed for reproducibility
@@ -214,25 +213,28 @@ def main():
         data = data[:args.limit]
         logging.info(f"Limited to first {args.limit} examples")
     
-    # Process each text
-    logging.info(f"Processing {len(data)} texts with model: {args.model}")
-    predictions = []
+    # Load model and tokenizer
+    logging.info("Loading model...")
+    model, tokenizer = setup_model(args.model_id)
+    model.eval()
     
+    # Process each text
+    logging.info(f"Processing {len(data)} texts...")
+    predictions = []
     for idx, item in enumerate(tqdm(data, desc="Reconstructing texts")):
         try:
             reconstruction = generate_reconstruction(
-                model=args.model,
-                text=item["input"],
-                max_tokens=args.max_tokens,
-                temperature=args.temperature
+                model, 
+                tokenizer, 
+                item["input"],
+                max_new_tokens=args.max_new_tokens
             )
             
             predictions.append({
                 "index": idx,
                 "original_text": item["input"],
                 "reconstructed_text": reconstruction,
-                "original_output": item.get("original_output", ""),
-                "model": args.model
+                "original_output": item.get("original_output", "")
             })
             
             # Log progress every 10 examples
@@ -245,8 +247,7 @@ def main():
                 "index": idx,
                 "original_text": item["input"],
                 "reconstructed_text": f"ERROR: {str(e)}",
-                "original_output": item.get("original_output", ""),
-                "model": args.model
+                "original_output": item.get("original_output", "")
             })
     
     # Save results

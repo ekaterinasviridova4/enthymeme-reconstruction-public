@@ -29,9 +29,9 @@ OAR_OUT=$(oarsub \
      module load conda; \
      source /home/esvirido/miniconda3/bin/activate /home/esvirido/miniconda3/envs/llm-env; \
      echo 'Starting CoT speaker exchange reconstruction with GPT-4o...'; \
-     python3 cot_full_gen_gemini.py \
-        --input_file speaker_exchanges_dev.jsonl \
-        --output_dir ./cot_reconstructed_litellm \
+     python3 scripts/generation/cot_full_gen_gemini.py \
+        --input_file data/processed/speaker_exchanges_dev.jsonl \
+        --output_dir results/cot_reconstructed_litellm \
         --model 'openai/gpt-4o' \
         --limit 5 \
         --temperature 0.0; \

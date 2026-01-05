@@ -29,9 +29,9 @@ OAR_OUT=$(oarsub \
      module load conda; \
      source /home/esvirido/miniconda3/bin/activate /home/esvirido/miniconda3/envs/llm-env; \
      echo 'Starting Mistral text reconstruction...'; \
-     python3 full_gen_mistral24.py \
-        --input_file out_dial_jsonl/dev.jsonl \
-        --output_dir ./reconstructed_mistral \
+     python3 scripts/generation/full_gen_mistral24.py \
+        --input_file data/dialogue/out_dial_jsonl/dev.jsonl \
+        --output_dir results/reconstructed_mistral \
         --limit 5; \
      echo 'Mistral text reconstruction completed.'
     " \
