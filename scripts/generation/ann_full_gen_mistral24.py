@@ -27,7 +27,7 @@ from datetime import datetime
 
 # Configure logging
 logging.basicConfig(
-    filename="mistral_zero_generation.log",
+    filename="olmo_zero_generation.log",
     level=logging.INFO,
     format="%(asctime)s - %(levelname)s - %(message)s"
 )
@@ -88,7 +88,7 @@ def parse_args():
     parser.add_argument(
         "--model_id",
         type=str,
-        default="mistralai/Mistral-Small-3.2-24B-Instruct-2506",
+        default="allenai/Olmo-3.1-32B-Instruct",
         help="Hugging Face model ID 'allenai/Olmo-3.1-32B-Instruct', 'mistralai/Mistral-Small-3.2-24B-Instruct-2506'"
     )
     parser.add_argument(
@@ -179,7 +179,7 @@ OUTPUT:
 def save_predictions(predictions, output_dir):
     """Save reconstructed texts to JSONL file"""
     timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-    output_file = os.path.join(output_dir, f"reconstructed_test_mistral_{timestamp}.jsonl")
+    output_file = os.path.join(output_dir, f"reconstructed_test_olmo_{timestamp}.jsonl")
     
     with open(output_file, "w", encoding="utf-8") as f:
         for pred in predictions:
