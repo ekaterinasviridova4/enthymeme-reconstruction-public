@@ -30,10 +30,9 @@ OAR_OUT=$(oarsub \
      source /home/esvirido/miniconda3/bin/activate /home/esvirido/miniconda3/envs/llm-env; \
      echo 'Starting implicitness reconstruction with gemini...'; \
      python3 scripts/generation/ann_full_gen_gemini.py \
-        --input_file data/dialogue/out_dial_jsonl/dev_labeled.jsonl \
-        --output_dir results/ann_reconstructed_litellm \
+        --input_file data/dialogue/out_dial_jsonl/test_labeled.jsonl \
+        --output_dir results/ann_full_reconstructed_litellm \
         --model 'gemini/gemini-2.5-flash' \
-        --limit 5 \
         --temperature 0.0; \
      echo 'LiteLLM text reconstruction completed.'
     " \

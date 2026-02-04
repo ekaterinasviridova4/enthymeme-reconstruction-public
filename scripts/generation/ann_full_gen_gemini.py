@@ -73,7 +73,7 @@ def parse_args():
     parser.add_argument(
         "--output_dir",
         type=str,
-        default="../../results/ann_reconstructed_litellm",
+        default="../../results/ann_full_reconstructed_litellm",
         help="Directory to save reconstructed outputs"
     )
     parser.add_argument(
@@ -120,34 +120,25 @@ Sentences are annotated with tags:
 
 TASK:
 For each sentence marked as <Implicit>...</Implicit>:
-1. Identify the missing logical link (premise or claim) that connects it to the context.
-2. Formulate this missing link as a clear sentence.
-3. Determine if it is an "[Implicit premise: ...]" or "[Implicit claim: ...]".
+1. Identify the missing logical link (premise or claim) that connects it to the context or the missing information.
+2. Formulate this missing link or information as a clear sentence.
+3. Determine if it is an "<IMPLICIT_PREMISE>...</IMPLICIT_PREMISE>" or "<IMPLICIT_CLAIM>...</IMPLICIT_CLAIM>".
 4. Insert this reconstruction immediately before or after the original implicit sentence, whichever makes the most logical sense.
 
 OUTPUT FORMAT:
-Provide the output in two sections separated by "### PAIRS ###".
-
-Section 1: Reconstructed Dialogue
+Reconstructed Dialogue
 - Reproduce the full dialogue.
-- Remove all <Explicit> and <Implicit> tags.
+- Keep all <Explicit> and <Implicit> tags.
 - Keep the original text exactly as is.
-- Insert your reconstructions in square brackets: [Implicit premise: ...] or [Implicit claim: ...] at the appropriate position.
+- Insert your reconstructions in tags: <IMPLICIT_PREMISE>...</IMPLICIT_PREMISE> or <IMPLICIT_CLAIM>...</IMPLICIT_CLAIM>.
 - Maintain "speaker1:" and "speaker2:" labels.
-
-Section 2: Reconstruction Pairs
-- List each original implicit sentence and its corresponding reconstruction(s).
-- Format: [Reconstruction] Original Sentence [Reconstruction]
-- One pair per line.
 
 EXAMPLE:
 Input:
 speaker1: <Explicit> It is raining. </Explicit> <Implicit> I will take an umbrella. </Implicit>
 
 Output:
-speaker1: It is raining. [Implicit premise: Umbrellas protect from rain.] I will take an umbrella.
-### PAIRS ###
-[Implicit premise: Umbrellas protect from rain.] I will take an umbrella.
+speaker1: <Explicit> It is raining. </Explicit> <IMPLICIT_PREMISE>Umbrellas protect from rain.</IMPLICIT_PREMISE> <Implicit> I will take an umbrella.</Implicit>
 
 INPUT TEXT:
 {text}
@@ -156,28 +147,10 @@ OUTPUT:
 """
     return prompt
 
-# def build_prompt(text):
-#     """Build prompt for text reconstruction"""
-#     prompt = f"""Your task is to analyze the given text and reconstruct implicit parts of the text. The text is argumentative, so implicit parts can be premises or conclusions that are not explicitly stated but are necessary for the argument to hold.
-
-# As an output, provide a complete text including all original and reconstructed implicit sentences.
-
-# Text:
-# {text}
-
-# Instructions:
-# - Identify all explicit sentences that are already present in the text
-# - Identify and reconstruct any implicit premises or conclusions
-# - Maintain the logical flow of the argument
-
-# Output:
-# """
-#     return prompt
-
 def save_predictions(predictions, output_dir):
     """Save reconstructed texts to JSONL file"""
     timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-    output_file = os.path.join(output_dir, f"dial_reconstructed_gemini2.5_texts_{timestamp}.jsonl")
+    output_file = os.path.join(output_dir, f"reconstructed_test_gemini2.5_{timestamp}.jsonl")
     
     with open(output_file, "w", encoding="utf-8") as f:
         for pred in predictions:
@@ -199,13 +172,7 @@ def generate_reconstruction(model, text, max_tokens=2048, temperature=0.0):
         )
         
         reconstruction = response.choices[0].message.content.strip()
-        
-        # Split into text and pairs
-        parts = reconstruction.split("### PAIRS ###")
-        rec_text = parts[0].strip()
-        rec_pairs = parts[1].strip() if len(parts) > 1 else ""
-        
-        return rec_text, rec_pairs
+        return reconstruction
         
     except Exception as e:
         logging.error(f"Error in generation: {str(e)}")
@@ -254,7 +221,7 @@ def main():
     
     for idx, item in enumerate(tqdm(data, desc="Reconstructing texts")):
         try:
-            rec_text, rec_pairs = generate_reconstruction(
+            rec_text = generate_reconstruction(
                 model=args.model,
                 text=item["annotated_text"],
                 max_tokens=args.max_tokens,
@@ -265,7 +232,6 @@ def main():
                 "index": idx,
                 "original_text": item["annotated_text"],
                 "reconstructed_text": rec_text,
-                "reconstructed_pairs": rec_pairs,
                 "original_input": item.get("original_input", ""),
                 "model": args.model
             })
@@ -280,7 +246,6 @@ def main():
                 "index": idx,
                 "original_text": item["annotated_text"],
                 "reconstructed_text": f"ERROR: {str(e)}",
-                "reconstructed_pairs": "",
                 "original_input": item.get("original_input", ""),
                 "model": args.model
             })
