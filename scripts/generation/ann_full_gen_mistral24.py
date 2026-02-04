@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """
-Zero-shot text reconstruction using Mistral
+Zero-shot text reconstruction using Mistral and Olmo
 Analyzes JSONL input texts and reconstructs implicit parts
 """
 
@@ -15,7 +15,9 @@ from tqdm import tqdm
 from huggingface_hub import login
 from transformers import (
     Mistral3ForConditionalGeneration,
-    BitsAndBytesConfig
+    BitsAndBytesConfig,
+    AutoModelForCausalLM,
+    AutoTokenizer
 )
 from mistral_common.tokens.tokenizers.mistral import MistralTokenizer
 from mistral_common.protocol.instruct.request import ChatCompletionRequest
@@ -70,7 +72,7 @@ def load_jsonl_dataset(path):
 
 def parse_args():
     """Parse command line arguments"""
-    parser = argparse.ArgumentParser(description="Text reconstruction using Mistral")
+    parser = argparse.ArgumentParser(description="Text reconstruction using Mistral or Olmo")
     parser.add_argument(
         "--input_file",
         type=str,
@@ -80,14 +82,14 @@ def parse_args():
     parser.add_argument(
         "--output_dir",
         type=str,
-        default="../../results/reconstructed_mistral",
+        default="../../results/ann_full_reconstructed_mistral_olmo",
         help="Directory to save reconstructed outputs"
     )
     parser.add_argument(
         "--model_id",
         type=str,
         default="mistralai/Mistral-Small-3.2-24B-Instruct-2506",
-        help="Hugging Face model ID"
+        help="Hugging Face model ID 'allenai/Olmo-3.1-32B-Instruct', 'mistralai/Mistral-Small-3.2-24B-Instruct-2506'"
     )
     parser.add_argument(
         "--limit",
@@ -110,7 +112,7 @@ def parse_args():
     return parser.parse_args()
 
 def setup_model(model_id):
-    """Setup Mistral model with 4-bit quantization"""
+    """Setup model with 4-bit quantization (supports Mistral and Olmo)"""
     logging.info(f"Loading model: {model_id}")
     bnb_config = BitsAndBytesConfig(
         load_in_4bit=True,
@@ -118,10 +120,20 @@ def setup_model(model_id):
         bnb_4bit_quant_type="nf4",
         bnb_4bit_compute_dtype=torch.float16
     )
-    tokenizer = MistralTokenizer.from_hf_hub(model_id)
-    model = Mistral3ForConditionalGeneration.from_pretrained(
-        model_id, device_map="auto", quantization_config=bnb_config
-    )
+
+    if "olmo" in model_id.lower():
+        logging.info("Detected Olmo model, using AutoModelForCausalLM")
+        tokenizer = AutoTokenizer.from_pretrained(model_id)
+        model = AutoModelForCausalLM.from_pretrained(
+            model_id, device_map="auto", quantization_config=bnb_config
+        )
+    else:
+        logging.info("Using Mistral specific loading")
+        tokenizer = MistralTokenizer.from_hf_hub(model_id)
+        model = Mistral3ForConditionalGeneration.from_pretrained(
+            model_id, device_map="auto", quantization_config=bnb_config
+        )
+        
     logging.info("Model loaded successfully")
     return model, tokenizer
 
@@ -137,34 +149,25 @@ Sentences are annotated with tags:
 
 TASK:
 For each sentence marked as <Implicit>...</Implicit>:
-1. Identify the missing logical link (premise or claim) that connects it to the context.
-2. Formulate this missing link as a clear sentence.
-3. Determine if it is an "[Implicit premise: ...]" or "[Implicit claim: ...]".
+1. Identify the missing logical link (premise or claim) that connects it to the context or the missing information.
+2. Formulate this missing link or information as a clear sentence.
+3. Determine if it is an "<IMPLICIT_PREMISE>...</IMPLICIT_PREMISE>" or "<IMPLICIT_CLAIM>...</IMPLICIT_CLAIM>".
 4. Insert this reconstruction immediately before or after the original implicit sentence, whichever makes the most logical sense.
 
 OUTPUT FORMAT:
-Provide the output in two sections separated by "### PAIRS ###".
-
-Section 1: Reconstructed Dialogue
+Reconstructed Dialogue
 - Reproduce the full dialogue.
-- Remove all <Explicit> and <Implicit> tags.
+- Keep all <Explicit> and <Implicit> tags.
 - Keep the original text exactly as is.
-- Insert your reconstructions in square brackets: [Implicit premise: ...] or [Implicit claim: ...].
+- Insert your reconstructions in tags: <IMPLICIT_PREMISE>...</IMPLICIT_PREMISE> or <IMPLICIT_CLAIM>...</IMPLICIT_CLAIM>.
 - Maintain "speaker1:" and "speaker2:" labels.
-
-Section 2: Reconstruction Pairs
-- List each original implicit sentence and its corresponding reconstruction(s).
-- Format: [Reconstruction] Original Sentence [Reconstruction]
-- One pair per line.
 
 EXAMPLE:
 Input:
 speaker1: <Explicit> It is raining. </Explicit> <Implicit> I will take an umbrella. </Implicit>
 
 Output:
-speaker1: It is raining. [Implicit premise: Umbrellas protect from rain.] I will take an umbrella.
-### PAIRS ###
-[Implicit premise: Umbrellas protect from rain.] I will take an umbrella.
+speaker1: <Explicit> It is raining. </Explicit> <IMPLICIT_PREMISE>Umbrellas protect from rain.</IMPLICIT_PREMISE> <Implicit> I will take an umbrella.</Implicit>
 
 INPUT TEXT:
 {text}
@@ -176,7 +179,7 @@ OUTPUT:
 def save_predictions(predictions, output_dir):
     """Save reconstructed texts to JSONL file"""
     timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-    output_file = os.path.join(output_dir, f"reconstructed_mistral_{timestamp}.jsonl")
+    output_file = os.path.join(output_dir, f"reconstructed_test_mistral_{timestamp}.jsonl")
     
     with open(output_file, "w", encoding="utf-8") as f:
         for pred in predictions:
@@ -190,26 +193,41 @@ def generate_reconstruction(model, tokenizer, text, max_new_tokens=2048):
     prompt = build_prompt(text)
     
     messages = [{"role": "user", "content": prompt}]
-    chat_request = ChatCompletionRequest(messages=messages)
-    tokenized = tokenizer.encode_chat_completion(chat_request)
-    input_ids = torch.tensor([tokenized.tokens], device=model.device)
+
+    # Handle different tokenizer types
+    if hasattr(tokenizer, "encode_chat_completion"):
+        # MistralTokenizer from mistral-common
+        chat_request = ChatCompletionRequest(messages=messages)
+        tokenized = tokenizer.encode_chat_completion(chat_request)
+        input_ids = torch.tensor([tokenized.tokens], device=model.device)
+        
+        with torch.no_grad():
+            outputs = model.generate(
+                input_ids=input_ids,
+                max_new_tokens=max_new_tokens,
+                do_sample=False
+            )
+        
+        generated_tokens = outputs[0][len(tokenized.tokens):]
+        reconstruction = tokenizer.decode(generated_tokens).strip()
+
+    else:
+        # Standard Hugging Face Tokenizer (e.g. for Olmo)
+        input_ids = tokenizer.apply_chat_template(messages, return_tensors="pt").to(model.device)
+        
+        with torch.no_grad():
+            outputs = model.generate(
+                input_ids=input_ids,
+                max_new_tokens=max_new_tokens,
+                do_sample=False
+            )
+        
+        # Calculate length of input tokens to skip them in output decoding
+        input_length = input_ids.shape[1]
+        generated_tokens = outputs[0][input_length:]
+        reconstruction = tokenizer.decode(generated_tokens, skip_special_tokens=True).strip()
     
-    with torch.no_grad():
-        outputs = model.generate(
-            input_ids=input_ids,
-            max_new_tokens=max_new_tokens,
-            do_sample=False
-        )
-    
-    generated_tokens = outputs[0][len(tokenized.tokens):]
-    reconstruction = tokenizer.decode(generated_tokens).strip()
-    
-    # Split into text and pairs
-    parts = reconstruction.split("### PAIRS ###")
-    rec_text = parts[0].strip()
-    rec_pairs = parts[1].strip() if len(parts) > 1 else ""
-    
-    return rec_text, rec_pairs
+    return reconstruction
 
 def main():
     """Main function to run text reconstruction"""
@@ -256,7 +274,7 @@ def main():
     predictions = []
     for idx, item in enumerate(tqdm(data, desc="Reconstructing texts")):
         try:
-            rec_text, rec_pairs = generate_reconstruction(
+            rec_text = generate_reconstruction(
                 model, 
                 tokenizer, 
                 item["annotated_text"],
@@ -267,7 +285,6 @@ def main():
                 "index": idx,
                 "original_text": item["annotated_text"],
                 "reconstructed_text": rec_text,
-                "reconstructed_pairs": rec_pairs,
                 "original_input": item.get("original_input", "")
             })
             
@@ -281,7 +298,6 @@ def main():
                 "index": idx,
                 "original_text": item["annotated_text"],
                 "reconstructed_text": f"ERROR: {str(e)}",
-                "reconstructed_pairs": "",
                 "original_input": item.get("original_input", "")
             })
     

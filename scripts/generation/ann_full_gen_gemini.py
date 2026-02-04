@@ -73,14 +73,14 @@ def parse_args():
     parser.add_argument(
         "--output_dir",
         type=str,
-        default="../../results/reconstructed_litellm",
+        default="../../results/ann_reconstructed_litellm",
         help="Directory to save reconstructed outputs"
     )
     parser.add_argument(
         "--model",
         type=str,
-        default="gemini/gemini-2.0-flash",
-        help="Model to use (e.g., 'gemini/gemini-2.0-flash', 'openai/gpt-4o', 'openai/gpt-4-turbo')"
+        default="gemini/gemini-2.5-flash",
+        help="Model to use (e.g., 'gemini/gemini-2.5-flash', 'gemini/gemini-3-flash-preview', 'openai/gpt-4o', 'openai/gpt-5')"
     )
     parser.add_argument(
         "--limit",
@@ -177,7 +177,7 @@ OUTPUT:
 def save_predictions(predictions, output_dir):
     """Save reconstructed texts to JSONL file"""
     timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-    output_file = os.path.join(output_dir, f"dial_reconstructed_gemini_texts_{timestamp}.jsonl")
+    output_file = os.path.join(output_dir, f"dial_reconstructed_gemini2.5_texts_{timestamp}.jsonl")
     
     with open(output_file, "w", encoding="utf-8") as f:
         for pred in predictions:
