@@ -10,6 +10,7 @@ import json
 import torch
 import argparse
 import random
+import traceback 
 import numpy as np
 from tqdm import tqdm
 from huggingface_hub import login
@@ -293,11 +294,12 @@ def main():
                 logging.info(f"Processed {idx + 1}/{len(data)} examples")
                 
         except Exception as e:
-            logging.error(f"Error processing example {idx}: {str(e)}")
+            error_msg = f"{str(e)}\n{traceback.format_exc()}"
+            logging.error(f"Error processing example {idx}: {error_msg}")
             predictions.append({
                 "index": idx,
                 "original_text": item["annotated_text"],
-                "reconstructed_text": f"ERROR: {str(e)}",
+                "reconstructed_text": f"ERROR: {error_msg}",
                 "original_input": item.get("original_input", "")
             })
     
