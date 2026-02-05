@@ -1,0 +1,91 @@
+2026-02-04 15:35:19,089 - INFO - Hugging Face token found. Logging in...
+2026-02-04 15:35:19,331 - INFO - HTTP Request: GET https://huggingface.co/api/whoami-v2 "HTTP/1.1 200 OK"
+2026-02-04 15:35:19,362 - INFO - ==================================================
+2026-02-04 15:35:19,362 - INFO - Starting text reconstruction process
+2026-02-04 15:35:19,362 - INFO - Input file: data/dialogue/out_dial_jsonl/test_labeled.jsonl
+2026-02-04 15:35:19,362 - INFO - Output directory: results/ann_full_reconstructed_mistral_olmo
+2026-02-04 15:35:19,362 - INFO - Model: allenai/Olmo-3.1-32B-Instruct
+2026-02-04 15:35:19,362 - INFO - Seed: 42
+2026-02-04 15:35:19,362 - INFO - ==================================================
+2026-02-04 15:35:19,403 - INFO - Loading dataset...
+2026-02-04 15:35:19,417 - INFO - Loaded 9 examples
+2026-02-04 15:35:19,417 - INFO - Loading model...
+2026-02-04 15:35:19,417 - INFO - Loading model: allenai/Olmo-3.1-32B-Instruct
+2026-02-04 15:35:19,417 - INFO - Detected Olmo model, using AutoModelForCausalLM
+2026-02-04 15:35:19,558 - INFO - HTTP Request: HEAD https://huggingface.co/allenai/Olmo-3.1-32B-Instruct/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-02-04 15:35:19,702 - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/allenai/Olmo-3.1-32B-Instruct/ac0587e4a7744a551c059d8cd17ba220bc940dae/config.json "HTTP/1.1 200 OK"
+2026-02-04 15:35:19,946 - INFO - HTTP Request: GET https://huggingface.co/api/resolve-cache/models/allenai/Olmo-3.1-32B-Instruct/ac0587e4a7744a551c059d8cd17ba220bc940dae/config.json "HTTP/1.1 200 OK"
+2026-02-04 15:35:20,101 - INFO - HTTP Request: HEAD https://huggingface.co/allenai/Olmo-3.1-32B-Instruct/resolve/main/tokenizer_config.json "HTTP/1.1 307 Temporary Redirect"
+2026-02-04 15:35:20,222 - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/allenai/Olmo-3.1-32B-Instruct/ac0587e4a7744a551c059d8cd17ba220bc940dae/tokenizer_config.json "HTTP/1.1 200 OK"
+2026-02-04 15:35:20,347 - INFO - HTTP Request: GET https://huggingface.co/api/resolve-cache/models/allenai/Olmo-3.1-32B-Instruct/ac0587e4a7744a551c059d8cd17ba220bc940dae/tokenizer_config.json "HTTP/1.1 200 OK"
+2026-02-04 15:35:20,510 - INFO - HTTP Request: GET https://huggingface.co/api/models/allenai/Olmo-3.1-32B-Instruct/tree/main/additional_chat_templates?recursive=false&expand=false "HTTP/1.1 404 Not Found"
+2026-02-04 15:35:20,670 - INFO - HTTP Request: GET https://huggingface.co/api/models/allenai/Olmo-3.1-32B-Instruct/tree/main?recursive=true&expand=false "HTTP/1.1 200 OK"
+2026-02-04 15:35:20,821 - INFO - HTTP Request: HEAD https://huggingface.co/allenai/Olmo-3.1-32B-Instruct/resolve/main/vocab.json "HTTP/1.1 307 Temporary Redirect"
+2026-02-04 15:35:20,936 - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/allenai/Olmo-3.1-32B-Instruct/ac0587e4a7744a551c059d8cd17ba220bc940dae/vocab.json "HTTP/1.1 200 OK"
+2026-02-04 15:35:21,064 - INFO - HTTP Request: GET https://huggingface.co/api/resolve-cache/models/allenai/Olmo-3.1-32B-Instruct/ac0587e4a7744a551c059d8cd17ba220bc940dae/vocab.json "HTTP/1.1 200 OK"
+2026-02-04 15:35:21,359 - INFO - HTTP Request: HEAD https://huggingface.co/allenai/Olmo-3.1-32B-Instruct/resolve/main/merges.txt "HTTP/1.1 307 Temporary Redirect"
+2026-02-04 15:35:21,485 - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/allenai/Olmo-3.1-32B-Instruct/ac0587e4a7744a551c059d8cd17ba220bc940dae/merges.txt "HTTP/1.1 200 OK"
+2026-02-04 15:35:21,664 - INFO - HTTP Request: GET https://huggingface.co/api/resolve-cache/models/allenai/Olmo-3.1-32B-Instruct/ac0587e4a7744a551c059d8cd17ba220bc940dae/merges.txt "HTTP/1.1 200 OK"
+2026-02-04 15:35:21,862 - INFO - HTTP Request: HEAD https://huggingface.co/allenai/Olmo-3.1-32B-Instruct/resolve/main/added_tokens.json "HTTP/1.1 404 Not Found"
+2026-02-04 15:35:21,982 - INFO - HTTP Request: HEAD https://huggingface.co/allenai/Olmo-3.1-32B-Instruct/resolve/main/special_tokens_map.json "HTTP/1.1 307 Temporary Redirect"
+2026-02-04 15:35:22,100 - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/allenai/Olmo-3.1-32B-Instruct/ac0587e4a7744a551c059d8cd17ba220bc940dae/special_tokens_map.json "HTTP/1.1 200 OK"
+2026-02-04 15:35:22,226 - INFO - HTTP Request: GET https://huggingface.co/api/resolve-cache/models/allenai/Olmo-3.1-32B-Instruct/ac0587e4a7744a551c059d8cd17ba220bc940dae/special_tokens_map.json "HTTP/1.1 200 OK"
+2026-02-04 15:35:22,350 - INFO - HTTP Request: HEAD https://huggingface.co/allenai/Olmo-3.1-32B-Instruct/resolve/main/tokenizer.json "HTTP/1.1 307 Temporary Redirect"
+2026-02-04 15:35:22,475 - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/allenai/Olmo-3.1-32B-Instruct/ac0587e4a7744a551c059d8cd17ba220bc940dae/tokenizer.json "HTTP/1.1 200 OK"
+2026-02-04 15:35:22,606 - INFO - HTTP Request: GET https://huggingface.co/api/resolve-cache/models/allenai/Olmo-3.1-32B-Instruct/ac0587e4a7744a551c059d8cd17ba220bc940dae/tokenizer.json "HTTP/1.1 200 OK"
+2026-02-04 15:35:23,094 - INFO - HTTP Request: HEAD https://huggingface.co/allenai/Olmo-3.1-32B-Instruct/resolve/main/chat_template.jinja "HTTP/1.1 307 Temporary Redirect"
+2026-02-04 15:35:23,217 - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/allenai/Olmo-3.1-32B-Instruct/ac0587e4a7744a551c059d8cd17ba220bc940dae/chat_template.jinja "HTTP/1.1 200 OK"
+2026-02-04 15:35:23,341 - INFO - HTTP Request: GET https://huggingface.co/api/resolve-cache/models/allenai/Olmo-3.1-32B-Instruct/ac0587e4a7744a551c059d8cd17ba220bc940dae/chat_template.jinja "HTTP/1.1 200 OK"
+2026-02-04 15:35:23,730 - INFO - HTTP Request: GET https://huggingface.co/api/models/allenai/Olmo-3.1-32B-Instruct "HTTP/1.1 200 OK"
+2026-02-04 15:35:23,848 - INFO - HTTP Request: HEAD https://huggingface.co/allenai/Olmo-3.1-32B-Instruct/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-02-04 15:35:23,873 - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/allenai/Olmo-3.1-32B-Instruct/ac0587e4a7744a551c059d8cd17ba220bc940dae/config.json "HTTP/1.1 200 OK"
+2026-02-04 15:35:24,021 - INFO - HTTP Request: HEAD https://huggingface.co/allenai/Olmo-3.1-32B-Instruct/resolve/main/adapter_config.json "HTTP/1.1 404 Not Found"
+2026-02-04 15:35:24,161 - INFO - HTTP Request: HEAD https://huggingface.co/allenai/Olmo-3.1-32B-Instruct/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-02-04 15:35:24,182 - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/allenai/Olmo-3.1-32B-Instruct/ac0587e4a7744a551c059d8cd17ba220bc940dae/config.json "HTTP/1.1 200 OK"
+2026-02-04 15:35:26,565 - INFO - HTTP Request: HEAD https://huggingface.co/allenai/Olmo-3.1-32B-Instruct/resolve/main/model.safetensors "HTTP/1.1 404 Not Found"
+2026-02-04 15:35:26,692 - INFO - HTTP Request: HEAD https://huggingface.co/allenai/Olmo-3.1-32B-Instruct/resolve/main/model.safetensors.index.json "HTTP/1.1 307 Temporary Redirect"
+2026-02-04 15:35:26,814 - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/allenai/Olmo-3.1-32B-Instruct/ac0587e4a7744a551c059d8cd17ba220bc940dae/model.safetensors.index.json "HTTP/1.1 200 OK"
+2026-02-04 15:35:26,939 - INFO - HTTP Request: GET https://huggingface.co/api/resolve-cache/models/allenai/Olmo-3.1-32B-Instruct/ac0587e4a7744a551c059d8cd17ba220bc940dae/model.safetensors.index.json "HTTP/1.1 200 OK"
+2026-02-04 15:35:27,082 - INFO - HTTP Request: GET https://huggingface.co/api/models/allenai/Olmo-3.1-32B-Instruct/revision/main "HTTP/1.1 200 OK"
+2026-02-04 15:35:27,212 - INFO - HTTP Request: HEAD https://huggingface.co/allenai/Olmo-3.1-32B-Instruct/resolve/ac0587e4a7744a551c059d8cd17ba220bc940dae/model-00001-of-00014.safetensors "HTTP/1.1 302 Found"
+2026-02-04 15:35:27,299 - INFO - HTTP Request: HEAD https://huggingface.co/allenai/Olmo-3.1-32B-Instruct/resolve/ac0587e4a7744a551c059d8cd17ba220bc940dae/model-00008-of-00014.safetensors "HTTP/1.1 302 Found"
+2026-02-04 15:35:27,300 - INFO - HTTP Request: HEAD https://huggingface.co/allenai/Olmo-3.1-32B-Instruct/resolve/ac0587e4a7744a551c059d8cd17ba220bc940dae/model-00005-of-00014.safetensors "HTTP/1.1 302 Found"
+2026-02-04 15:35:27,301 - INFO - HTTP Request: HEAD https://huggingface.co/allenai/Olmo-3.1-32B-Instruct/resolve/ac0587e4a7744a551c059d8cd17ba220bc940dae/model-00003-of-00014.safetensors "HTTP/1.1 302 Found"
+2026-02-04 15:35:27,301 - INFO - HTTP Request: HEAD https://huggingface.co/allenai/Olmo-3.1-32B-Instruct/resolve/ac0587e4a7744a551c059d8cd17ba220bc940dae/model-00006-of-00014.safetensors "HTTP/1.1 302 Found"
+2026-02-04 15:35:27,302 - INFO - HTTP Request: HEAD https://huggingface.co/allenai/Olmo-3.1-32B-Instruct/resolve/ac0587e4a7744a551c059d8cd17ba220bc940dae/model-00007-of-00014.safetensors "HTTP/1.1 302 Found"
+2026-02-04 15:35:27,303 - INFO - HTTP Request: HEAD https://huggingface.co/allenai/Olmo-3.1-32B-Instruct/resolve/ac0587e4a7744a551c059d8cd17ba220bc940dae/model-00002-of-00014.safetensors "HTTP/1.1 302 Found"
+2026-02-04 15:35:27,304 - INFO - HTTP Request: HEAD https://huggingface.co/allenai/Olmo-3.1-32B-Instruct/resolve/ac0587e4a7744a551c059d8cd17ba220bc940dae/model-00004-of-00014.safetensors "HTTP/1.1 302 Found"
+2026-02-04 15:35:27,437 - INFO - HTTP Request: GET https://huggingface.co/api/models/allenai/Olmo-3.1-32B-Instruct/xet-read-token/ac0587e4a7744a551c059d8cd17ba220bc940dae "HTTP/1.1 200 OK"
+2026-02-04 15:35:27,439 - INFO - HTTP Request: GET https://huggingface.co/api/models/allenai/Olmo-3.1-32B-Instruct/xet-read-token/ac0587e4a7744a551c059d8cd17ba220bc940dae "HTTP/1.1 200 OK"
+2026-02-04 15:35:27,439 - INFO - HTTP Request: GET https://huggingface.co/api/models/allenai/Olmo-3.1-32B-Instruct/xet-read-token/ac0587e4a7744a551c059d8cd17ba220bc940dae "HTTP/1.1 200 OK"
+2026-02-04 15:35:27,440 - INFO - HTTP Request: GET https://huggingface.co/api/models/allenai/Olmo-3.1-32B-Instruct/xet-read-token/ac0587e4a7744a551c059d8cd17ba220bc940dae "HTTP/1.1 200 OK"
+2026-02-04 15:35:27,441 - INFO - HTTP Request: GET https://huggingface.co/api/models/allenai/Olmo-3.1-32B-Instruct/xet-read-token/ac0587e4a7744a551c059d8cd17ba220bc940dae "HTTP/1.1 200 OK"
+2026-02-04 15:35:27,441 - INFO - HTTP Request: GET https://huggingface.co/api/models/allenai/Olmo-3.1-32B-Instruct/xet-read-token/ac0587e4a7744a551c059d8cd17ba220bc940dae "HTTP/1.1 200 OK"
+2026-02-04 15:35:27,441 - INFO - HTTP Request: GET https://huggingface.co/api/models/allenai/Olmo-3.1-32B-Instruct/xet-read-token/ac0587e4a7744a551c059d8cd17ba220bc940dae "HTTP/1.1 200 OK"
+2026-02-04 15:35:27,454 - INFO - HTTP Request: GET https://huggingface.co/api/models/allenai/Olmo-3.1-32B-Instruct/xet-read-token/ac0587e4a7744a551c059d8cd17ba220bc940dae "HTTP/1.1 200 OK"
+2026-02-04 15:36:01,502 - INFO - HTTP Request: HEAD https://huggingface.co/allenai/Olmo-3.1-32B-Instruct/resolve/ac0587e4a7744a551c059d8cd17ba220bc940dae/model-00009-of-00014.safetensors "HTTP/1.1 302 Found"
+2026-02-04 15:36:02,900 - INFO - HTTP Request: HEAD https://huggingface.co/allenai/Olmo-3.1-32B-Instruct/resolve/ac0587e4a7744a551c059d8cd17ba220bc940dae/model-00010-of-00014.safetensors "HTTP/1.1 302 Found"
+2026-02-04 15:36:02,945 - INFO - HTTP Request: HEAD https://huggingface.co/allenai/Olmo-3.1-32B-Instruct/resolve/ac0587e4a7744a551c059d8cd17ba220bc940dae/model-00011-of-00014.safetensors "HTTP/1.1 302 Found"
+2026-02-04 15:36:07,097 - INFO - HTTP Request: HEAD https://huggingface.co/allenai/Olmo-3.1-32B-Instruct/resolve/ac0587e4a7744a551c059d8cd17ba220bc940dae/model-00012-of-00014.safetensors "HTTP/1.1 302 Found"
+2026-02-04 15:36:08,301 - INFO - HTTP Request: HEAD https://huggingface.co/allenai/Olmo-3.1-32B-Instruct/resolve/ac0587e4a7744a551c059d8cd17ba220bc940dae/model-00013-of-00014.safetensors "HTTP/1.1 302 Found"
+2026-02-04 15:36:09,036 - INFO - HTTP Request: HEAD https://huggingface.co/allenai/Olmo-3.1-32B-Instruct/resolve/ac0587e4a7744a551c059d8cd17ba220bc940dae/model-00014-of-00014.safetensors "HTTP/1.1 302 Found"
+2026-02-04 15:39:20,348 - INFO - HTTP Request: HEAD https://huggingface.co/allenai/Olmo-3.1-32B-Instruct/resolve/main/generation_config.json "HTTP/1.1 307 Temporary Redirect"
+2026-02-04 15:39:20,467 - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/allenai/Olmo-3.1-32B-Instruct/ac0587e4a7744a551c059d8cd17ba220bc940dae/generation_config.json "HTTP/1.1 200 OK"
+2026-02-04 15:39:20,672 - INFO - HTTP Request: GET https://huggingface.co/api/resolve-cache/models/allenai/Olmo-3.1-32B-Instruct/ac0587e4a7744a551c059d8cd17ba220bc940dae/generation_config.json "HTTP/1.1 200 OK"
+2026-02-04 15:39:20,678 - INFO - Model loaded successfully
+2026-02-04 15:39:20,680 - INFO - Processing 9 texts...
+2026-02-04 15:39:20,737 - ERROR - Error processing example 0: 
+2026-02-04 15:39:20,741 - ERROR - Error processing example 1: 
+2026-02-04 15:39:20,743 - ERROR - Error processing example 2: 
+2026-02-04 15:39:20,745 - ERROR - Error processing example 3: 
+2026-02-04 15:39:20,748 - ERROR - Error processing example 4: 
+2026-02-04 15:39:20,751 - ERROR - Error processing example 5: 
+2026-02-04 15:39:20,752 - ERROR - Error processing example 6: 
+2026-02-04 15:39:20,754 - ERROR - Error processing example 7: 
+2026-02-04 15:39:20,756 - ERROR - Error processing example 8: 
+2026-02-04 15:39:20,758 - INFO - Reconstructed texts saved to results/ann_full_reconstructed_mistral_olmo/reconstructed_test_olmo_20260204_153920.jsonl
+2026-02-04 15:39:20,758 - INFO - ==================================================
+2026-02-04 15:39:20,758 - INFO - Reconstruction complete! Processed 9 examples
+2026-02-04 15:39:20,758 - INFO - Results saved to: results/ann_full_reconstructed_mistral_olmo/reconstructed_test_olmo_20260204_153920.jsonl
+2026-02-04 15:39:20,758 - INFO - Log file: results/ann_full_reconstructed_mistral_olmo/reconstruction_20260204_153519.log
+2026-02-04 15:39:20,758 - INFO - ==================================================
