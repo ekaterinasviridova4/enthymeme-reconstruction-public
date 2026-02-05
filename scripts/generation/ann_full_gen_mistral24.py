@@ -27,11 +27,29 @@ import logging
 from datetime import datetime
 
 # Configure logging
-logging.basicConfig(
-    filename="olmo_zero_generation.log",
-    level=logging.INFO,
-    format="%(asctime)s - %(levelname)s - %(message)s"
-)
+def setup_logging(output_dir):
+    os.makedirs(output_dir, exist_ok=True)
+    log_file = os.path.join(output_dir, f"reconstruction_{datetime.now().strftime('%Y%m%d_%H%M%S')}.log")
+    
+    # Create logger
+    logger = logging.getLogger()
+    logger.setLevel(logging.INFO)
+    
+    # Clear existing handlers
+    if logger.handlers:
+        logger.handlers = []
+    
+    # File handler
+    file_handler = logging.FileHandler(log_file)
+    file_handler.setFormatter(logging.Formatter("%(asctime)s - %(levelname)s - %(message)s"))
+    logger.addHandler(file_handler)
+    
+    # Console handler
+    console_handler = logging.StreamHandler()
+    console_handler.setFormatter(logging.Formatter("%(asctime)s - %(levelname)s - %(message)s"))
+    logger.addHandler(console_handler)
+    
+    return log_file
 
 def ensure_huggingface_token():
     token = os.getenv("HUGGINGFACE_HUB_TOKEN")
@@ -107,6 +125,14 @@ def parse_args():
     parser.add_argument(
         "--max_new_tokens",
         type=int,
+        # Ensure pad_token_id is set
+        if tokenizer.pad_token_id is None:
+            if tokenizer.eos_token_id is not None:
+                tokenizer.pad_token_id = tokenizer.eos_token_id
+            else:
+                tokenizer.pad_token_id = 0  # Fallback
+            logging.info(f"Set pad_token_id to {tokenizer.pad_token_id}")
+            
         default=2048,
         help="Maximum number of tokens to generate"
     )
@@ -236,13 +262,7 @@ def main():
     args = parse_args()
     
     # Setup logging
-    os.makedirs(args.output_dir, exist_ok=True)
-    log_file = os.path.join(args.output_dir, f"reconstruction_{datetime.now().strftime('%Y%m%d_%H%M%S')}.log")
-    logging.basicConfig(
-        filename=log_file,
-        level=logging.INFO,
-        format="%(asctime)s - %(levelname)s - %(message)s"
-    )
+    log_file = setup_logging(args.output_dir)
     
     logging.info("="*50)
     logging.info("Starting text reconstruction process")
