@@ -10,7 +10,6 @@ import json
 import torch
 import argparse
 import random
-import traceback 
 import numpy as np
 from tqdm import tqdm
 from huggingface_hub import login
@@ -27,29 +26,11 @@ import logging
 from datetime import datetime
 
 # Configure logging
-def setup_logging(output_dir):
-    os.makedirs(output_dir, exist_ok=True)
-    log_file = os.path.join(output_dir, f"reconstruction_{datetime.now().strftime('%Y%m%d_%H%M%S')}.log")
-    
-    # Create logger
-    logger = logging.getLogger()
-    logger.setLevel(logging.INFO)
-    
-    # Clear existing handlers
-    if logger.handlers:
-        logger.handlers = []
-    
-    # File handler
-    file_handler = logging.FileHandler(log_file)
-    file_handler.setFormatter(logging.Formatter("%(asctime)s - %(levelname)s - %(message)s"))
-    logger.addHandler(file_handler)
-    
-    # Console handler
-    console_handler = logging.StreamHandler()
-    console_handler.setFormatter(logging.Formatter("%(asctime)s - %(levelname)s - %(message)s"))
-    logger.addHandler(console_handler)
-    
-    return log_file
+logging.basicConfig(
+    filename="olmo_zero_generation.log",
+    level=logging.INFO,
+    format="%(asctime)s - %(levelname)s - %(message)s"
+)
 
 def ensure_huggingface_token():
     token = os.getenv("HUGGINGFACE_HUB_TOKEN")
@@ -125,14 +106,6 @@ def parse_args():
     parser.add_argument(
         "--max_new_tokens",
         type=int,
-        # Ensure pad_token_id is set
-        if tokenizer.pad_token_id is None:
-            if tokenizer.eos_token_id is not None:
-                tokenizer.pad_token_id = tokenizer.eos_token_id
-            else:
-                tokenizer.pad_token_id = 0  # Fallback
-            logging.info(f"Set pad_token_id to {tokenizer.pad_token_id}")
-            
         default=2048,
         help="Maximum number of tokens to generate"
     )
@@ -262,7 +235,13 @@ def main():
     args = parse_args()
     
     # Setup logging
-    log_file = setup_logging(args.output_dir)
+    os.makedirs(args.output_dir, exist_ok=True)
+    log_file = os.path.join(args.output_dir, f"reconstruction_{datetime.now().strftime('%Y%m%d_%H%M%S')}.log")
+    logging.basicConfig(
+        filename=log_file,
+        level=logging.INFO,
+        format="%(asctime)s - %(levelname)s - %(message)s"
+    )
     
     logging.info("="*50)
     logging.info("Starting text reconstruction process")
@@ -314,12 +293,11 @@ def main():
                 logging.info(f"Processed {idx + 1}/{len(data)} examples")
                 
         except Exception as e:
-            error_msg = f"{str(e)}\n{traceback.format_exc()}"
-            logging.error(f"Error processing example {idx}: {error_msg}")
+            logging.error(f"Error processing example {idx}: {str(e)}")
             predictions.append({
                 "index": idx,
                 "original_text": item["annotated_text"],
-                "reconstructed_text": f"ERROR: {error_msg}",
+                "reconstructed_text": f"ERROR: {str(e)}",
                 "original_input": item.get("original_input", "")
             })
     
