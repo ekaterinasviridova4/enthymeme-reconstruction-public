@@ -97,7 +97,7 @@ def parse_args():
     parser.add_argument(
         "--max_tokens",
         type=int,
-        default=2048,
+        default=8192,
         help="Maximum number of tokens to generate"
     )
     parser.add_argument(
@@ -159,7 +159,7 @@ def save_predictions(predictions, output_dir):
     logging.info(f"Reconstructed texts saved to {output_file}")
     return output_file
 
-def generate_reconstruction(model, text, max_tokens=2048, temperature=0.0):
+def generate_reconstruction(model, text, max_tokens=8192, temperature=0.0):
     """Generate reconstruction for a single text using LiteLLM"""
     prompt = build_prompt(text)
     
@@ -171,6 +171,14 @@ def generate_reconstruction(model, text, max_tokens=2048, temperature=0.0):
             temperature=temperature
         )
         
+        # Log generation details
+        finish_reason = response.choices[0].finish_reason
+        usage = getattr(response, 'usage', 'Unknown')
+        logging.info(f"Generation finished. Reason: {finish_reason}, Usage: {usage}")
+        
+        if finish_reason == "length":
+            logging.warning("WARNING: Generation was truncated due to token limit!")
+            
         reconstruction = response.choices[0].message.content.strip()
         return reconstruction
         
