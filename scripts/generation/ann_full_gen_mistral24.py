@@ -24,6 +24,9 @@ from mistral_common.protocol.instruct.request import ChatCompletionRequest
 
 import logging
 from datetime import datetime
+import transformers
+import bitsandbytes as bnb
+import accelerate
 
 # Configure logging
 logging.basicConfig(
@@ -245,6 +248,13 @@ def main():
     
     logging.info("="*50)
     logging.info("Starting text reconstruction process")
+    logging.info(f"Transformers version: {transformers.__version__}")
+    logging.info(f"BitsAndBytes version: {bnb.__version__}")
+    logging.info(f"Accelerate version: {accelerate.__version__}")
+    logging.info(f"PyTorch version: {torch.__version__}")
+    logging.info(f"CUDA available: {torch.cuda.is_available()}")
+    if torch.cuda.is_available():
+        logging.info(f"CUDA device count: {torch.cuda.device_count()}")
     logging.info(f"Input file: {args.input_file}")
     logging.info(f"Output directory: {args.output_dir}")
     logging.info(f"Model: {args.model_id}")

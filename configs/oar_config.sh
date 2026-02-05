@@ -14,9 +14,9 @@ mkdir -p "$LOGDIR"
 
 
 W_HOURS=4                  # Walltime in hours
-L_NGPUS=1                  # Number of GPUs
+L_NGPUS=4                  # Number of GPUs
 P_MINCUDACAPABILITY=6      # Minimum compute capability (6 for 1080Ti, 7 for V100/A100)
-P_MINGPUMEMORY=24000       # Minimum GPU memory in MB (24 GB is enough with 4-bit quantization)
+P_MINGPUMEMORY=24000       # Minimum GPU memory in MB (Requesting 4x24GB = 96GB total)
 
 # Submit the job
 OAR_OUT=$(oarsub \
