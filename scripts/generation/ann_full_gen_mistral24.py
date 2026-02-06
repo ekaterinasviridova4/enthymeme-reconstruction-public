@@ -215,18 +215,28 @@ def generate_reconstruction(model, tokenizer, text, max_new_tokens=2048):
         reconstruction = tokenizer.decode(generated_tokens).strip()
 
     else:
-        # Standard Hugging Face Tokenizer (e.g. for Olmo)
-        input_ids = tokenizer.apply_chat_template(messages, return_tensors="pt").to(model.device)
+        # Hugging Face Tokenizer (e.g. for Olmo)
+        inputs = tokenizer.apply_chat_template(messages, return_tensors="pt")
         
+        # Determine if inputs is a tensor or a dictionary (BatchEncoding)
+        if isinstance(inputs, dict) or hasattr(inputs, "keys"):
+            inputs = inputs.to(model.device)
+            input_length = inputs["input_ids"].shape[1]
+            generate_kwargs = inputs
+        else:
+            # Assume it is a tensor
+            inputs = inputs.to(model.device)
+            input_length = inputs.shape[1]
+            generate_kwargs = {"input_ids": inputs}
+            
         with torch.no_grad():
             outputs = model.generate(
-                input_ids=input_ids,
+                **generate_kwargs,
                 max_new_tokens=max_new_tokens,
                 do_sample=False
             )
         
         # Calculate length of input tokens to skip them in output decoding
-        input_length = input_ids.shape[1]
         generated_tokens = outputs[0][input_length:]
         reconstruction = tokenizer.decode(generated_tokens, skip_special_tokens=True).strip()
     
