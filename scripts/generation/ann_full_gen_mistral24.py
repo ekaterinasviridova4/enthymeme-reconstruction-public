@@ -283,33 +283,23 @@ def main():
     logging.info(f"Processing {len(data)} texts...")
     predictions = []
     for idx, item in enumerate(tqdm(data, desc="Reconstructing texts")):
-        try:
-            rec_text = generate_reconstruction(
-                model, 
-                tokenizer, 
-                item["annotated_text"],
-                max_new_tokens=args.max_new_tokens
-            )
-            
-            predictions.append({
-                "index": idx,
-                "original_text": item["annotated_text"],
-                "reconstructed_text": rec_text,
-                "original_input": item.get("original_input", "")
-            })
-            
-            # Log progress every 10 examples
-            if (idx + 1) % 10 == 0:
-                logging.info(f"Processed {idx + 1}/{len(data)} examples")
-                
-        except Exception as e:
-            logging.error(f"Error processing example {idx}: {str(e)}")
-            predictions.append({
-                "index": idx,
-                "original_text": item["annotated_text"],
-                "reconstructed_text": f"ERROR: {str(e)}",
-                "original_input": item.get("original_input", "")
-            })
+        rec_text = generate_reconstruction(
+            model, 
+            tokenizer, 
+            item["annotated_text"],
+            max_new_tokens=args.max_new_tokens
+        )
+        
+        predictions.append({
+            "index": idx,
+            "original_text": item["annotated_text"],
+            "reconstructed_text": rec_text,
+            "original_input": item.get("original_input", "")
+        })
+        
+        # Log progress every 10 examples
+        if (idx + 1) % 10 == 0:
+            logging.info(f"Processed {idx + 1}/{len(data)} examples")
     
     # Save results
     output_file = save_predictions(predictions, args.output_dir)
