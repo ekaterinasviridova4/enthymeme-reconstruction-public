@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 """
 Zero-shot text reconstruction using Mistral and Olmo
 Analyzes JSONL input texts and reconstructs implicit parts
@@ -28,7 +27,7 @@ import transformers
 import bitsandbytes as bnb
 import accelerate
 
-# Configure logging
+# Logging
 logging.basicConfig(
     filename="olmo_zero_generation.log",
     level=logging.INFO,
@@ -46,7 +45,7 @@ def ensure_huggingface_token():
 ensure_huggingface_token()
 
 def set_seed(seed):
-    """Set random seeds for reproducibility"""
+    """Random seeds to make results reproducible"""
     random.seed(seed)
     np.random.seed(seed)
     torch.manual_seed(seed)
@@ -61,7 +60,7 @@ def load_jsonl_dataset(path):
             if not line.strip():
                 continue
             ex = json.loads(line)
-            # Load 'output' as annotated_text because it contains the <Implicit>/<Explicit> tags
+            # 'output' = annotated_text because it contains the <Implicit>/<Explicit> tags
             annotated_text = ex.get("output", "").strip()
             if annotated_text:
                 texts.append({
@@ -98,24 +97,24 @@ def parse_args():
         "--limit",
         type=int,
         default=None,
-        help="Limit number of examples to process (for testing)"
+        help="Limit number of examples to process"
     )
     parser.add_argument(
         "--seed",
         type=int,
         default=42,
-        help="Random seed for reproducibility"
+        help="Random seed"
     )
     parser.add_argument(
         "--max_new_tokens",
         type=int,
-        default=2048,
-        help="Maximum number of tokens to generate"
+        default=4096,
+        help="Maximum number of tokens to output"
     )
     return parser.parse_args()
 
 def setup_model(model_id):
-    """Setup model with 4-bit quantization (supports Mistral and Olmo)"""
+    """4-bit quantization (Mistral and Olmo)"""
     logging.info(f"Loading model: {model_id}")
     bnb_config = BitsAndBytesConfig(
         load_in_4bit=True,
@@ -125,13 +124,13 @@ def setup_model(model_id):
     )
 
     if "olmo" in model_id.lower():
-        logging.info("Detected Olmo model, using AutoModelForCausalLM")
+        logging.info("Detected Olmo, using AutoModelForCausalLM")
         tokenizer = AutoTokenizer.from_pretrained(model_id)
         model = AutoModelForCausalLM.from_pretrained(
             model_id, device_map="auto", quantization_config=bnb_config
         )
     else:
-        logging.info("Using Mistral specific loading")
+        logging.info("Using Mistral loading")
         tokenizer = MistralTokenizer.from_hf_hub(model_id)
         model = Mistral3ForConditionalGeneration.from_pretrained(
             model_id, device_map="auto", quantization_config=bnb_config
@@ -152,17 +151,17 @@ Sentences are annotated with tags:
 
 TASK:
 For each sentence marked as <Implicit>...</Implicit>:
-1. Identify the missing logical link (premise or claim) that connects it to the context or the missing information.
-2. Formulate this missing link or information as a clear sentence.
+1. Identify the missing (implicit) information or missing (implicit) logical link (premise or claim) that connects it to the context.
+2. Formulate this missing information or link as a clear sentence.
 3. Determine if it is an "<IMPLICIT_PREMISE>...</IMPLICIT_PREMISE>" or "<IMPLICIT_CLAIM>...</IMPLICIT_CLAIM>".
 4. Insert this reconstruction immediately before or after the original implicit sentence, whichever makes the most logical sense.
 
 OUTPUT FORMAT:
 Reconstructed Dialogue
 - Reproduce the full dialogue.
-- Keep all <Explicit> and <Implicit> tags.
+- Keep all <Explicit> and <Implicit> tags in original sentences.
 - Keep the original text exactly as is.
-- Insert your reconstructions in tags: <IMPLICIT_PREMISE>...</IMPLICIT_PREMISE> or <IMPLICIT_CLAIM>...</IMPLICIT_CLAIM>.
+- Insert your reconstructions in tags: <IMPLICIT_PREMISE>...</IMPLICIT_PREMISE> or <IMPLICIT_CLAIM>...</IMPLICIT_CLAIM>, don't add any other tags to reconstructions.
 - Maintain "speaker1:" and "speaker2:" labels.
 
 EXAMPLE:
@@ -191,13 +190,13 @@ def save_predictions(predictions, output_dir):
     logging.info(f"Reconstructed texts saved to {output_file}")
     return output_file
 
-def generate_reconstruction(model, tokenizer, text, max_new_tokens=2048):
-    """Generate reconstruction for a single text"""
+def generate_reconstruction(model, tokenizer, text, max_new_tokens=4096):
+    """Reconstruct implicitness"""
     prompt = build_prompt(text)
     
     messages = [{"role": "user", "content": prompt}]
 
-    # Handle different tokenizer types
+    # For different tokenizer types
     if hasattr(tokenizer, "encode_chat_completion"):
         # MistralTokenizer from mistral-common
         chat_request = ChatCompletionRequest(messages=messages)
@@ -215,16 +214,14 @@ def generate_reconstruction(model, tokenizer, text, max_new_tokens=2048):
         reconstruction = tokenizer.decode(generated_tokens).strip()
 
     else:
-        # Hugging Face Tokenizer (e.g. for Olmo)
+        # Tokenizer for Olmo
         inputs = tokenizer.apply_chat_template(messages, return_tensors="pt")
         
-        # Determine if inputs is a tensor or a dictionary (BatchEncoding)
         if isinstance(inputs, dict) or hasattr(inputs, "keys"):
             inputs = inputs.to(model.device)
             input_length = inputs["input_ids"].shape[1]
             generate_kwargs = inputs
         else:
-            # Assume it is a tensor
             inputs = inputs.to(model.device)
             input_length = inputs.shape[1]
             generate_kwargs = {"input_ids": inputs}
@@ -236,14 +233,13 @@ def generate_reconstruction(model, tokenizer, text, max_new_tokens=2048):
                 do_sample=False
             )
         
-        # Calculate length of input tokens to skip them in output decoding
         generated_tokens = outputs[0][input_length:]
         reconstruction = tokenizer.decode(generated_tokens, skip_special_tokens=True).strip()
     
     return reconstruction
 
 def main():
-    """Main function to run text reconstruction"""
+    """Main function"""
     # Parse arguments
     args = parse_args()
     
@@ -271,7 +267,7 @@ def main():
     logging.info(f"Seed: {args.seed}")
     logging.info("="*50)
     
-    # Set seed for reproducibility
+    # Set seed 
     set_seed(args.seed)
     
     # Load data
@@ -307,7 +303,7 @@ def main():
             "original_input": item.get("original_input", "")
         })
         
-        # Log progress every 10 examples
+        # Log progress
         if (idx + 1) % 10 == 0:
             logging.info(f"Processed {idx + 1}/{len(data)} examples")
     
