@@ -1,0 +1,56 @@
+2026-02-10 17:05:15,040 - INFO - ==================================================
+2026-02-10 17:05:15,040 - INFO - Starting text reconstruction process
+2026-02-10 17:05:15,040 - INFO - Input file: data/dialogue/out_dial_jsonl/test_labeled.jsonl
+2026-02-10 17:05:15,040 - INFO - Output directory: results/ann_full_reconstructed_litellm
+2026-02-10 17:05:15,040 - INFO - Model: gemini/gemini-2.5-flash
+2026-02-10 17:05:15,040 - INFO - Seed: 42
+2026-02-10 17:05:15,040 - INFO - Temperature: 0.0
+2026-02-10 17:05:15,040 - INFO - ==================================================
+2026-02-10 17:05:15,217 - INFO - Loading dataset...
+2026-02-10 17:05:15,220 - INFO - Loaded 9 examples
+2026-02-10 17:05:15,220 - INFO - Processing 9 texts with model: gemini/gemini-2.5-flash
+2026-02-10 17:05:15,285 - INFO - 
+LiteLLM completion() model= gemini-2.5-flash; provider = gemini
+2026-02-10 17:05:52,314 - INFO - Wrapper: Completed Call, calling success_handler
+2026-02-10 17:05:52,317 - INFO - Generation finished. Reason: length, Usage: Usage(completion_tokens=8188, prompt_tokens=1860, total_tokens=10048, completion_tokens_details=CompletionTokensDetailsWrapper(accepted_prediction_tokens=None, audio_tokens=None, reasoning_tokens=7700, rejected_prediction_tokens=None, text_tokens=488, image_tokens=None), prompt_tokens_details=PromptTokensDetailsWrapper(audio_tokens=None, cached_tokens=None, text_tokens=1860, image_tokens=None))
+2026-02-10 17:05:52,317 - WARNING - WARNING: Generation was truncated due to token limit!
+2026-02-10 17:05:52,318 - INFO - 
+LiteLLM completion() model= gemini-2.5-flash; provider = gemini
+2026-02-10 17:06:19,993 - INFO - Wrapper: Completed Call, calling success_handler
+2026-02-10 17:06:19,994 - INFO - Generation finished. Reason: stop, Usage: Usage(completion_tokens=6310, prompt_tokens=1629, total_tokens=7939, completion_tokens_details=CompletionTokensDetailsWrapper(accepted_prediction_tokens=None, audio_tokens=None, reasoning_tokens=4695, rejected_prediction_tokens=None, text_tokens=1615, image_tokens=None), prompt_tokens_details=PromptTokensDetailsWrapper(audio_tokens=None, cached_tokens=None, text_tokens=1629, image_tokens=None))
+2026-02-10 17:06:19,996 - INFO - 
+LiteLLM completion() model= gemini-2.5-flash; provider = gemini
+2026-02-10 17:06:55,412 - INFO - Wrapper: Completed Call, calling success_handler
+2026-02-10 17:06:55,413 - INFO - Generation finished. Reason: length, Usage: Usage(completion_tokens=8188, prompt_tokens=801, total_tokens=8989, completion_tokens_details=CompletionTokensDetailsWrapper(accepted_prediction_tokens=None, audio_tokens=None, reasoning_tokens=7863, rejected_prediction_tokens=None, text_tokens=325, image_tokens=None), prompt_tokens_details=PromptTokensDetailsWrapper(audio_tokens=None, cached_tokens=None, text_tokens=801, image_tokens=None))
+2026-02-10 17:06:55,413 - WARNING - WARNING: Generation was truncated due to token limit!
+2026-02-10 17:06:55,415 - INFO - 
+LiteLLM completion() model= gemini-2.5-flash; provider = gemini
+2026-02-10 17:07:06,667 - INFO - Wrapper: Completed Call, calling success_handler
+2026-02-10 17:07:06,668 - INFO - Generation finished. Reason: stop, Usage: Usage(completion_tokens=2617, prompt_tokens=1039, total_tokens=3656, completion_tokens_details=CompletionTokensDetailsWrapper(accepted_prediction_tokens=None, audio_tokens=None, reasoning_tokens=1763, rejected_prediction_tokens=None, text_tokens=854, image_tokens=None), prompt_tokens_details=PromptTokensDetailsWrapper(audio_tokens=None, cached_tokens=None, text_tokens=1039, image_tokens=None))
+2026-02-10 17:07:06,670 - INFO - 
+LiteLLM completion() model= gemini-2.5-flash; provider = gemini
+2026-02-10 17:07:27,282 - INFO - Wrapper: Completed Call, calling success_handler
+2026-02-10 17:07:27,283 - INFO - Generation finished. Reason: stop, Usage: Usage(completion_tokens=4756, prompt_tokens=1211, total_tokens=5967, completion_tokens_details=CompletionTokensDetailsWrapper(accepted_prediction_tokens=None, audio_tokens=None, reasoning_tokens=3611, rejected_prediction_tokens=None, text_tokens=1145, image_tokens=None), prompt_tokens_details=PromptTokensDetailsWrapper(audio_tokens=None, cached_tokens=None, text_tokens=1211, image_tokens=None))
+2026-02-10 17:07:27,284 - INFO - 
+LiteLLM completion() model= gemini-2.5-flash; provider = gemini
+2026-02-10 17:08:05,562 - INFO - Wrapper: Completed Call, calling success_handler
+2026-02-10 17:08:05,562 - INFO - Generation finished. Reason: length, Usage: Usage(completion_tokens=8188, prompt_tokens=1509, total_tokens=9697, completion_tokens_details=CompletionTokensDetailsWrapper(accepted_prediction_tokens=None, audio_tokens=None, reasoning_tokens=7862, rejected_prediction_tokens=None, text_tokens=326, image_tokens=None), prompt_tokens_details=PromptTokensDetailsWrapper(audio_tokens=None, cached_tokens=None, text_tokens=1509, image_tokens=None))
+2026-02-10 17:08:05,562 - WARNING - WARNING: Generation was truncated due to token limit!
+2026-02-10 17:08:05,564 - INFO - 
+LiteLLM completion() model= gemini-2.5-flash; provider = gemini
+2026-02-10 17:08:25,650 - INFO - Wrapper: Completed Call, calling success_handler
+2026-02-10 17:08:25,651 - INFO - Generation finished. Reason: stop, Usage: Usage(completion_tokens=4151, prompt_tokens=657, total_tokens=4808, completion_tokens_details=CompletionTokensDetailsWrapper(accepted_prediction_tokens=None, audio_tokens=None, reasoning_tokens=3782, rejected_prediction_tokens=None, text_tokens=369, image_tokens=None), prompt_tokens_details=PromptTokensDetailsWrapper(audio_tokens=None, cached_tokens=None, text_tokens=657, image_tokens=None))
+2026-02-10 17:08:25,652 - INFO - 
+LiteLLM completion() model= gemini-2.5-flash; provider = gemini
+2026-02-10 17:08:58,914 - INFO - Wrapper: Completed Call, calling success_handler
+2026-02-10 17:08:58,915 - INFO - Generation finished. Reason: stop, Usage: Usage(completion_tokens=7639, prompt_tokens=804, total_tokens=8443, completion_tokens_details=CompletionTokensDetailsWrapper(accepted_prediction_tokens=None, audio_tokens=None, reasoning_tokens=6960, rejected_prediction_tokens=None, text_tokens=679, image_tokens=None), prompt_tokens_details=PromptTokensDetailsWrapper(audio_tokens=None, cached_tokens=None, text_tokens=804, image_tokens=None))
+2026-02-10 17:08:58,916 - INFO - 
+LiteLLM completion() model= gemini-2.5-flash; provider = gemini
+2026-02-10 17:09:23,600 - INFO - Wrapper: Completed Call, calling success_handler
+2026-02-10 17:09:23,600 - INFO - Generation finished. Reason: stop, Usage: Usage(completion_tokens=5259, prompt_tokens=768, total_tokens=6027, completion_tokens_details=CompletionTokensDetailsWrapper(accepted_prediction_tokens=None, audio_tokens=None, reasoning_tokens=4491, rejected_prediction_tokens=None, text_tokens=768, image_tokens=None), prompt_tokens_details=PromptTokensDetailsWrapper(audio_tokens=None, cached_tokens=None, text_tokens=768, image_tokens=None))
+2026-02-10 17:09:23,605 - INFO - Reconstructed texts saved to results/ann_full_reconstructed_litellm/reconstructed_test_gemini2.5_20260210_170923.jsonl
+2026-02-10 17:09:23,605 - INFO - ==================================================
+2026-02-10 17:09:23,605 - INFO - Reconstruction complete! Processed 9 examples
+2026-02-10 17:09:23,606 - INFO - Results saved to: results/ann_full_reconstructed_litellm/reconstructed_test_gemini2.5_20260210_170923.jsonl
+2026-02-10 17:09:23,606 - INFO - Log file: results/ann_full_reconstructed_litellm/reconstruction_20260210_170515.log
+2026-02-10 17:09:23,606 - INFO - ==================================================
