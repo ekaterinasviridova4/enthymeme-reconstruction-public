@@ -261,6 +261,9 @@ def main():
     logging.info(f"CUDA available: {torch.cuda.is_available()}")
     if torch.cuda.is_available():
         logging.info(f"CUDA device count: {torch.cuda.device_count()}")
+        for i in range(torch.cuda.device_count()):
+            logging.info(f"GPU {i}: {torch.cuda.get_device_name(i)}")
+            logging.info(f"GPU {i} Memory: {torch.cuda.get_device_properties(i).total_memory / 1024**3:.2f} GB")
     logging.info(f"Input file: {args.input_file}")
     logging.info(f"Output directory: {args.output_dir}")
     logging.info(f"Model: {args.model_id}")
