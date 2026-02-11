@@ -10,9 +10,13 @@ import argparse
 import random
 import numpy as np
 from tqdm import tqdm
+import litellm
 from litellm import completion
 import logging
 from datetime import datetime
+
+# Enable dropping unsupported parameters (e.g. temperature=0 for gpt-5)
+litellm.drop_params = True
 
 # Configure logging
 logging.basicConfig(
