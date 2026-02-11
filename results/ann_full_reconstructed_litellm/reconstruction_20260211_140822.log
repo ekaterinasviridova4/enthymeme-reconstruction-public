@@ -1,0 +1,53 @@
+2026-02-11 14:08:22,324 - INFO - ==================================================
+2026-02-11 14:08:22,324 - INFO - Starting text reconstruction process
+2026-02-11 14:08:22,324 - INFO - Input file: data/dialogue/out_dial_jsonl/test_labeled.jsonl
+2026-02-11 14:08:22,324 - INFO - Output directory: results/ann_full_reconstructed_litellm
+2026-02-11 14:08:22,324 - INFO - Model: openai/gpt-5
+2026-02-11 14:08:22,324 - INFO - Seed: 42
+2026-02-11 14:08:22,324 - INFO - Temperature: 0.0
+2026-02-11 14:08:22,324 - INFO - ==================================================
+2026-02-11 14:08:22,563 - INFO - Loading dataset...
+2026-02-11 14:08:22,576 - INFO - Loaded 9 examples
+2026-02-11 14:08:22,576 - INFO - Processing 9 texts with model: openai/gpt-5
+2026-02-11 14:08:22,662 - INFO - 
+LiteLLM completion() model= gpt-5; provider = openai
+2026-02-11 14:08:22,702 - ERROR - Error in generation: litellm.UnsupportedParamsError: gpt-5 models (including gpt-5-codex) don't support temperature=0.0. Only temperature=1 is supported. To drop unsupported params set `litellm.drop_params = True`
+2026-02-11 14:08:22,702 - ERROR - Error processing example 0: litellm.UnsupportedParamsError: gpt-5 models (including gpt-5-codex) don't support temperature=0.0. Only temperature=1 is supported. To drop unsupported params set `litellm.drop_params = True`
+2026-02-11 14:08:22,702 - INFO - 
+LiteLLM completion() model= gpt-5; provider = openai
+2026-02-11 14:08:22,703 - ERROR - Error in generation: litellm.UnsupportedParamsError: gpt-5 models (including gpt-5-codex) don't support temperature=0.0. Only temperature=1 is supported. To drop unsupported params set `litellm.drop_params = True`
+2026-02-11 14:08:22,703 - ERROR - Error processing example 1: litellm.UnsupportedParamsError: gpt-5 models (including gpt-5-codex) don't support temperature=0.0. Only temperature=1 is supported. To drop unsupported params set `litellm.drop_params = True`
+2026-02-11 14:08:22,703 - INFO - 
+LiteLLM completion() model= gpt-5; provider = openai
+2026-02-11 14:08:22,704 - ERROR - Error in generation: litellm.UnsupportedParamsError: gpt-5 models (including gpt-5-codex) don't support temperature=0.0. Only temperature=1 is supported. To drop unsupported params set `litellm.drop_params = True`
+2026-02-11 14:08:22,704 - ERROR - Error processing example 2: litellm.UnsupportedParamsError: gpt-5 models (including gpt-5-codex) don't support temperature=0.0. Only temperature=1 is supported. To drop unsupported params set `litellm.drop_params = True`
+2026-02-11 14:08:22,705 - INFO - 
+LiteLLM completion() model= gpt-5; provider = openai
+2026-02-11 14:08:22,705 - ERROR - Error in generation: litellm.UnsupportedParamsError: gpt-5 models (including gpt-5-codex) don't support temperature=0.0. Only temperature=1 is supported. To drop unsupported params set `litellm.drop_params = True`
+2026-02-11 14:08:22,705 - ERROR - Error processing example 3: litellm.UnsupportedParamsError: gpt-5 models (including gpt-5-codex) don't support temperature=0.0. Only temperature=1 is supported. To drop unsupported params set `litellm.drop_params = True`
+2026-02-11 14:08:22,706 - INFO - 
+LiteLLM completion() model= gpt-5; provider = openai
+2026-02-11 14:08:22,707 - ERROR - Error in generation: litellm.UnsupportedParamsError: gpt-5 models (including gpt-5-codex) don't support temperature=0.0. Only temperature=1 is supported. To drop unsupported params set `litellm.drop_params = True`
+2026-02-11 14:08:22,707 - ERROR - Error processing example 4: litellm.UnsupportedParamsError: gpt-5 models (including gpt-5-codex) don't support temperature=0.0. Only temperature=1 is supported. To drop unsupported params set `litellm.drop_params = True`
+2026-02-11 14:08:22,707 - INFO - 
+LiteLLM completion() model= gpt-5; provider = openai
+2026-02-11 14:08:22,708 - ERROR - Error in generation: litellm.UnsupportedParamsError: gpt-5 models (including gpt-5-codex) don't support temperature=0.0. Only temperature=1 is supported. To drop unsupported params set `litellm.drop_params = True`
+2026-02-11 14:08:22,708 - ERROR - Error processing example 5: litellm.UnsupportedParamsError: gpt-5 models (including gpt-5-codex) don't support temperature=0.0. Only temperature=1 is supported. To drop unsupported params set `litellm.drop_params = True`
+2026-02-11 14:08:22,708 - INFO - 
+LiteLLM completion() model= gpt-5; provider = openai
+2026-02-11 14:08:22,709 - ERROR - Error in generation: litellm.UnsupportedParamsError: gpt-5 models (including gpt-5-codex) don't support temperature=0.0. Only temperature=1 is supported. To drop unsupported params set `litellm.drop_params = True`
+2026-02-11 14:08:22,709 - ERROR - Error processing example 6: litellm.UnsupportedParamsError: gpt-5 models (including gpt-5-codex) don't support temperature=0.0. Only temperature=1 is supported. To drop unsupported params set `litellm.drop_params = True`
+2026-02-11 14:08:22,709 - INFO - 
+LiteLLM completion() model= gpt-5; provider = openai
+2026-02-11 14:08:22,710 - ERROR - Error in generation: litellm.UnsupportedParamsError: gpt-5 models (including gpt-5-codex) don't support temperature=0.0. Only temperature=1 is supported. To drop unsupported params set `litellm.drop_params = True`
+2026-02-11 14:08:22,710 - ERROR - Error processing example 7: litellm.UnsupportedParamsError: gpt-5 models (including gpt-5-codex) don't support temperature=0.0. Only temperature=1 is supported. To drop unsupported params set `litellm.drop_params = True`
+2026-02-11 14:08:22,711 - INFO - 
+LiteLLM completion() model= gpt-5; provider = openai
+2026-02-11 14:08:22,711 - ERROR - Error in generation: litellm.UnsupportedParamsError: gpt-5 models (including gpt-5-codex) don't support temperature=0.0. Only temperature=1 is supported. To drop unsupported params set `litellm.drop_params = True`
+2026-02-11 14:08:22,711 - ERROR - Error processing example 8: litellm.UnsupportedParamsError: gpt-5 models (including gpt-5-codex) don't support temperature=0.0. Only temperature=1 is supported. To drop unsupported params set `litellm.drop_params = True`
+2026-02-11 14:08:22,714 - INFO - Reconstructed texts saved to results/ann_full_reconstructed_litellm/reconstructed_test_gpt5_20260211_140822.jsonl
+2026-02-11 14:08:22,714 - INFO - ==================================================
+2026-02-11 14:08:22,714 - INFO - Reconstruction complete! Processed 9 examples
+2026-02-11 14:08:22,714 - INFO - Results saved to: results/ann_full_reconstructed_litellm/reconstructed_test_gpt5_20260211_140822.jsonl
+2026-02-11 14:08:22,714 - INFO - Log file: results/ann_full_reconstructed_litellm/reconstruction_20260211_140822.log
+2026-02-11 14:08:22,714 - INFO - ==================================================
