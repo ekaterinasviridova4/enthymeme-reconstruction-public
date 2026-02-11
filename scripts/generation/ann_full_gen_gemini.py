@@ -120,18 +120,18 @@ Sentences are annotated with tags:
 
 TASK:
 For each sentence marked as <Implicit>...</Implicit>:
-1. Identify the missing logical link (premise or claim) that connects it to the context or the missing information.
-2. Formulate this missing link or information as a clear sentence.
-3. Determine if it is an "<IMPLICIT_PREMISE>...</IMPLICIT_PREMISE>" or "<IMPLICIT_CLAIM>...</IMPLICIT_CLAIM>".
-4. Insert this reconstruction immediately before or after the original implicit sentence, whichever makes the most logical sense.
+1. Identify the missing logical link (premise or claim).
+2. Formulate it as a clear sentence.
+3. Classify as <IMPLICIT_PREMISE> or <IMPLICIT_CLAIM>.
+4. Insert it immediately before or after the relevant <Implicit> sentence, whichever makes the most logical sense.
 
 OUTPUT FORMAT:
-Reconstructed Dialogue
-- Reproduce the full dialogue.
-- Keep all <Explicit> and <Implicit> tags.
-- Keep the original text exactly as is.
-- Insert your reconstructions in tags: <IMPLICIT_PREMISE>...</IMPLICIT_PREMISE> or <IMPLICIT_CLAIM>...</IMPLICIT_CLAIM>.
-- Maintain "speaker1:" and "speaker2:" labels.
+- Output ONLY the final reconstructed dialogue.
+- Do NOT include any explanations, reasoning, lists, or notes.
+- Do NOT output the text "Reconstructed Dialogue" or any preamble.
+- Start directly with "speaker1:" or "speaker2:".
+- Keep all original <Explicit> and <Implicit> tags exactly as is.
+- Insert your reconstructions in <IMPLICIT_PREMISE>...</IMPLICIT_PREMISE> or <IMPLICIT_CLAIM>...</IMPLICIT_CLAIM> tags.
 
 EXAMPLE:
 Input:
@@ -142,8 +142,6 @@ speaker1: <Explicit> It is raining. </Explicit> <IMPLICIT_PREMISE>Umbrellas prot
 
 INPUT TEXT:
 {text}
-
-OUTPUT:
 """
     return prompt
 
