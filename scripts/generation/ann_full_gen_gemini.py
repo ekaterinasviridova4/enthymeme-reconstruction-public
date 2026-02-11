@@ -161,7 +161,7 @@ def save_predictions(predictions, output_dir):
     logging.info(f"Reconstructed texts saved to {output_file}")
     return output_file
 
-def generate_reconstruction(model, text, max_tokens=8192, temperature=0.0):
+def generate_reconstruction(model, text, max_tokens=16384, temperature=0.0):
     """Generate reconstruction for a single text using LiteLLM"""
     prompt = build_prompt(text)
     
