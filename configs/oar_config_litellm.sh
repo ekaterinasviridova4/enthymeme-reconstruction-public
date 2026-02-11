@@ -32,7 +32,7 @@ OAR_OUT=$(oarsub \
      python3 scripts/generation/ann_full_gen_gemini.py \
         --input_file data/dialogue/out_dial_jsonl/test_labeled.jsonl \
         --output_dir results/ann_full_reconstructed_litellm \
-        --model 'openai/gpt-4o' \
+        --model 'openai/gpt-5' \
         --temperature 0.0; \
      echo 'LiteLLM text reconstruction completed.'
     " \
