@@ -150,18 +150,18 @@ Sentences are annotated with tags:
 - <Implicit>...</Implicit>: Implicit content that needs reconstruction.
 
 TASK:
-For each sentence marked as <Implicit>...</Implicit>:
-1. Identify the missing (implicit) information or missing (implicit) logical link (premise or claim) that connects it to the context.
-2. Formulate this missing information or link as a clear sentence.
-3. Determine if it is an "<IMPLICIT_PREMISE>...</IMPLICIT_PREMISE>" or "<IMPLICIT_CLAIM>...</IMPLICIT_CLAIM>".
-4. Insert this reconstruction immediately before or after the original implicit sentence, whichever makes the most logical sense.
+For each <Implicit> sentence, you must insert a missing logical link (Premise or Claim) that explains it.
+1. Formulate the missing link.
+2. Determine if it is a PREMISE or a CLAIM.
+3. Insert it using strictly these tags:
+   - <IMPLICIT_PREMISE>...content...</IMPLICIT_PREMISE>
+   - <IMPLICIT_CLAIM>...content...</IMPLICIT_CLAIM>
+4. Do NOT use <Implicit> tags for your inserted text. The <Implicit> tag is ONLY for the original text.
 
 OUTPUT FORMAT:
-Reconstructed Dialogue
-- Reproduce the full dialogue.
-- Keep all <Explicit> and <Implicit> tags in original sentences.
-- Keep the original text exactly as is.
-- Insert your reconstructions in tags: <IMPLICIT_PREMISE>...</IMPLICIT_PREMISE> or <IMPLICIT_CLAIM>...</IMPLICIT_CLAIM>, don't add any other tags to reconstructions.
+- Output the full dialogue including original tags.
+- Insert your <IMPLICIT_PREMISE> or <IMPLICIT_CLAIM> tags immediately next to the relevant <Implicit> sentence.
+- Do NOT change the content inside <Explicit> or <Implicit> tags.
 - Maintain "speaker1:" and "speaker2:" labels.
 
 EXAMPLE:
@@ -169,7 +169,7 @@ Input:
 speaker1: <Explicit> It is raining. </Explicit> <Implicit> I will take an umbrella. </Implicit>
 
 Output:
-speaker1: <Explicit> It is raining. </Explicit> <IMPLICIT_PREMISE>Umbrellas protect from rain.</IMPLICIT_PREMISE> <Implicit> I will take an umbrella.</Implicit>
+speaker1: <Explicit> It is raining. </Explicit> <IMPLICIT_PREMISE>Umbrellas protect from rain.</IMPLICIT_PREMISE> <Implicit> I will take an umbrella. </Implicit>
 
 INPUT TEXT:
 {text}
