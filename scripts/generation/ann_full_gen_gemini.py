@@ -227,6 +227,12 @@ def main():
     
     # Process each text
     logging.info(f"Processing {len(data)} texts with model: {args.model}")
+
+    # Special handling for Gemini 3
+    if "gemini-3" in args.model.lower() and args.temperature < 1.0:
+        logging.warning(f"Warning: Temperature set to 1.0.")
+        args.temperature = 1.0
+
     predictions = []
     
     for idx, item in enumerate(tqdm(data, desc="Reconstructing texts")):
