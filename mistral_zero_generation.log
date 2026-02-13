@@ -1,0 +1,156 @@
+2025-11-22 15:26:05,982 - INFO - Hugging Face token found. Logging in...
+2025-11-22 15:26:06,449 - INFO - ==================================================
+2025-11-22 15:26:06,449 - INFO - Starting text reconstruction process
+2025-11-22 15:26:06,449 - INFO - Input file: out_jsonl/dev.jsonl
+2025-11-22 15:26:06,449 - INFO - Output directory: ./reconstructed_outputs
+2025-11-22 15:26:06,449 - INFO - Model: mistralai/Mistral-Small-3.2-24B-Instruct-2506
+2025-11-22 15:26:06,449 - INFO - Seed: 42
+2025-11-22 15:26:06,449 - INFO - ==================================================
+2025-11-22 15:26:06,660 - INFO - Loading dataset...
+2025-11-22 15:26:06,676 - INFO - Loaded 7 examples
+2025-11-22 15:26:06,676 - INFO - Limited to first 5 examples
+2025-11-22 15:26:06,676 - INFO - Loading model...
+2025-11-22 15:26:06,676 - INFO - Loading model: mistralai/Mistral-Small-3.2-24B-Instruct-2506
+2025-11-22 15:26:07,097 - INFO - Vocab size: 150000
+2025-11-22 15:26:07,098 - INFO - Cutting vocab to first 130072 tokens.
+2025-11-22 15:26:10,365 - INFO - We will use 90% of the memory on device 0 for storing the model, and 10% for the buffer to avoid OOM. You can set `max_memory` in to a higher value to use more memory (at your own risk).
+2025-11-22 15:28:09,554 - INFO - Model loaded successfully
+2025-11-22 15:28:09,556 - INFO - Processing 5 texts...
+2025-11-22 15:31:06,894 - INFO - Reconstructed texts saved to ./reconstructed_outputs/reconstructed_texts_20251122_153106.jsonl
+2025-11-22 15:31:06,894 - INFO - ==================================================
+2025-11-22 15:31:06,894 - INFO - Reconstruction complete! Processed 5 examples
+2025-11-22 15:31:06,894 - INFO - Results saved to: ./reconstructed_outputs/reconstructed_texts_20251122_153106.jsonl
+2025-11-22 15:31:06,894 - INFO - Log file: ./reconstructed_outputs/reconstruction_20251122_152606.log
+2025-11-22 15:31:06,894 - INFO - ==================================================
+2025-11-24 09:20:15,835 - INFO - Hugging Face token found. Logging in...
+2025-11-24 09:20:16,086 - INFO - ==================================================
+2025-11-24 09:20:16,086 - INFO - Starting text reconstruction process
+2025-11-24 09:20:16,086 - INFO - Input file: out_jsonl/dev.jsonl
+2025-11-24 09:20:16,086 - INFO - Output directory: ./reconstructed_outputs
+2025-11-24 09:20:16,086 - INFO - Model: mistralai/Mistral-Small-3.2-24B-Instruct-2506
+2025-11-24 09:20:16,086 - INFO - Seed: 42
+2025-11-24 09:20:16,086 - INFO - ==================================================
+2025-11-24 09:20:16,295 - INFO - Loading dataset...
+2025-11-24 09:20:16,296 - INFO - Loaded 7 examples
+2025-11-24 09:20:16,296 - INFO - Limited to first 5 examples
+2025-11-24 09:20:16,296 - INFO - Loading model...
+2025-11-24 09:20:16,296 - INFO - Loading model: mistralai/Mistral-Small-3.2-24B-Instruct-2506
+2025-11-24 09:20:16,813 - INFO - Vocab size: 150000
+2025-11-24 09:20:16,814 - INFO - Cutting vocab to first 130072 tokens.
+2025-11-24 09:20:19,795 - INFO - We will use 90% of the memory on device 0 for storing the model, and 10% for the buffer to avoid OOM. You can set `max_memory` in to a higher value to use more memory (at your own risk).
+2025-11-24 09:22:09,695 - INFO - Model loaded successfully
+2025-11-24 09:22:09,696 - INFO - Processing 5 texts...
+2025-11-24 09:26:52,330 - INFO - Reconstructed texts saved to ./reconstructed_outputs/reconstructed_texts_20251124_092652.jsonl
+2025-11-24 09:26:52,331 - INFO - ==================================================
+2025-11-24 09:26:52,331 - INFO - Reconstruction complete! Processed 5 examples
+2025-11-24 09:26:52,331 - INFO - Results saved to: ./reconstructed_outputs/reconstructed_texts_20251124_092652.jsonl
+2025-11-24 09:26:52,331 - INFO - Log file: ./reconstructed_outputs/reconstruction_20251124_092016.log
+2025-11-24 09:26:52,331 - INFO - ==================================================
+2025-11-24 15:40:01,244 - INFO - Hugging Face token found. Logging in...
+2025-11-24 15:40:01,465 - INFO - ==================================================
+2025-11-24 15:40:01,465 - INFO - Starting text reconstruction process
+2025-11-24 15:40:01,465 - INFO - Input file: out_jsonl/dev.jsonl
+2025-11-24 15:40:01,465 - INFO - Output directory: ./reconstructed_outputs
+2025-11-24 15:40:01,465 - INFO - Model: mistralai/Mistral-Small-3.2-24B-Instruct-2506
+2025-11-24 15:40:01,465 - INFO - Seed: 42
+2025-11-24 15:40:01,465 - INFO - ==================================================
+2025-11-24 15:40:01,838 - INFO - Loading dataset...
+2025-11-24 15:40:01,851 - INFO - Loaded 7 examples
+2025-11-24 15:40:01,851 - INFO - Limited to first 5 examples
+2025-11-24 15:40:01,851 - INFO - Loading model...
+2025-11-24 15:40:01,851 - INFO - Loading model: mistralai/Mistral-Small-3.2-24B-Instruct-2506
+2025-11-24 15:40:02,268 - INFO - Vocab size: 150000
+2025-11-24 15:40:02,269 - INFO - Cutting vocab to first 130072 tokens.
+2025-11-24 15:40:05,735 - INFO - We will use 90% of the memory on device 0 for storing the model, and 10% for the buffer to avoid OOM. You can set `max_memory` in to a higher value to use more memory (at your own risk).
+2025-11-24 15:42:09,712 - INFO - Model loaded successfully
+2025-11-24 15:42:09,713 - INFO - Processing 5 texts...
+2025-11-24 15:44:23,853 - INFO - Reconstructed texts saved to ./reconstructed_outputs/reconstructed_texts_20251124_154423.jsonl
+2025-11-24 15:44:23,853 - INFO - ==================================================
+2025-11-24 15:44:23,853 - INFO - Reconstruction complete! Processed 5 examples
+2025-11-24 15:44:23,853 - INFO - Results saved to: ./reconstructed_outputs/reconstructed_texts_20251124_154423.jsonl
+2025-11-24 15:44:23,853 - INFO - Log file: ./reconstructed_outputs/reconstruction_20251124_154001.log
+2025-11-24 15:44:23,853 - INFO - ==================================================
+2025-12-08 14:28:09,066 - INFO - Hugging Face token found. Logging in...
+2025-12-08 14:28:09,317 - INFO - ==================================================
+2025-12-08 14:28:09,317 - INFO - Starting text reconstruction process
+2025-12-08 14:28:09,317 - INFO - Input file: out_dial_jsonl/dev.jsonl
+2025-12-08 14:28:09,317 - INFO - Output directory: ./reconstructed_mistral
+2025-12-08 14:28:09,317 - INFO - Model: mistralai/Mistral-Small-3.2-24B-Instruct-2506
+2025-12-08 14:28:09,317 - INFO - Seed: 42
+2025-12-08 14:28:09,317 - INFO - ==================================================
+2025-12-08 14:28:09,521 - INFO - Loading dataset...
+2025-12-08 14:28:09,530 - INFO - Loaded 7 examples
+2025-12-08 14:28:09,530 - INFO - Limited to first 5 examples
+2025-12-08 14:28:09,530 - INFO - Loading model...
+2025-12-08 14:28:09,530 - INFO - Loading model: mistralai/Mistral-Small-3.2-24B-Instruct-2506
+2025-12-08 14:28:09,954 - INFO - Vocab size: 150000
+2025-12-08 14:28:09,955 - INFO - Cutting vocab to first 130072 tokens.
+2025-12-08 14:28:13,106 - INFO - We will use 90% of the memory on device 0 for storing the model, and 10% for the buffer to avoid OOM. You can set `max_memory` in to a higher value to use more memory (at your own risk).
+2025-12-08 14:30:11,234 - INFO - Model loaded successfully
+2025-12-08 14:30:11,235 - INFO - Processing 5 texts...
+2025-12-08 14:33:06,443 - INFO - Reconstructed texts saved to ./reconstructed_mistral/reconstructed_mistral_20251208_143306.jsonl
+2025-12-08 14:33:06,443 - INFO - ==================================================
+2025-12-08 14:33:06,443 - INFO - Reconstruction complete! Processed 5 examples
+2025-12-08 14:33:06,443 - INFO - Results saved to: ./reconstructed_mistral/reconstructed_mistral_20251208_143306.jsonl
+2025-12-08 14:33:06,443 - INFO - Log file: ./reconstructed_mistral/reconstruction_20251208_142809.log
+2025-12-08 14:33:06,443 - INFO - ==================================================
+2026-01-05 15:40:00,085 - INFO - Hugging Face token found. Logging in...
+2026-01-05 15:40:00,375 - INFO - ==================================================
+2026-01-05 15:40:00,376 - INFO - Starting text reconstruction process
+2026-01-05 15:40:00,376 - INFO - Input file: data/dialogue/out_dial_jsonl/dev_labeled.jsonl
+2026-01-05 15:40:00,376 - INFO - Output directory: results/ann_reconstructed_mistral
+2026-01-05 15:40:00,376 - INFO - Model: mistralai/Mistral-Small-3.2-24B-Instruct-2506
+2026-01-05 15:40:00,376 - INFO - Seed: 42
+2026-01-05 15:40:00,376 - INFO - ==================================================
+2026-01-05 15:40:00,478 - INFO - Loading dataset...
+2026-01-05 15:40:00,481 - INFO - Loaded 7 examples
+2026-01-05 15:40:00,481 - INFO - Limited to first 5 examples
+2026-01-05 15:40:00,481 - INFO - Loading model...
+2026-01-05 15:40:00,481 - INFO - Loading model: mistralai/Mistral-Small-3.2-24B-Instruct-2506
+2026-01-05 15:40:01,223 - INFO - Vocab size: 150000
+2026-01-05 15:40:01,225 - INFO - Cutting vocab to first 130072 tokens.
+2026-01-05 15:40:08,361 - INFO - We will use 90% of the memory on device 0 for storing the model, and 10% for the buffer to avoid OOM. You can set `max_memory` in to a higher value to use more memory (at your own risk).
+2026-01-05 15:48:01,860 - INFO - Model loaded successfully
+2026-01-05 15:48:01,863 - INFO - Processing 5 texts...
+2026-01-05 15:56:20,007 - INFO - Reconstructed texts saved to results/ann_reconstructed_mistral/reconstructed_mistral_20260105_155620.jsonl
+2026-01-05 15:56:20,007 - INFO - ==================================================
+2026-01-05 15:56:20,007 - INFO - Reconstruction complete! Processed 5 examples
+2026-01-05 15:56:20,007 - INFO - Results saved to: results/ann_reconstructed_mistral/reconstructed_mistral_20260105_155620.jsonl
+2026-01-05 15:56:20,007 - INFO - Log file: results/ann_reconstructed_mistral/reconstruction_20260105_154000.log
+2026-01-05 15:56:20,007 - INFO - ==================================================
+2026-02-04 13:43:13,022 - INFO - Hugging Face token found. Logging in...
+2026-02-04 13:43:13,511 - INFO - HTTP Request: GET https://huggingface.co/api/whoami-v2 "HTTP/1.1 200 OK"
+2026-02-04 13:43:13,537 - INFO - ==================================================
+2026-02-04 13:43:13,537 - INFO - Starting text reconstruction process
+2026-02-04 13:43:13,537 - INFO - Input file: data/dialogue/out_dial_jsonl/test_labeled.jsonl
+2026-02-04 13:43:13,537 - INFO - Output directory: results/ann_full_reconstructed_mistral_olmo
+2026-02-04 13:43:13,537 - INFO - Model: mistralai/Mistral-Small-3.2-24B-Instruct-2506
+2026-02-04 13:43:13,537 - INFO - Seed: 42
+2026-02-04 13:43:13,537 - INFO - ==================================================
+2026-02-04 13:43:13,602 - INFO - Loading dataset...
+2026-02-04 13:43:13,609 - INFO - Loaded 9 examples
+2026-02-04 13:43:13,609 - INFO - Loading model...
+2026-02-04 13:43:13,609 - INFO - Loading model: mistralai/Mistral-Small-3.2-24B-Instruct-2506
+2026-02-04 13:43:13,609 - INFO - Using Mistral specific loading
+2026-02-04 13:43:13,739 - INFO - HTTP Request: GET https://huggingface.co/api/models/mistralai/Mistral-Small-3.2-24B-Instruct-2506/tree/main?recursive=true&expand=false "HTTP/1.1 200 OK"
+2026-02-04 13:43:13,863 - INFO - HTTP Request: HEAD https://huggingface.co/mistralai/Mistral-Small-3.2-24B-Instruct-2506/resolve/main/tekken.json "HTTP/1.1 302 Found"
+2026-02-04 13:43:14,190 - INFO - Vocab size: 150000
+2026-02-04 13:43:14,191 - INFO - Cutting vocab to first 130072 tokens.
+2026-02-04 13:43:14,656 - INFO - HTTP Request: HEAD https://huggingface.co/mistralai/Mistral-Small-3.2-24B-Instruct-2506/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-02-04 13:43:14,779 - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/mistralai/Mistral-Small-3.2-24B-Instruct-2506/95a6d26c4bfb886c58daf9d3f7332c857cb27b43/config.json "HTTP/1.1 200 OK"
+2026-02-04 13:43:14,904 - INFO - HTTP Request: HEAD https://huggingface.co/mistralai/Mistral-Small-3.2-24B-Instruct-2506/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-02-04 13:43:14,928 - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/mistralai/Mistral-Small-3.2-24B-Instruct-2506/95a6d26c4bfb886c58daf9d3f7332c857cb27b43/config.json "HTTP/1.1 200 OK"
+2026-02-04 13:43:17,524 - INFO - HTTP Request: HEAD https://huggingface.co/mistralai/Mistral-Small-3.2-24B-Instruct-2506/resolve/main/model.safetensors "HTTP/1.1 404 Not Found"
+2026-02-04 13:43:17,646 - INFO - HTTP Request: HEAD https://huggingface.co/mistralai/Mistral-Small-3.2-24B-Instruct-2506/resolve/main/model.safetensors.index.json "HTTP/1.1 307 Temporary Redirect"
+2026-02-04 13:43:17,764 - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/mistralai/Mistral-Small-3.2-24B-Instruct-2506/95a6d26c4bfb886c58daf9d3f7332c857cb27b43/model.safetensors.index.json "HTTP/1.1 200 OK"
+2026-02-04 13:43:17,921 - INFO - HTTP Request: GET https://huggingface.co/api/models/mistralai/Mistral-Small-3.2-24B-Instruct-2506/revision/main "HTTP/1.1 200 OK"
+2026-02-04 13:46:21,098 - INFO - HTTP Request: HEAD https://huggingface.co/mistralai/Mistral-Small-3.2-24B-Instruct-2506/resolve/main/generation_config.json "HTTP/1.1 307 Temporary Redirect"
+2026-02-04 13:46:21,218 - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/mistralai/Mistral-Small-3.2-24B-Instruct-2506/95a6d26c4bfb886c58daf9d3f7332c857cb27b43/generation_config.json "HTTP/1.1 200 OK"
+2026-02-04 13:46:21,230 - INFO - Model loaded successfully
+2026-02-04 13:46:21,232 - INFO - Processing 9 texts...
+2026-02-04 13:54:03,960 - INFO - Reconstructed texts saved to results/ann_full_reconstructed_mistral_olmo/reconstructed_test_mistral_20260204_135403.jsonl
+2026-02-04 13:54:03,961 - INFO - ==================================================
+2026-02-04 13:54:03,961 - INFO - Reconstruction complete! Processed 9 examples
+2026-02-04 13:54:03,961 - INFO - Results saved to: results/ann_full_reconstructed_mistral_olmo/reconstructed_test_mistral_20260204_135403.jsonl
+2026-02-04 13:54:03,961 - INFO - Log file: results/ann_full_reconstructed_mistral_olmo/reconstruction_20260204_134313.log
+2026-02-04 13:54:03,961 - INFO - ==================================================
