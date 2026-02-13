@@ -108,7 +108,7 @@ def parse_args():
     parser.add_argument(
         "--max_new_tokens",
         type=int,
-        default=4096,
+        default=16384,
         help="Maximum number of tokens to output"
     )
     return parser.parse_args()
@@ -190,7 +190,7 @@ def save_predictions(predictions, output_dir):
     logging.info(f"Reconstructed texts saved to {output_file}")
     return output_file
 
-def generate_reconstruction(model, tokenizer, text, max_new_tokens=4096):
+def generate_reconstruction(model, tokenizer, text, max_new_tokens=16384):
     """Reconstruct implicitness"""
     prompt = build_prompt(text)
     
@@ -236,6 +236,24 @@ def generate_reconstruction(model, tokenizer, text, max_new_tokens=4096):
         generated_tokens = outputs[0][input_length:]
         reconstruction = tokenizer.decode(generated_tokens, skip_special_tokens=True).strip()
     
+    # Check stop reason
+    stop_reason = "stop"
+    if len(generated_tokens) >= max_new_tokens:
+         stop_reason = "length"
+         # Double check if the last token is actually EOS (rare edge case where it fits exactly)
+         if hasattr(model.config, "eos_token_id") and model.config.eos_token_id is not None:
+             eos_ids = model.config.eos_token_id
+             if not isinstance(eos_ids, list):
+                 eos_ids = [eos_ids]
+             
+             if generated_tokens[-1].item() in eos_ids:
+                 stop_reason = "stop"
+    
+    # Log generation details similar to ann_full_gen_gemini.py
+    logging.info(f"Generation finished. Reason: {stop_reason}")
+    if stop_reason == "length":
+        logging.warning("WARNING: Generation was truncated due to token limit!")
+
     return reconstruction
 
 def main():
