@@ -1,11 +1,11 @@
-NAME="ann_olmo_text_reconstruction"
+NAME="ann_mistral_text_reconstruction"
 PROJECT_NAME="test1"
 HOME="/home/esvirido"
 PROJECT_DIR="$HOME/phd/test1"
 EMAIL="ekaterina.sviridova@inria.fr"
 LOGDIR="$HOME/logs"
-#MODEL_ID="mistralai/Mistral-Small-3.2-24B-Instruct-2506"
-MODEL_ID="allenai/Olmo-3.1-32B-Instruct"
+MODEL_ID="mistralai/Mistral-Small-3.2-24B-Instruct-2506"
+#MODEL_ID="allenai/Olmo-3.1-32B-Instruct"
 export HUGGINGFACE_HUB_TOKEN=$(cat /home/esvirido/.huggingface/token)
 #export GOOGLE_API_KEY=$(cat /home/esvirido/.google/api_key)
 
