@@ -444,3 +444,5 @@
 2026-02-13 11:24:19,409 - INFO - Results saved to: results/ann_full_reconstructed_mistral_olmo/reconstructed_test_olmo_20260213_112419.jsonl
 2026-02-13 11:24:19,409 - INFO - Log file: results/ann_full_reconstructed_mistral_olmo/reconstruction_20260213_105527.log
 2026-02-13 11:24:19,409 - INFO - ==================================================
+2026-02-13 14:34:54,196 - INFO - Hugging Face token found. Logging in...
+2026-02-13 14:34:54,501 - INFO - HTTP Request: GET https://huggingface.co/api/whoami-v2 "HTTP/1.1 200 OK"
