@@ -150,7 +150,7 @@ Sentences are annotated with tags:
 - <Implicit>...</Implicit>: Implicit content that needs reconstruction.
 
 TASK:
-For each <Implicit> sentence, you must insert a missing logical link (Premise or Claim) that explains it.
+For EACH <Implicit> sentence, you must insert a missing logical link (Premise or Claim) that explains it.
 1. Formulate the missing link.
 2. Determine if it is a PREMISE or a CLAIM.
 3. Insert it using strictly these tags:
