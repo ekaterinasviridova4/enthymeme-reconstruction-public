@@ -1,0 +1,57 @@
+2026-02-13 14:34:54,514 - INFO - ==================================================
+2026-02-13 14:34:54,514 - INFO - Starting text reconstruction process
+2026-02-13 14:34:54,514 - INFO - Transformers version: 5.0.0
+2026-02-13 14:34:54,514 - INFO - BitsAndBytes version: 0.49.1
+2026-02-13 14:34:54,514 - INFO - Accelerate version: 1.12.0
+2026-02-13 14:34:54,514 - INFO - PyTorch version: 2.10.0+cu128
+2026-02-13 14:34:54,514 - INFO - CUDA available: True
+2026-02-13 14:34:54,514 - INFO - CUDA device count: 4
+2026-02-13 14:34:54,515 - INFO - GPU 0: Tesla V100-SXM2-32GB
+2026-02-13 14:34:54,515 - INFO - GPU 0 Memory: 31.74 GB
+2026-02-13 14:34:54,515 - INFO - GPU 1: Tesla V100-SXM2-32GB
+2026-02-13 14:34:54,515 - INFO - GPU 1 Memory: 31.74 GB
+2026-02-13 14:34:54,515 - INFO - GPU 2: Tesla V100-SXM2-32GB
+2026-02-13 14:34:54,515 - INFO - GPU 2 Memory: 31.74 GB
+2026-02-13 14:34:54,515 - INFO - GPU 3: Tesla V100-SXM2-32GB
+2026-02-13 14:34:54,515 - INFO - GPU 3 Memory: 31.74 GB
+2026-02-13 14:34:54,515 - INFO - Input file: data/dialogue/out_dial_jsonl/test_labeled.jsonl
+2026-02-13 14:34:54,515 - INFO - Output directory: results/ann_full_reconstructed_mistral_olmo
+2026-02-13 14:34:54,515 - INFO - Model: mistralai/Mistral-Small-3.2-24B-Instruct-2506
+2026-02-13 14:34:54,515 - INFO - Seed: 42
+2026-02-13 14:34:54,515 - INFO - ==================================================
+2026-02-13 14:34:54,520 - INFO - Loading dataset...
+2026-02-13 14:34:54,522 - INFO - Loaded 9 examples
+2026-02-13 14:34:54,523 - INFO - Loading model...
+2026-02-13 14:34:54,523 - INFO - Loading model: mistralai/Mistral-Small-3.2-24B-Instruct-2506
+2026-02-13 14:34:54,523 - INFO - Using Mistral loading
+2026-02-13 14:34:54,667 - INFO - HTTP Request: GET https://huggingface.co/api/models/mistralai/Mistral-Small-3.2-24B-Instruct-2506/tree/main?recursive=true&expand=false "HTTP/1.1 200 OK"
+2026-02-13 14:34:54,803 - INFO - HTTP Request: HEAD https://huggingface.co/mistralai/Mistral-Small-3.2-24B-Instruct-2506/resolve/main/tekken.json "HTTP/1.1 302 Found"
+2026-02-13 14:34:55,453 - INFO - Non special vocabulary size is 130072 with 1000 special tokens.
+2026-02-13 14:34:55,455 - INFO - Cutting non special vocabulary to first 130072 tokens.
+2026-02-13 14:34:56,123 - INFO - HTTP Request: HEAD https://huggingface.co/mistralai/Mistral-Small-3.2-24B-Instruct-2506/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-02-13 14:34:56,277 - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/mistralai/Mistral-Small-3.2-24B-Instruct-2506/95a6d26c4bfb886c58daf9d3f7332c857cb27b43/config.json "HTTP/1.1 200 OK"
+2026-02-13 14:34:56,417 - INFO - HTTP Request: HEAD https://huggingface.co/mistralai/Mistral-Small-3.2-24B-Instruct-2506/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-02-13 14:34:56,466 - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/mistralai/Mistral-Small-3.2-24B-Instruct-2506/95a6d26c4bfb886c58daf9d3f7332c857cb27b43/config.json "HTTP/1.1 200 OK"
+2026-02-13 14:34:56,685 - INFO - HTTP Request: HEAD https://huggingface.co/mistralai/Mistral-Small-3.2-24B-Instruct-2506/resolve/main/model.safetensors "HTTP/1.1 404 Not Found"
+2026-02-13 14:34:56,824 - INFO - HTTP Request: HEAD https://huggingface.co/mistralai/Mistral-Small-3.2-24B-Instruct-2506/resolve/main/model.safetensors.index.json "HTTP/1.1 307 Temporary Redirect"
+2026-02-13 14:34:57,355 - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/mistralai/Mistral-Small-3.2-24B-Instruct-2506/95a6d26c4bfb886c58daf9d3f7332c857cb27b43/model.safetensors.index.json "HTTP/1.1 200 OK"
+2026-02-13 14:34:57,523 - INFO - HTTP Request: GET https://huggingface.co/api/models/mistralai/Mistral-Small-3.2-24B-Instruct-2506/revision/main "HTTP/1.1 200 OK"
+2026-02-13 14:42:42,605 - INFO - HTTP Request: HEAD https://huggingface.co/mistralai/Mistral-Small-3.2-24B-Instruct-2506/resolve/main/generation_config.json "HTTP/1.1 307 Temporary Redirect"
+2026-02-13 14:42:42,760 - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/mistralai/Mistral-Small-3.2-24B-Instruct-2506/95a6d26c4bfb886c58daf9d3f7332c857cb27b43/generation_config.json "HTTP/1.1 200 OK"
+2026-02-13 14:42:43,288 - INFO - Model loaded successfully
+2026-02-13 14:42:43,291 - INFO - Processing 9 texts...
+2026-02-13 14:46:22,559 - INFO - Generation finished. Reason: stop
+2026-02-13 14:48:59,170 - INFO - Generation finished. Reason: stop
+2026-02-13 14:50:15,611 - INFO - Generation finished. Reason: stop
+2026-02-13 14:51:40,702 - INFO - Generation finished. Reason: stop
+2026-02-13 14:53:27,616 - INFO - Generation finished. Reason: stop
+2026-02-13 14:56:32,916 - INFO - Generation finished. Reason: stop
+2026-02-13 14:57:29,299 - INFO - Generation finished. Reason: stop
+2026-02-13 14:58:31,393 - INFO - Generation finished. Reason: stop
+2026-02-13 14:59:41,324 - INFO - Generation finished. Reason: stop
+2026-02-13 14:59:41,329 - INFO - Reconstructed texts saved to results/ann_full_reconstructed_mistral_olmo/reconstructed_test_mistral24_20260213_145941.jsonl
+2026-02-13 14:59:41,329 - INFO - ==================================================
+2026-02-13 14:59:41,329 - INFO - Reconstruction complete! Processed 9 examples
+2026-02-13 14:59:41,329 - INFO - Results saved to: results/ann_full_reconstructed_mistral_olmo/reconstructed_test_mistral24_20260213_145941.jsonl
+2026-02-13 14:59:41,329 - INFO - Log file: results/ann_full_reconstructed_mistral_olmo/reconstruction_20260213_143454.log
+2026-02-13 14:59:41,329 - INFO - ==================================================
