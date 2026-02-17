@@ -1,0 +1,56 @@
+2026-02-17 02:42:00,242 - INFO - ==================================================
+2026-02-17 02:42:00,242 - INFO - Starting text reconstruction process
+2026-02-17 02:42:00,242 - INFO - Transformers version: 5.0.0
+2026-02-17 02:42:00,243 - INFO - BitsAndBytes version: 0.49.1
+2026-02-17 02:42:00,243 - INFO - Accelerate version: 1.12.0
+2026-02-17 02:42:00,243 - INFO - PyTorch version: 2.10.0+cu128
+2026-02-17 02:42:00,243 - INFO - CUDA available: True
+2026-02-17 02:42:00,243 - INFO - CUDA device count: 4
+2026-02-17 02:42:00,243 - INFO - GPU 0: NVIDIA TITAN RTX
+2026-02-17 02:42:00,243 - INFO - GPU 0 Memory: 23.64 GB
+2026-02-17 02:42:00,243 - INFO - GPU 1: NVIDIA TITAN RTX
+2026-02-17 02:42:00,243 - INFO - GPU 1 Memory: 23.64 GB
+2026-02-17 02:42:00,243 - INFO - GPU 2: NVIDIA TITAN RTX
+2026-02-17 02:42:00,243 - INFO - GPU 2 Memory: 23.64 GB
+2026-02-17 02:42:00,243 - INFO - GPU 3: NVIDIA TITAN RTX
+2026-02-17 02:42:00,243 - INFO - GPU 3 Memory: 23.64 GB
+2026-02-17 02:42:00,243 - INFO - Input file: data/dialogue/out_dial_jsonl/test_labeled.jsonl
+2026-02-17 02:42:00,243 - INFO - Output directory: results/ann_full_reconstructed_mistral_olmo
+2026-02-17 02:42:00,243 - INFO - Model: allenai/Olmo-3.1-32B-Instruct
+2026-02-17 02:42:00,243 - INFO - Seed: 42
+2026-02-17 02:42:00,243 - INFO - ==================================================
+2026-02-17 02:42:00,274 - INFO - Loading dataset...
+2026-02-17 02:42:00,289 - INFO - Loaded 9 examples
+2026-02-17 02:42:00,289 - INFO - Loading model...
+2026-02-17 02:42:00,289 - INFO - Loading model: allenai/Olmo-3.1-32B-Instruct
+2026-02-17 02:42:00,289 - INFO - Detected Olmo, using AutoModelForCausalLM
+2026-02-17 02:42:00,408 - INFO - HTTP Request: HEAD https://huggingface.co/allenai/Olmo-3.1-32B-Instruct/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-02-17 02:42:00,439 - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/allenai/Olmo-3.1-32B-Instruct/ac0587e4a7744a551c059d8cd17ba220bc940dae/config.json "HTTP/1.1 200 OK"
+2026-02-17 02:42:00,641 - INFO - HTTP Request: HEAD https://huggingface.co/allenai/Olmo-3.1-32B-Instruct/resolve/main/tokenizer_config.json "HTTP/1.1 307 Temporary Redirect"
+2026-02-17 02:42:00,669 - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/allenai/Olmo-3.1-32B-Instruct/ac0587e4a7744a551c059d8cd17ba220bc940dae/tokenizer_config.json "HTTP/1.1 200 OK"
+2026-02-17 02:42:00,853 - INFO - HTTP Request: GET https://huggingface.co/api/models/allenai/Olmo-3.1-32B-Instruct/tree/main/additional_chat_templates?recursive=false&expand=false "HTTP/1.1 404 Not Found"
+2026-02-17 02:42:00,977 - INFO - HTTP Request: GET https://huggingface.co/api/models/allenai/Olmo-3.1-32B-Instruct/tree/main?recursive=true&expand=false "HTTP/1.1 200 OK"
+2026-02-17 02:42:01,806 - INFO - HTTP Request: GET https://huggingface.co/api/models/allenai/Olmo-3.1-32B-Instruct "HTTP/1.1 200 OK"
+2026-02-17 02:42:01,929 - INFO - HTTP Request: HEAD https://huggingface.co/allenai/Olmo-3.1-32B-Instruct/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-02-17 02:42:01,958 - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/allenai/Olmo-3.1-32B-Instruct/ac0587e4a7744a551c059d8cd17ba220bc940dae/config.json "HTTP/1.1 200 OK"
+2026-02-17 02:42:02,110 - INFO - HTTP Request: HEAD https://huggingface.co/allenai/Olmo-3.1-32B-Instruct/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-02-17 02:42:02,138 - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/allenai/Olmo-3.1-32B-Instruct/ac0587e4a7744a551c059d8cd17ba220bc940dae/config.json "HTTP/1.1 200 OK"
+2026-02-17 02:51:40,232 - INFO - HTTP Request: HEAD https://huggingface.co/allenai/Olmo-3.1-32B-Instruct/resolve/main/generation_config.json "HTTP/1.1 307 Temporary Redirect"
+2026-02-17 02:51:40,261 - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/allenai/Olmo-3.1-32B-Instruct/ac0587e4a7744a551c059d8cd17ba220bc940dae/generation_config.json "HTTP/1.1 200 OK"
+2026-02-17 02:51:41,068 - INFO - Model loaded successfully
+2026-02-17 02:51:41,072 - INFO - Processing 9 texts...
+2026-02-17 02:54:37,673 - INFO - Generation finished. Reason: stop
+2026-02-17 02:57:06,599 - INFO - Generation finished. Reason: stop
+2026-02-17 02:59:34,431 - INFO - Generation finished. Reason: stop
+2026-02-17 03:01:43,430 - INFO - Generation finished. Reason: stop
+2026-02-17 03:05:26,039 - INFO - Generation finished. Reason: stop
+2026-02-17 03:07:02,279 - INFO - Generation finished. Reason: stop
+2026-02-17 03:07:45,739 - INFO - Generation finished. Reason: stop
+2026-02-17 03:09:06,497 - INFO - Generation finished. Reason: stop
+2026-02-17 03:10:59,630 - INFO - Generation finished. Reason: stop
+2026-02-17 03:10:59,635 - INFO - Reconstructed texts saved to results/ann_full_reconstructed_mistral_olmo/reconstructed_test_olmo_20260217_031059.jsonl
+2026-02-17 03:10:59,635 - INFO - ==================================================
+2026-02-17 03:10:59,635 - INFO - Reconstruction complete! Processed 9 examples
+2026-02-17 03:10:59,635 - INFO - Results saved to: results/ann_full_reconstructed_mistral_olmo/reconstructed_test_olmo_20260217_031059.jsonl
+2026-02-17 03:10:59,635 - INFO - Log file: results/ann_full_reconstructed_mistral_olmo/reconstruction_20260217_024200.log
+2026-02-17 03:10:59,635 - INFO - ==================================================
