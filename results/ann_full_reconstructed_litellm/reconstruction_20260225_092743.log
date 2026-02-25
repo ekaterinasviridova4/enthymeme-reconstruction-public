@@ -1,0 +1,64 @@
+2026-02-25 09:27:43,079 - INFO - ==================================================
+2026-02-25 09:27:43,079 - INFO - Starting text reconstruction process
+2026-02-25 09:27:43,079 - INFO - Input file: data/dialogue/out_dial_jsonl/test_labeled.jsonl
+2026-02-25 09:27:43,079 - INFO - Output directory: results/ann_full_reconstructed_litellm
+2026-02-25 09:27:43,079 - INFO - Model: gemini/gemini-3-flash-preview
+2026-02-25 09:27:43,079 - INFO - Seed: 42
+2026-02-25 09:27:43,079 - INFO - Temperature: 0.7
+2026-02-25 09:27:43,079 - INFO - ==================================================
+2026-02-25 09:27:43,284 - INFO - Loading dataset...
+2026-02-25 09:27:43,286 - INFO - Loaded 9 examples
+2026-02-25 09:27:43,286 - INFO - Processing 9 texts with model: gemini/gemini-3-flash-preview
+2026-02-25 09:27:43,347 - INFO - 
+LiteLLM completion() model= gemini-3-flash-preview; provider = gemini
+2026-02-25 09:27:43,347 - INFO - Warning: Setting temperature < 1.0 for Gemini 3 models (gemini-3-flash-preview) can cause infinite loops, degraded reasoning performance, and failure on complex tasks. Strongly recommended to use temperature = 1.0 (default).
+2026-02-25 09:29:08,343 - INFO - Wrapper: Completed Call, calling success_handler
+2026-02-25 09:29:08,351 - INFO - Generation finished. Reason: length, Usage: Usage(completion_tokens=16380, prompt_tokens=1847, total_tokens=18227, completion_tokens_details=CompletionTokensDetailsWrapper(accepted_prediction_tokens=None, audio_tokens=None, reasoning_tokens=2044, rejected_prediction_tokens=None, text_tokens=14336, image_tokens=None), prompt_tokens_details=PromptTokensDetailsWrapper(audio_tokens=None, cached_tokens=None, text_tokens=1847, image_tokens=None))
+2026-02-25 09:29:08,351 - WARNING - WARNING: Generation was truncated due to token limit!
+2026-02-25 09:29:08,352 - INFO - 
+LiteLLM completion() model= gemini-3-flash-preview; provider = gemini
+2026-02-25 09:29:08,352 - INFO - Warning: Setting temperature < 1.0 for Gemini 3 models (gemini-3-flash-preview) can cause infinite loops, degraded reasoning performance, and failure on complex tasks. Strongly recommended to use temperature = 1.0 (default).
+2026-02-25 09:30:40,839 - INFO - Wrapper: Completed Call, calling success_handler
+2026-02-25 09:30:40,843 - INFO - Generation finished. Reason: length, Usage: Usage(completion_tokens=16380, prompt_tokens=1616, total_tokens=17996, completion_tokens_details=CompletionTokensDetailsWrapper(accepted_prediction_tokens=None, audio_tokens=None, reasoning_tokens=2047, rejected_prediction_tokens=None, text_tokens=14333, image_tokens=None), prompt_tokens_details=PromptTokensDetailsWrapper(audio_tokens=None, cached_tokens=None, text_tokens=1616, image_tokens=None))
+2026-02-25 09:30:40,843 - WARNING - WARNING: Generation was truncated due to token limit!
+2026-02-25 09:30:40,848 - INFO - 
+LiteLLM completion() model= gemini-3-flash-preview; provider = gemini
+2026-02-25 09:30:40,848 - INFO - Warning: Setting temperature < 1.0 for Gemini 3 models (gemini-3-flash-preview) can cause infinite loops, degraded reasoning performance, and failure on complex tasks. Strongly recommended to use temperature = 1.0 (default).
+2026-02-25 09:30:45,690 - INFO - Wrapper: Completed Call, calling success_handler
+2026-02-25 09:30:45,691 - INFO - Generation finished. Reason: stop, Usage: Usage(completion_tokens=715, prompt_tokens=788, total_tokens=1503, completion_tokens_details=None, prompt_tokens_details=PromptTokensDetailsWrapper(audio_tokens=None, cached_tokens=None, text_tokens=788, image_tokens=None))
+2026-02-25 09:30:45,692 - INFO - 
+LiteLLM completion() model= gemini-3-flash-preview; provider = gemini
+2026-02-25 09:30:45,693 - INFO - Warning: Setting temperature < 1.0 for Gemini 3 models (gemini-3-flash-preview) can cause infinite loops, degraded reasoning performance, and failure on complex tasks. Strongly recommended to use temperature = 1.0 (default).
+2026-02-25 09:30:58,319 - INFO - Wrapper: Completed Call, calling success_handler
+2026-02-25 09:30:58,319 - INFO - Generation finished. Reason: stop, Usage: Usage(completion_tokens=2161, prompt_tokens=1026, total_tokens=3187, completion_tokens_details=CompletionTokensDetailsWrapper(accepted_prediction_tokens=None, audio_tokens=None, reasoning_tokens=1286, rejected_prediction_tokens=None, text_tokens=875, image_tokens=None), prompt_tokens_details=PromptTokensDetailsWrapper(audio_tokens=None, cached_tokens=None, text_tokens=1026, image_tokens=None))
+2026-02-25 09:30:58,320 - INFO - 
+LiteLLM completion() model= gemini-3-flash-preview; provider = gemini
+2026-02-25 09:30:58,322 - INFO - Warning: Setting temperature < 1.0 for Gemini 3 models (gemini-3-flash-preview) can cause infinite loops, degraded reasoning performance, and failure on complex tasks. Strongly recommended to use temperature = 1.0 (default).
+2026-02-25 09:31:14,449 - INFO - Wrapper: Completed Call, calling success_handler
+2026-02-25 09:31:14,450 - INFO - Generation finished. Reason: stop, Usage: Usage(completion_tokens=2613, prompt_tokens=1198, total_tokens=3811, completion_tokens_details=CompletionTokensDetailsWrapper(accepted_prediction_tokens=None, audio_tokens=None, reasoning_tokens=1478, rejected_prediction_tokens=None, text_tokens=1135, image_tokens=None), prompt_tokens_details=PromptTokensDetailsWrapper(audio_tokens=None, cached_tokens=None, text_tokens=1198, image_tokens=None))
+2026-02-25 09:31:14,451 - INFO - 
+LiteLLM completion() model= gemini-3-flash-preview; provider = gemini
+2026-02-25 09:31:14,452 - INFO - Warning: Setting temperature < 1.0 for Gemini 3 models (gemini-3-flash-preview) can cause infinite loops, degraded reasoning performance, and failure on complex tasks. Strongly recommended to use temperature = 1.0 (default).
+2026-02-25 09:31:23,272 - INFO - Wrapper: Completed Call, calling success_handler
+2026-02-25 09:31:23,272 - INFO - Generation finished. Reason: stop, Usage: Usage(completion_tokens=1394, prompt_tokens=1496, total_tokens=2890, completion_tokens_details=None, prompt_tokens_details=PromptTokensDetailsWrapper(audio_tokens=None, cached_tokens=None, text_tokens=1496, image_tokens=None))
+2026-02-25 09:31:23,273 - INFO - 
+LiteLLM completion() model= gemini-3-flash-preview; provider = gemini
+2026-02-25 09:31:23,275 - INFO - Warning: Setting temperature < 1.0 for Gemini 3 models (gemini-3-flash-preview) can cause infinite loops, degraded reasoning performance, and failure on complex tasks. Strongly recommended to use temperature = 1.0 (default).
+2026-02-25 09:31:35,293 - INFO - Wrapper: Completed Call, calling success_handler
+2026-02-25 09:31:35,294 - INFO - Generation finished. Reason: stop, Usage: Usage(completion_tokens=1954, prompt_tokens=644, total_tokens=2598, completion_tokens_details=CompletionTokensDetailsWrapper(accepted_prediction_tokens=None, audio_tokens=None, reasoning_tokens=1588, rejected_prediction_tokens=None, text_tokens=366, image_tokens=None), prompt_tokens_details=PromptTokensDetailsWrapper(audio_tokens=None, cached_tokens=None, text_tokens=644, image_tokens=None))
+2026-02-25 09:31:35,296 - INFO - 
+LiteLLM completion() model= gemini-3-flash-preview; provider = gemini
+2026-02-25 09:31:35,296 - INFO - Warning: Setting temperature < 1.0 for Gemini 3 models (gemini-3-flash-preview) can cause infinite loops, degraded reasoning performance, and failure on complex tasks. Strongly recommended to use temperature = 1.0 (default).
+2026-02-25 09:31:39,871 - INFO - Wrapper: Completed Call, calling success_handler
+2026-02-25 09:31:39,872 - INFO - Generation finished. Reason: stop, Usage: Usage(completion_tokens=620, prompt_tokens=791, total_tokens=1411, completion_tokens_details=None, prompt_tokens_details=PromptTokensDetailsWrapper(audio_tokens=None, cached_tokens=None, text_tokens=791, image_tokens=None))
+2026-02-25 09:31:39,874 - INFO - 
+LiteLLM completion() model= gemini-3-flash-preview; provider = gemini
+2026-02-25 09:31:39,874 - INFO - Warning: Setting temperature < 1.0 for Gemini 3 models (gemini-3-flash-preview) can cause infinite loops, degraded reasoning performance, and failure on complex tasks. Strongly recommended to use temperature = 1.0 (default).
+2026-02-25 09:31:44,676 - INFO - Wrapper: Completed Call, calling success_handler
+2026-02-25 09:31:44,677 - INFO - Generation finished. Reason: stop, Usage: Usage(completion_tokens=653, prompt_tokens=755, total_tokens=1408, completion_tokens_details=None, prompt_tokens_details=PromptTokensDetailsWrapper(audio_tokens=None, cached_tokens=None, text_tokens=755, image_tokens=None))
+2026-02-25 09:31:44,684 - INFO - Reconstructed texts saved to results/ann_full_reconstructed_litellm/reconstructed_test_gemini3_20260225_093144.jsonl
+2026-02-25 09:31:44,684 - INFO - ==================================================
+2026-02-25 09:31:44,685 - INFO - Reconstruction complete! Processed 9 examples
+2026-02-25 09:31:44,685 - INFO - Results saved to: results/ann_full_reconstructed_litellm/reconstructed_test_gemini3_20260225_093144.jsonl
+2026-02-25 09:31:44,685 - INFO - Log file: results/ann_full_reconstructed_litellm/reconstruction_20260225_092743.log
+2026-02-25 09:31:44,685 - INFO - ==================================================
