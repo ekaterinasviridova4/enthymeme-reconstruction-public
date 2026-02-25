@@ -33,7 +33,7 @@ OAR_OUT=$(oarsub \
         --input_file data/dialogue/out_dial_jsonl/test_labeled.jsonl \
         --output_dir results/ann_full_reconstructed_litellm \
         --model 'gemini/gemini-3-flash-preview' \
-        --temperature 0.0; \
+        --temperature 0.7; \
      echo 'LiteLLM text reconstruction completed.'
     " \
 )
