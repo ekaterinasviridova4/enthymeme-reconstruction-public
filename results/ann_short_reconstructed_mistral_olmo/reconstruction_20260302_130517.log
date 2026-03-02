@@ -1,0 +1,22 @@
+2026-03-02 13:05:17,695 - INFO - ==================================================
+2026-03-02 13:05:17,695 - INFO - Starting text reconstruction process
+2026-03-02 13:05:17,695 - INFO - Transformers version: 5.2.0
+2026-03-02 13:05:17,695 - INFO - BitsAndBytes version: 0.49.1
+2026-03-02 13:05:17,695 - INFO - Accelerate version: 1.12.0
+2026-03-02 13:05:17,695 - INFO - PyTorch version: 2.10.0+cu128
+2026-03-02 13:05:17,695 - INFO - CUDA available: True
+2026-03-02 13:05:17,695 - INFO - CUDA device count: 4
+2026-03-02 13:05:17,695 - INFO - GPU 0: NVIDIA TITAN RTX
+2026-03-02 13:05:17,695 - INFO - GPU 0 Memory: 23.64 GB
+2026-03-02 13:05:17,695 - INFO - GPU 1: NVIDIA TITAN RTX
+2026-03-02 13:05:17,695 - INFO - GPU 1 Memory: 23.64 GB
+2026-03-02 13:05:17,695 - INFO - GPU 2: NVIDIA TITAN RTX
+2026-03-02 13:05:17,695 - INFO - GPU 2 Memory: 23.64 GB
+2026-03-02 13:05:17,695 - INFO - GPU 3: NVIDIA TITAN RTX
+2026-03-02 13:05:17,695 - INFO - GPU 3 Memory: 23.64 GB
+2026-03-02 13:05:17,695 - INFO - Input file: data/processed/speaker_exchanges_test_labeled_20260302_100239.jsonl
+2026-03-02 13:05:17,695 - INFO - Output directory: results/ann_short_reconstructed_mistral_olmo
+2026-03-02 13:05:17,695 - INFO - Model: mistralai/Mistral-Small-3.2-24B-Instruct-2506
+2026-03-02 13:05:17,695 - INFO - Seed: 42
+2026-03-02 13:05:17,695 - INFO - ==================================================
+2026-03-02 13:05:17,758 - INFO - Loading dataset...
