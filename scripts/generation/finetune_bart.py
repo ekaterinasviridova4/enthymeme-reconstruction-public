@@ -140,7 +140,7 @@ def main():
     # Training Args
     training_args = Seq2SeqTrainingArguments(
         output_dir=output_dir,
-        evaluation_strategy="no",
+        eval_strategy="no",
         save_strategy="epoch",
         learning_rate=args.learning_rate,
         per_device_train_batch_size=args.batch_size,
