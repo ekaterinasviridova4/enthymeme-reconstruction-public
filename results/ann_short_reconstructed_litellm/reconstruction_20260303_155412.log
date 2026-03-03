@@ -1,0 +1,115 @@
+2026-03-03 15:54:12,801 - INFO - ==================================================
+2026-03-03 15:54:12,801 - INFO - Starting text reconstruction process
+2026-03-03 15:54:12,801 - INFO - Input file: data/processed/speaker_exchanges_test_labeled_20260302_100239.jsonl
+2026-03-03 15:54:12,801 - INFO - Output directory: results/ann_short_reconstructed_litellm
+2026-03-03 15:54:12,801 - INFO - Model: gemini/gemini-2.5-flash
+2026-03-03 15:54:12,801 - INFO - Seed: 42
+2026-03-03 15:54:12,801 - INFO - Temperature: 0.0
+2026-03-03 15:54:12,801 - INFO - ==================================================
+2026-03-03 15:54:13,019 - INFO - Loading dataset...
+2026-03-03 15:54:13,031 - INFO - Loaded 24 examples
+2026-03-03 15:54:13,031 - INFO - Processing 24 texts with model: gemini/gemini-2.5-flash
+2026-03-03 15:54:13,115 - INFO - 
+LiteLLM completion() model= gemini-2.5-flash; provider = gemini
+2026-03-03 15:55:05,014 - INFO - Wrapper: Completed Call, calling success_handler
+2026-03-03 15:55:05,017 - INFO - Generation finished. Reason: stop, Usage: Usage(completion_tokens=11344, prompt_tokens=1471, total_tokens=12815, completion_tokens_details=CompletionTokensDetailsWrapper(accepted_prediction_tokens=None, audio_tokens=None, reasoning_tokens=9548, rejected_prediction_tokens=None, text_tokens=1796, image_tokens=None), prompt_tokens_details=PromptTokensDetailsWrapper(audio_tokens=None, cached_tokens=None, text_tokens=1471, image_tokens=None))
+2026-03-03 15:55:05,018 - INFO - 
+LiteLLM completion() model= gemini-2.5-flash; provider = gemini
+2026-03-03 15:55:31,579 - INFO - Wrapper: Completed Call, calling success_handler
+2026-03-03 15:55:31,580 - INFO - Generation finished. Reason: stop, Usage: Usage(completion_tokens=5697, prompt_tokens=613, total_tokens=6310, completion_tokens_details=CompletionTokensDetailsWrapper(accepted_prediction_tokens=None, audio_tokens=None, reasoning_tokens=5371, rejected_prediction_tokens=None, text_tokens=326, image_tokens=None), prompt_tokens_details=PromptTokensDetailsWrapper(audio_tokens=None, cached_tokens=None, text_tokens=613, image_tokens=None))
+2026-03-03 15:55:31,581 - INFO - 
+LiteLLM completion() model= gemini-2.5-flash; provider = gemini
+2026-03-03 15:55:43,875 - INFO - Wrapper: Completed Call, calling success_handler
+2026-03-03 15:55:43,875 - INFO - Generation finished. Reason: stop, Usage: Usage(completion_tokens=2952, prompt_tokens=745, total_tokens=3697, completion_tokens_details=CompletionTokensDetailsWrapper(accepted_prediction_tokens=None, audio_tokens=None, reasoning_tokens=2518, rejected_prediction_tokens=None, text_tokens=434, image_tokens=None), prompt_tokens_details=PromptTokensDetailsWrapper(audio_tokens=None, cached_tokens=None, text_tokens=745, image_tokens=None))
+2026-03-03 15:55:43,877 - INFO - 
+LiteLLM completion() model= gemini-2.5-flash; provider = gemini
+2026-03-03 15:56:12,403 - INFO - Wrapper: Completed Call, calling success_handler
+2026-03-03 15:56:12,407 - INFO - Generation finished. Reason: stop, Usage: Usage(completion_tokens=6215, prompt_tokens=839, total_tokens=7054, completion_tokens_details=CompletionTokensDetailsWrapper(accepted_prediction_tokens=None, audio_tokens=None, reasoning_tokens=5492, rejected_prediction_tokens=None, text_tokens=723, image_tokens=None), prompt_tokens_details=PromptTokensDetailsWrapper(audio_tokens=None, cached_tokens=None, text_tokens=839, image_tokens=None))
+2026-03-03 15:56:12,409 - INFO - 
+LiteLLM completion() model= gemini-2.5-flash; provider = gemini
+2026-03-03 15:56:15,763 - INFO - Wrapper: Completed Call, calling success_handler
+2026-03-03 15:56:15,764 - INFO - Generation finished. Reason: stop, Usage: Usage(completion_tokens=730, prompt_tokens=686, total_tokens=1416, completion_tokens_details=CompletionTokensDetailsWrapper(accepted_prediction_tokens=None, audio_tokens=None, reasoning_tokens=386, rejected_prediction_tokens=None, text_tokens=344, image_tokens=None), prompt_tokens_details=PromptTokensDetailsWrapper(audio_tokens=None, cached_tokens=None, text_tokens=686, image_tokens=None))
+2026-03-03 15:56:15,765 - INFO - 
+LiteLLM completion() model= gemini-2.5-flash; provider = gemini
+2026-03-03 15:56:22,043 - INFO - Wrapper: Completed Call, calling success_handler
+2026-03-03 15:56:22,043 - INFO - Generation finished. Reason: stop, Usage: Usage(completion_tokens=1292, prompt_tokens=446, total_tokens=1738, completion_tokens_details=CompletionTokensDetailsWrapper(accepted_prediction_tokens=None, audio_tokens=None, reasoning_tokens=1189, rejected_prediction_tokens=None, text_tokens=103, image_tokens=None), prompt_tokens_details=PromptTokensDetailsWrapper(audio_tokens=None, cached_tokens=None, text_tokens=446, image_tokens=None))
+2026-03-03 15:56:22,045 - INFO - 
+LiteLLM completion() model= gemini-2.5-flash; provider = gemini
+2026-03-03 15:56:28,309 - INFO - Wrapper: Completed Call, calling success_handler
+2026-03-03 15:56:28,310 - INFO - Generation finished. Reason: stop, Usage: Usage(completion_tokens=1284, prompt_tokens=498, total_tokens=1782, completion_tokens_details=CompletionTokensDetailsWrapper(accepted_prediction_tokens=None, audio_tokens=None, reasoning_tokens=1128, rejected_prediction_tokens=None, text_tokens=156, image_tokens=None), prompt_tokens_details=PromptTokensDetailsWrapper(audio_tokens=None, cached_tokens=None, text_tokens=498, image_tokens=None))
+2026-03-03 15:56:28,310 - INFO - 
+LiteLLM completion() model= gemini-2.5-flash; provider = gemini
+2026-03-03 15:56:50,736 - INFO - Wrapper: Completed Call, calling success_handler
+2026-03-03 15:56:50,736 - INFO - Generation finished. Reason: stop, Usage: Usage(completion_tokens=4820, prompt_tokens=739, total_tokens=5559, completion_tokens_details=CompletionTokensDetailsWrapper(accepted_prediction_tokens=None, audio_tokens=None, reasoning_tokens=4420, rejected_prediction_tokens=None, text_tokens=400, image_tokens=None), prompt_tokens_details=PromptTokensDetailsWrapper(audio_tokens=None, cached_tokens=None, text_tokens=739, image_tokens=None))
+2026-03-03 15:56:50,737 - INFO - 
+LiteLLM completion() model= gemini-2.5-flash; provider = gemini
+2026-03-03 15:57:08,563 - INFO - Wrapper: Completed Call, calling success_handler
+2026-03-03 15:57:08,564 - INFO - Generation finished. Reason: stop, Usage: Usage(completion_tokens=3625, prompt_tokens=721, total_tokens=4346, completion_tokens_details=CompletionTokensDetailsWrapper(accepted_prediction_tokens=None, audio_tokens=None, reasoning_tokens=3231, rejected_prediction_tokens=None, text_tokens=394, image_tokens=None), prompt_tokens_details=PromptTokensDetailsWrapper(audio_tokens=None, cached_tokens=None, text_tokens=721, image_tokens=None))
+2026-03-03 15:57:08,564 - INFO - 
+LiteLLM completion() model= gemini-2.5-flash; provider = gemini
+2026-03-03 15:57:10,641 - INFO - Wrapper: Completed Call, calling success_handler
+2026-03-03 15:57:10,642 - INFO - Generation finished. Reason: stop, Usage: Usage(completion_tokens=434, prompt_tokens=627, total_tokens=1061, completion_tokens_details=CompletionTokensDetailsWrapper(accepted_prediction_tokens=None, audio_tokens=None, reasoning_tokens=178, rejected_prediction_tokens=None, text_tokens=256, image_tokens=None), prompt_tokens_details=PromptTokensDetailsWrapper(audio_tokens=None, cached_tokens=None, text_tokens=627, image_tokens=None))
+2026-03-03 15:57:10,642 - INFO - Processed 10/24 examples
+2026-03-03 15:57:10,644 - INFO - 
+LiteLLM completion() model= gemini-2.5-flash; provider = gemini
+2026-03-03 15:57:13,709 - INFO - Wrapper: Completed Call, calling success_handler
+2026-03-03 15:57:13,710 - INFO - Generation finished. Reason: stop, Usage: Usage(completion_tokens=608, prompt_tokens=618, total_tokens=1226, completion_tokens_details=CompletionTokensDetailsWrapper(accepted_prediction_tokens=None, audio_tokens=None, reasoning_tokens=361, rejected_prediction_tokens=None, text_tokens=247, image_tokens=None), prompt_tokens_details=PromptTokensDetailsWrapper(audio_tokens=None, cached_tokens=None, text_tokens=618, image_tokens=None))
+2026-03-03 15:57:13,711 - INFO - 
+LiteLLM completion() model= gemini-2.5-flash; provider = gemini
+2026-03-03 15:57:48,409 - INFO - Wrapper: Completed Call, calling success_handler
+2026-03-03 15:57:48,410 - INFO - Generation finished. Reason: stop, Usage: Usage(completion_tokens=8345, prompt_tokens=754, total_tokens=9099, completion_tokens_details=CompletionTokensDetailsWrapper(accepted_prediction_tokens=None, audio_tokens=None, reasoning_tokens=7561, rejected_prediction_tokens=None, text_tokens=784, image_tokens=None), prompt_tokens_details=PromptTokensDetailsWrapper(audio_tokens=None, cached_tokens=None, text_tokens=754, image_tokens=None))
+2026-03-03 15:57:48,412 - INFO - 
+LiteLLM completion() model= gemini-2.5-flash; provider = gemini
+2026-03-03 15:58:13,355 - INFO - Wrapper: Completed Call, calling success_handler
+2026-03-03 15:58:13,363 - INFO - Generation finished. Reason: stop, Usage: Usage(completion_tokens=5076, prompt_tokens=447, total_tokens=5523, completion_tokens_details=CompletionTokensDetailsWrapper(accepted_prediction_tokens=None, audio_tokens=None, reasoning_tokens=4843, rejected_prediction_tokens=None, text_tokens=233, image_tokens=None), prompt_tokens_details=PromptTokensDetailsWrapper(audio_tokens=None, cached_tokens=None, text_tokens=447, image_tokens=None))
+2026-03-03 15:58:13,364 - INFO - 
+LiteLLM completion() model= gemini-2.5-flash; provider = gemini
+2026-03-03 15:58:20,189 - INFO - Wrapper: Completed Call, calling success_handler
+2026-03-03 15:58:20,189 - INFO - Generation finished. Reason: stop, Usage: Usage(completion_tokens=1306, prompt_tokens=402, total_tokens=1708, completion_tokens_details=CompletionTokensDetailsWrapper(accepted_prediction_tokens=None, audio_tokens=None, reasoning_tokens=1249, rejected_prediction_tokens=None, text_tokens=57, image_tokens=None), prompt_tokens_details=PromptTokensDetailsWrapper(audio_tokens=None, cached_tokens=None, text_tokens=402, image_tokens=None))
+2026-03-03 15:58:20,190 - INFO - 
+LiteLLM completion() model= gemini-2.5-flash; provider = gemini
+2026-03-03 15:58:27,074 - INFO - Wrapper: Completed Call, calling success_handler
+2026-03-03 15:58:27,074 - INFO - Generation finished. Reason: stop, Usage: Usage(completion_tokens=1697, prompt_tokens=973, total_tokens=2670, completion_tokens_details=CompletionTokensDetailsWrapper(accepted_prediction_tokens=None, audio_tokens=None, reasoning_tokens=947, rejected_prediction_tokens=None, text_tokens=750, image_tokens=None), prompt_tokens_details=PromptTokensDetailsWrapper(audio_tokens=None, cached_tokens=None, text_tokens=973, image_tokens=None))
+2026-03-03 15:58:27,076 - INFO - 
+LiteLLM completion() model= gemini-2.5-flash; provider = gemini
+2026-03-03 15:58:37,037 - INFO - Wrapper: Completed Call, calling success_handler
+2026-03-03 15:58:37,038 - INFO - Generation finished. Reason: stop, Usage: Usage(completion_tokens=2170, prompt_tokens=585, total_tokens=2755, completion_tokens_details=CompletionTokensDetailsWrapper(accepted_prediction_tokens=None, audio_tokens=None, reasoning_tokens=1887, rejected_prediction_tokens=None, text_tokens=283, image_tokens=None), prompt_tokens_details=PromptTokensDetailsWrapper(audio_tokens=None, cached_tokens=None, text_tokens=585, image_tokens=None))
+2026-03-03 15:58:37,038 - INFO - 
+LiteLLM completion() model= gemini-2.5-flash; provider = gemini
+2026-03-03 15:58:56,656 - INFO - Wrapper: Completed Call, calling success_handler
+2026-03-03 15:58:56,657 - INFO - Generation finished. Reason: stop, Usage: Usage(completion_tokens=4439, prompt_tokens=1198, total_tokens=5637, completion_tokens_details=CompletionTokensDetailsWrapper(accepted_prediction_tokens=None, audio_tokens=None, reasoning_tokens=3248, rejected_prediction_tokens=None, text_tokens=1191, image_tokens=None), prompt_tokens_details=PromptTokensDetailsWrapper(audio_tokens=None, cached_tokens=None, text_tokens=1198, image_tokens=None))
+2026-03-03 15:58:56,657 - INFO - 
+LiteLLM completion() model= gemini-2.5-flash; provider = gemini
+2026-03-03 15:59:38,079 - INFO - Wrapper: Completed Call, calling success_handler
+2026-03-03 15:59:38,080 - INFO - Generation finished. Reason: stop, Usage: Usage(completion_tokens=10009, prompt_tokens=1296, total_tokens=11305, completion_tokens_details=CompletionTokensDetailsWrapper(accepted_prediction_tokens=None, audio_tokens=None, reasoning_tokens=8910, rejected_prediction_tokens=None, text_tokens=1099, image_tokens=None), prompt_tokens_details=PromptTokensDetailsWrapper(audio_tokens=None, cached_tokens=None, text_tokens=1296, image_tokens=None))
+2026-03-03 15:59:38,081 - INFO - 
+LiteLLM completion() model= gemini-2.5-flash; provider = gemini
+2026-03-03 16:00:05,656 - INFO - Wrapper: Completed Call, calling success_handler
+2026-03-03 16:00:05,657 - INFO - Generation finished. Reason: stop, Usage: Usage(completion_tokens=6208, prompt_tokens=954, total_tokens=7162, completion_tokens_details=CompletionTokensDetailsWrapper(accepted_prediction_tokens=None, audio_tokens=None, reasoning_tokens=5425, rejected_prediction_tokens=None, text_tokens=783, image_tokens=None), prompt_tokens_details=PromptTokensDetailsWrapper(audio_tokens=None, cached_tokens=None, text_tokens=954, image_tokens=None))
+2026-03-03 16:00:05,658 - INFO - 
+LiteLLM completion() model= gemini-2.5-flash; provider = gemini
+2026-03-03 16:00:18,956 - INFO - Wrapper: Completed Call, calling success_handler
+2026-03-03 16:00:18,957 - INFO - Generation finished. Reason: stop, Usage: Usage(completion_tokens=2776, prompt_tokens=605, total_tokens=3381, completion_tokens_details=CompletionTokensDetailsWrapper(accepted_prediction_tokens=None, audio_tokens=None, reasoning_tokens=2436, rejected_prediction_tokens=None, text_tokens=340, image_tokens=None), prompt_tokens_details=PromptTokensDetailsWrapper(audio_tokens=None, cached_tokens=None, text_tokens=605, image_tokens=None))
+2026-03-03 16:00:18,957 - INFO - Processed 20/24 examples
+2026-03-03 16:00:18,958 - INFO - 
+LiteLLM completion() model= gemini-2.5-flash; provider = gemini
+2026-03-03 16:00:21,307 - INFO - Wrapper: Completed Call, calling success_handler
+2026-03-03 16:00:21,307 - INFO - Generation finished. Reason: stop, Usage: Usage(completion_tokens=311, prompt_tokens=458, total_tokens=769, completion_tokens_details=CompletionTokensDetailsWrapper(accepted_prediction_tokens=None, audio_tokens=None, reasoning_tokens=224, rejected_prediction_tokens=None, text_tokens=87, image_tokens=None), prompt_tokens_details=PromptTokensDetailsWrapper(audio_tokens=None, cached_tokens=None, text_tokens=458, image_tokens=None))
+2026-03-03 16:00:21,309 - INFO - 
+LiteLLM completion() model= gemini-2.5-flash; provider = gemini
+2026-03-03 16:00:37,469 - INFO - Wrapper: Completed Call, calling success_handler
+2026-03-03 16:00:37,470 - INFO - Generation finished. Reason: stop, Usage: Usage(completion_tokens=3554, prompt_tokens=732, total_tokens=4286, completion_tokens_details=CompletionTokensDetailsWrapper(accepted_prediction_tokens=None, audio_tokens=None, reasoning_tokens=3043, rejected_prediction_tokens=None, text_tokens=511, image_tokens=None), prompt_tokens_details=PromptTokensDetailsWrapper(audio_tokens=None, cached_tokens=None, text_tokens=732, image_tokens=None))
+2026-03-03 16:00:37,471 - INFO - 
+LiteLLM completion() model= gemini-2.5-flash; provider = gemini
+2026-03-03 16:01:23,317 - INFO - Wrapper: Completed Call, calling success_handler
+2026-03-03 16:01:23,318 - INFO - Generation finished. Reason: stop, Usage: Usage(completion_tokens=9730, prompt_tokens=606, total_tokens=10336, completion_tokens_details=CompletionTokensDetailsWrapper(accepted_prediction_tokens=None, audio_tokens=None, reasoning_tokens=9396, rejected_prediction_tokens=None, text_tokens=334, image_tokens=None), prompt_tokens_details=PromptTokensDetailsWrapper(audio_tokens=None, cached_tokens=None, text_tokens=606, image_tokens=None))
+2026-03-03 16:01:23,319 - INFO - 
+LiteLLM completion() model= gemini-2.5-flash; provider = gemini
+2026-03-03 16:01:58,264 - INFO - Wrapper: Completed Call, calling success_handler
+2026-03-03 16:01:58,265 - INFO - Generation finished. Reason: stop, Usage: Usage(completion_tokens=7904, prompt_tokens=754, total_tokens=8658, completion_tokens_details=CompletionTokensDetailsWrapper(accepted_prediction_tokens=None, audio_tokens=None, reasoning_tokens=7163, rejected_prediction_tokens=None, text_tokens=741, image_tokens=None), prompt_tokens_details=PromptTokensDetailsWrapper(audio_tokens=None, cached_tokens=None, text_tokens=754, image_tokens=None))
+2026-03-03 16:01:58,275 - INFO - Reconstructed texts saved to results/ann_short_reconstructed_litellm/reconstructed_test_gemini2.5_20260303_160158.jsonl
+2026-03-03 16:01:58,275 - INFO - ==================================================
+2026-03-03 16:01:58,275 - INFO - Reconstruction complete! Processed 24 examples
+2026-03-03 16:01:58,275 - INFO - Results saved to: results/ann_short_reconstructed_litellm/reconstructed_test_gemini2.5_20260303_160158.jsonl
+2026-03-03 16:01:58,275 - INFO - Log file: results/ann_short_reconstructed_litellm/reconstruction_20260303_155412.log
+2026-03-03 16:01:58,275 - INFO - ==================================================
