@@ -38,8 +38,8 @@ OAR_OUT=$(oarsub \
     --epochs 10 \
     --batch_size 1 \
     --learning_rate 2e-5 \
-    --max_length 4096; \
-    echo 'Starting Inference on Test Set...'; \
+    --max_length 4096 && \
+    echo 'Starting Inference on Test Set...' && \
     python scripts/generation/ann_finetuned_gen_bart.py \
     --test_file data/dialogue/out_dial_jsonl/post_processed_test.jsonl \
     --model_path results/bart_finetuned/model_bart_large \
