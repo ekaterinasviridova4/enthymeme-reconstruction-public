@@ -60,3 +60,12 @@
 2026-03-04 14:06:56,380 - INFO - Generation finished. Reason: stop
 2026-03-04 14:06:56,380 - INFO - Processed 20/24 examples
 2026-03-04 14:07:19,752 - INFO - Generation finished. Reason: stop
+2026-03-04 14:08:25,979 - INFO - Generation finished. Reason: stop
+2026-03-04 14:09:24,901 - INFO - Generation finished. Reason: stop
+2026-03-04 14:11:20,913 - INFO - Generation finished. Reason: stop
+2026-03-04 14:11:20,923 - INFO - Reconstructed texts saved to results/ann_short_reconstructed_mistral_olmo/reconstructed_test_olmo_20260304_141120.jsonl
+2026-03-04 14:11:20,923 - INFO - ==================================================
+2026-03-04 14:11:20,923 - INFO - Reconstruction complete! Processed 24 examples
+2026-03-04 14:11:20,923 - INFO - Results saved to: results/ann_short_reconstructed_mistral_olmo/reconstructed_test_olmo_20260304_141120.jsonl
+2026-03-04 14:11:20,923 - INFO - Log file: results/ann_short_reconstructed_mistral_olmo/reconstruction_20260304_132754.log
+2026-03-04 14:11:20,923 - INFO - ==================================================
