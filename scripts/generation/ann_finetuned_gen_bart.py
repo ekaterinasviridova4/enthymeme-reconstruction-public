@@ -59,14 +59,21 @@ def main():
         batch_indices.append(i)
 
         if len(batch_data) == args.batch_size or i == len(data) - 1:
+            input_text_batch = batch_data
             # Tokenize
             inputs = tokenizer(
-                batch_data, 
+                input_text_batch, 
                 return_tensors="pt", 
                 padding=True, 
                 truncation=True, 
                 max_length=4096
             ).to(device)
+
+            if "led" in args.model_path:
+                 # Create global_attention_mask for LED
+                 # Set global attention on the first token (<s>)
+                 inputs["global_attention_mask"] = torch.zeros_like(inputs["input_ids"])
+                 inputs["global_attention_mask"][:, 0] = 1
 
             # Generate
             with torch.no_grad():
