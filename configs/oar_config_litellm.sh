@@ -1,4 +1,4 @@
-NAME="ann_short_gen_gpt5"
+NAME="ann_short_gen_gemini3"
 PROJECT_NAME="test1"
 HOME="/home/esvirido"
 PROJECT_DIR="$HOME/phd/test1"
@@ -7,9 +7,9 @@ LOGDIR="$HOME/logs"
 
 # Export API keys
 # Google API key
-#export GOOGLE_API_KEY=$(cat /home/esvirido/.google/api_key)
+export GOOGLE_API_KEY=$(cat /home/esvirido/.google/api_key)
 # OpenAI API key
-export OPENAI_API_KEY=$(cat /home/esvirido/.openai/api_key)
+#export OPENAI_API_KEY=$(cat /home/esvirido/.openai/api_key)
 
 # Make sure the log directory exists
 mkdir -p "$LOGDIR"
@@ -25,15 +25,15 @@ OAR_OUT=$(oarsub \
     --stderr="$LOGDIR/%jobid%.stderr" \
     --l "nodes=1,walltime=$W_HOURS" \
     --notify "[ERROR,INFO]mail:$EMAIL" \
-    "export OPENAI_API_KEY=$OPENAI_API_KEY; \
+    "export GOOGLE_API_KEY=$GOOGLE_API_KEY; \
      module load conda; \
      source /home/esvirido/miniconda3/bin/activate /home/esvirido/miniconda3/envs/llm-env; \
-     echo 'Starting implicitness reconstruction with gpt...'; \
+     echo 'Starting implicitness reconstruction with gemini...'; \
      python3 scripts/generation/ann_short_gen_gemini.py \
         --input_file data/processed/speaker_exchanges_test_labeled_20260302_100239.jsonl \
         --output_dir results/ann_short_reconstructed_litellm \
-        --model 'openai/gpt-5' \
-        --temperature 0.0; \
+        --model 'gemini/gemini-3-flash-preview' \
+        --temperature 1.0; \
      echo 'LiteLLM text reconstruction completed.'
     " \
 )
