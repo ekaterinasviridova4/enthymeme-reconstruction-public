@@ -1,0 +1,115 @@
+2026-03-04 14:39:31,809 - INFO - ==================================================
+2026-03-04 14:39:31,809 - INFO - Starting text reconstruction process
+2026-03-04 14:39:31,810 - INFO - Input file: data/processed/speaker_exchanges_test_labeled_20260302_100239.jsonl
+2026-03-04 14:39:31,810 - INFO - Output directory: results/ann_short_reconstructed_litellm
+2026-03-04 14:39:31,810 - INFO - Model: openai/gpt-5
+2026-03-04 14:39:31,810 - INFO - Seed: 42
+2026-03-04 14:39:31,810 - INFO - Temperature: 0.0
+2026-03-04 14:39:31,810 - INFO - ==================================================
+2026-03-04 14:39:31,855 - INFO - Loading dataset...
+2026-03-04 14:39:31,858 - INFO - Loaded 24 examples
+2026-03-04 14:39:31,858 - INFO - Processing 24 texts with model: openai/gpt-5
+2026-03-04 14:39:31,880 - INFO - 
+LiteLLM completion() model= gpt-5; provider = openai
+2026-03-04 14:41:29,648 - INFO - Wrapper: Completed Call, calling success_handler
+2026-03-04 14:41:29,652 - INFO - Generation finished. Reason: stop, Usage: Usage(completion_tokens=7292, prompt_tokens=1437, total_tokens=8729, completion_tokens_details=CompletionTokensDetailsWrapper(accepted_prediction_tokens=0, audio_tokens=0, reasoning_tokens=5568, rejected_prediction_tokens=0, text_tokens=None, image_tokens=None), prompt_tokens_details=PromptTokensDetailsWrapper(audio_tokens=0, cached_tokens=0, text_tokens=None, image_tokens=None))
+2026-03-04 14:41:29,653 - INFO - 
+LiteLLM completion() model= gpt-5; provider = openai
+2026-03-04 14:42:49,420 - INFO - Wrapper: Completed Call, calling success_handler
+2026-03-04 14:42:49,421 - INFO - Generation finished. Reason: stop, Usage: Usage(completion_tokens=4447, prompt_tokens=587, total_tokens=5034, completion_tokens_details=CompletionTokensDetailsWrapper(accepted_prediction_tokens=0, audio_tokens=0, reasoning_tokens=4096, rejected_prediction_tokens=0, text_tokens=None, image_tokens=None), prompt_tokens_details=PromptTokensDetailsWrapper(audio_tokens=0, cached_tokens=0, text_tokens=None, image_tokens=None))
+2026-03-04 14:42:49,423 - INFO - 
+LiteLLM completion() model= gpt-5; provider = openai
+2026-03-04 14:43:46,764 - INFO - Wrapper: Completed Call, calling success_handler
+2026-03-04 14:43:46,765 - INFO - Generation finished. Reason: stop, Usage: Usage(completion_tokens=3288, prompt_tokens=702, total_tokens=3990, completion_tokens_details=CompletionTokensDetailsWrapper(accepted_prediction_tokens=0, audio_tokens=0, reasoning_tokens=2880, rejected_prediction_tokens=0, text_tokens=None, image_tokens=None), prompt_tokens_details=PromptTokensDetailsWrapper(audio_tokens=0, cached_tokens=0, text_tokens=None, image_tokens=None))
+2026-03-04 14:43:46,767 - INFO - 
+LiteLLM completion() model= gpt-5; provider = openai
+2026-03-04 14:44:26,661 - INFO - Wrapper: Completed Call, calling success_handler
+2026-03-04 14:44:26,662 - INFO - Generation finished. Reason: stop, Usage: Usage(completion_tokens=3124, prompt_tokens=821, total_tokens=3945, completion_tokens_details=CompletionTokensDetailsWrapper(accepted_prediction_tokens=0, audio_tokens=0, reasoning_tokens=2432, rejected_prediction_tokens=0, text_tokens=None, image_tokens=None), prompt_tokens_details=PromptTokensDetailsWrapper(audio_tokens=0, cached_tokens=0, text_tokens=None, image_tokens=None))
+2026-03-04 14:44:26,663 - INFO - 
+LiteLLM completion() model= gpt-5; provider = openai
+2026-03-04 14:44:56,569 - INFO - Wrapper: Completed Call, calling success_handler
+2026-03-04 14:44:56,578 - INFO - Generation finished. Reason: stop, Usage: Usage(completion_tokens=2282, prompt_tokens=667, total_tokens=2949, completion_tokens_details=CompletionTokensDetailsWrapper(accepted_prediction_tokens=0, audio_tokens=0, reasoning_tokens=1920, rejected_prediction_tokens=0, text_tokens=None, image_tokens=None), prompt_tokens_details=PromptTokensDetailsWrapper(audio_tokens=0, cached_tokens=0, text_tokens=None, image_tokens=None))
+2026-03-04 14:44:56,580 - INFO - 
+LiteLLM completion() model= gpt-5; provider = openai
+2026-03-04 14:45:18,997 - INFO - Wrapper: Completed Call, calling success_handler
+2026-03-04 14:45:18,998 - INFO - Generation finished. Reason: stop, Usage: Usage(completion_tokens=2130, prompt_tokens=420, total_tokens=2550, completion_tokens_details=CompletionTokensDetailsWrapper(accepted_prediction_tokens=0, audio_tokens=0, reasoning_tokens=1984, rejected_prediction_tokens=0, text_tokens=None, image_tokens=None), prompt_tokens_details=PromptTokensDetailsWrapper(audio_tokens=0, cached_tokens=0, text_tokens=None, image_tokens=None))
+2026-03-04 14:45:18,999 - INFO - 
+LiteLLM completion() model= gpt-5; provider = openai
+2026-03-04 14:45:37,912 - INFO - Wrapper: Completed Call, calling success_handler
+2026-03-04 14:45:37,912 - INFO - Generation finished. Reason: stop, Usage: Usage(completion_tokens=934, prompt_tokens=470, total_tokens=1404, completion_tokens_details=CompletionTokensDetailsWrapper(accepted_prediction_tokens=0, audio_tokens=0, reasoning_tokens=768, rejected_prediction_tokens=0, text_tokens=None, image_tokens=None), prompt_tokens_details=PromptTokensDetailsWrapper(audio_tokens=0, cached_tokens=0, text_tokens=None, image_tokens=None))
+2026-03-04 14:45:37,913 - INFO - 
+LiteLLM completion() model= gpt-5; provider = openai
+2026-03-04 14:46:08,490 - INFO - Wrapper: Completed Call, calling success_handler
+2026-03-04 14:46:08,491 - INFO - Generation finished. Reason: stop, Usage: Usage(completion_tokens=1693, prompt_tokens=707, total_tokens=2400, completion_tokens_details=CompletionTokensDetailsWrapper(accepted_prediction_tokens=0, audio_tokens=0, reasoning_tokens=1280, rejected_prediction_tokens=0, text_tokens=None, image_tokens=None), prompt_tokens_details=PromptTokensDetailsWrapper(audio_tokens=0, cached_tokens=0, text_tokens=None, image_tokens=None))
+2026-03-04 14:46:08,492 - INFO - 
+LiteLLM completion() model= gpt-5; provider = openai
+2026-03-04 14:46:49,974 - INFO - Wrapper: Completed Call, calling success_handler
+2026-03-04 14:46:49,975 - INFO - Generation finished. Reason: stop, Usage: Usage(completion_tokens=2377, prompt_tokens=691, total_tokens=3068, completion_tokens_details=CompletionTokensDetailsWrapper(accepted_prediction_tokens=0, audio_tokens=0, reasoning_tokens=1984, rejected_prediction_tokens=0, text_tokens=None, image_tokens=None), prompt_tokens_details=PromptTokensDetailsWrapper(audio_tokens=0, cached_tokens=0, text_tokens=None, image_tokens=None))
+2026-03-04 14:46:49,976 - INFO - 
+LiteLLM completion() model= gpt-5; provider = openai
+2026-03-04 14:46:58,855 - INFO - Wrapper: Completed Call, calling success_handler
+2026-03-04 14:46:58,856 - INFO - Generation finished. Reason: stop, Usage: Usage(completion_tokens=773, prompt_tokens=598, total_tokens=1371, completion_tokens_details=CompletionTokensDetailsWrapper(accepted_prediction_tokens=0, audio_tokens=0, reasoning_tokens=512, rejected_prediction_tokens=0, text_tokens=None, image_tokens=None), prompt_tokens_details=PromptTokensDetailsWrapper(audio_tokens=0, cached_tokens=0, text_tokens=None, image_tokens=None))
+2026-03-04 14:46:58,856 - INFO - Processed 10/24 examples
+2026-03-04 14:46:58,857 - INFO - 
+LiteLLM completion() model= gpt-5; provider = openai
+2026-03-04 14:47:11,202 - INFO - Wrapper: Completed Call, calling success_handler
+2026-03-04 14:47:11,202 - INFO - Generation finished. Reason: stop, Usage: Usage(completion_tokens=764, prompt_tokens=589, total_tokens=1353, completion_tokens_details=CompletionTokensDetailsWrapper(accepted_prediction_tokens=0, audio_tokens=0, reasoning_tokens=512, rejected_prediction_tokens=0, text_tokens=None, image_tokens=None), prompt_tokens_details=PromptTokensDetailsWrapper(audio_tokens=0, cached_tokens=0, text_tokens=None, image_tokens=None))
+2026-03-04 14:47:11,203 - INFO - 
+LiteLLM completion() model= gpt-5; provider = openai
+2026-03-04 14:48:44,636 - INFO - Wrapper: Completed Call, calling success_handler
+2026-03-04 14:48:44,644 - INFO - Generation finished. Reason: stop, Usage: Usage(completion_tokens=5287, prompt_tokens=726, total_tokens=6013, completion_tokens_details=CompletionTokensDetailsWrapper(accepted_prediction_tokens=0, audio_tokens=0, reasoning_tokens=4480, rejected_prediction_tokens=0, text_tokens=None, image_tokens=None), prompt_tokens_details=PromptTokensDetailsWrapper(audio_tokens=0, cached_tokens=0, text_tokens=None, image_tokens=None))
+2026-03-04 14:48:44,645 - INFO - 
+LiteLLM completion() model= gpt-5; provider = openai
+2026-03-04 14:49:44,251 - INFO - Wrapper: Completed Call, calling success_handler
+2026-03-04 14:49:44,252 - INFO - Generation finished. Reason: stop, Usage: Usage(completion_tokens=3604, prompt_tokens=423, total_tokens=4027, completion_tokens_details=CompletionTokensDetailsWrapper(accepted_prediction_tokens=0, audio_tokens=0, reasoning_tokens=3392, rejected_prediction_tokens=0, text_tokens=None, image_tokens=None), prompt_tokens_details=PromptTokensDetailsWrapper(audio_tokens=0, cached_tokens=0, text_tokens=None, image_tokens=None))
+2026-03-04 14:49:44,254 - INFO - 
+LiteLLM completion() model= gpt-5; provider = openai
+2026-03-04 14:49:57,448 - INFO - Wrapper: Completed Call, calling success_handler
+2026-03-04 14:49:57,449 - INFO - Generation finished. Reason: stop, Usage: Usage(completion_tokens=1212, prompt_tokens=378, total_tokens=1590, completion_tokens_details=CompletionTokensDetailsWrapper(accepted_prediction_tokens=0, audio_tokens=0, reasoning_tokens=1152, rejected_prediction_tokens=0, text_tokens=None, image_tokens=None), prompt_tokens_details=PromptTokensDetailsWrapper(audio_tokens=0, cached_tokens=0, text_tokens=None, image_tokens=None))
+2026-03-04 14:49:57,452 - INFO - 
+LiteLLM completion() model= gpt-5; provider = openai
+2026-03-04 14:50:40,875 - INFO - Wrapper: Completed Call, calling success_handler
+2026-03-04 14:50:40,875 - INFO - Generation finished. Reason: stop, Usage: Usage(completion_tokens=2939, prompt_tokens=951, total_tokens=3890, completion_tokens_details=CompletionTokensDetailsWrapper(accepted_prediction_tokens=0, audio_tokens=0, reasoning_tokens=2176, rejected_prediction_tokens=0, text_tokens=None, image_tokens=None), prompt_tokens_details=PromptTokensDetailsWrapper(audio_tokens=0, cached_tokens=0, text_tokens=None, image_tokens=None))
+2026-03-04 14:50:40,876 - INFO - 
+LiteLLM completion() model= gpt-5; provider = openai
+2026-03-04 14:51:22,312 - INFO - Wrapper: Completed Call, calling success_handler
+2026-03-04 14:51:22,313 - INFO - Generation finished. Reason: stop, Usage: Usage(completion_tokens=2609, prompt_tokens=563, total_tokens=3172, completion_tokens_details=CompletionTokensDetailsWrapper(accepted_prediction_tokens=0, audio_tokens=0, reasoning_tokens=2304, rejected_prediction_tokens=0, text_tokens=None, image_tokens=None), prompt_tokens_details=PromptTokensDetailsWrapper(audio_tokens=0, cached_tokens=0, text_tokens=None, image_tokens=None))
+2026-03-04 14:51:22,315 - INFO - 
+LiteLLM completion() model= gpt-5; provider = openai
+2026-03-04 14:52:36,649 - INFO - Wrapper: Completed Call, calling success_handler
+2026-03-04 14:52:36,650 - INFO - Generation finished. Reason: stop, Usage: Usage(completion_tokens=5088, prompt_tokens=1166, total_tokens=6254, completion_tokens_details=CompletionTokensDetailsWrapper(accepted_prediction_tokens=0, audio_tokens=0, reasoning_tokens=3968, rejected_prediction_tokens=0, text_tokens=None, image_tokens=None), prompt_tokens_details=PromptTokensDetailsWrapper(audio_tokens=0, cached_tokens=0, text_tokens=None, image_tokens=None))
+2026-03-04 14:52:36,652 - INFO - 
+LiteLLM completion() model= gpt-5; provider = openai
+2026-03-04 14:54:06,468 - INFO - Wrapper: Completed Call, calling success_handler
+2026-03-04 14:54:06,469 - INFO - Generation finished. Reason: stop, Usage: Usage(completion_tokens=5402, prompt_tokens=1282, total_tokens=6684, completion_tokens_details=CompletionTokensDetailsWrapper(accepted_prediction_tokens=0, audio_tokens=0, reasoning_tokens=3840, rejected_prediction_tokens=0, text_tokens=None, image_tokens=None), prompt_tokens_details=PromptTokensDetailsWrapper(audio_tokens=0, cached_tokens=0, text_tokens=None, image_tokens=None))
+2026-03-04 14:54:06,469 - INFO - 
+LiteLLM completion() model= gpt-5; provider = openai
+2026-03-04 14:55:13,384 - INFO - Wrapper: Completed Call, calling success_handler
+2026-03-04 14:55:13,385 - INFO - Generation finished. Reason: stop, Usage: Usage(completion_tokens=5444, prompt_tokens=930, total_tokens=6374, completion_tokens_details=CompletionTokensDetailsWrapper(accepted_prediction_tokens=0, audio_tokens=0, reasoning_tokens=4544, rejected_prediction_tokens=0, text_tokens=None, image_tokens=None), prompt_tokens_details=PromptTokensDetailsWrapper(audio_tokens=0, cached_tokens=0, text_tokens=None, image_tokens=None))
+2026-03-04 14:55:13,386 - INFO - 
+LiteLLM completion() model= gpt-5; provider = openai
+2026-03-04 14:56:04,484 - INFO - Wrapper: Completed Call, calling success_handler
+2026-03-04 14:56:04,485 - INFO - Generation finished. Reason: stop, Usage: Usage(completion_tokens=3284, prompt_tokens=578, total_tokens=3862, completion_tokens_details=CompletionTokensDetailsWrapper(accepted_prediction_tokens=0, audio_tokens=0, reasoning_tokens=2944, rejected_prediction_tokens=0, text_tokens=None, image_tokens=None), prompt_tokens_details=PromptTokensDetailsWrapper(audio_tokens=0, cached_tokens=0, text_tokens=None, image_tokens=None))
+2026-03-04 14:56:04,485 - INFO - Processed 20/24 examples
+2026-03-04 14:56:04,486 - INFO - 
+LiteLLM completion() model= gpt-5; provider = openai
+2026-03-04 14:56:15,167 - INFO - Wrapper: Completed Call, calling success_handler
+2026-03-04 14:56:15,168 - INFO - Generation finished. Reason: stop, Usage: Usage(completion_tokens=478, prompt_tokens=431, total_tokens=909, completion_tokens_details=CompletionTokensDetailsWrapper(accepted_prediction_tokens=0, audio_tokens=0, reasoning_tokens=384, rejected_prediction_tokens=0, text_tokens=None, image_tokens=None), prompt_tokens_details=PromptTokensDetailsWrapper(audio_tokens=0, cached_tokens=0, text_tokens=None, image_tokens=None))
+2026-03-04 14:56:15,170 - INFO - 
+LiteLLM completion() model= gpt-5; provider = openai
+2026-03-04 14:57:17,097 - INFO - Wrapper: Completed Call, calling success_handler
+2026-03-04 14:57:17,098 - INFO - Generation finished. Reason: stop, Usage: Usage(completion_tokens=3821, prompt_tokens=693, total_tokens=4514, completion_tokens_details=CompletionTokensDetailsWrapper(accepted_prediction_tokens=0, audio_tokens=0, reasoning_tokens=3328, rejected_prediction_tokens=0, text_tokens=None, image_tokens=None), prompt_tokens_details=PromptTokensDetailsWrapper(audio_tokens=0, cached_tokens=0, text_tokens=None, image_tokens=None))
+2026-03-04 14:57:17,099 - INFO - 
+LiteLLM completion() model= gpt-5; provider = openai
+2026-03-04 14:58:09,143 - INFO - Wrapper: Completed Call, calling success_handler
+2026-03-04 14:58:09,144 - INFO - Generation finished. Reason: stop, Usage: Usage(completion_tokens=3551, prompt_tokens=571, total_tokens=4122, completion_tokens_details=CompletionTokensDetailsWrapper(accepted_prediction_tokens=0, audio_tokens=0, reasoning_tokens=3200, rejected_prediction_tokens=0, text_tokens=None, image_tokens=None), prompt_tokens_details=PromptTokensDetailsWrapper(audio_tokens=0, cached_tokens=0, text_tokens=None, image_tokens=None))
+2026-03-04 14:58:09,145 - INFO - 
+LiteLLM completion() model= gpt-5; provider = openai
+2026-03-04 14:59:33,799 - INFO - Wrapper: Completed Call, calling success_handler
+2026-03-04 14:59:33,800 - INFO - Generation finished. Reason: stop, Usage: Usage(completion_tokens=5524, prompt_tokens=726, total_tokens=6250, completion_tokens_details=CompletionTokensDetailsWrapper(accepted_prediction_tokens=0, audio_tokens=0, reasoning_tokens=4672, rejected_prediction_tokens=0, text_tokens=None, image_tokens=None), prompt_tokens_details=PromptTokensDetailsWrapper(audio_tokens=0, cached_tokens=0, text_tokens=None, image_tokens=None))
+2026-03-04 14:59:33,806 - INFO - Reconstructed texts saved to results/ann_short_reconstructed_litellm/reconstructed_test_gpt5_20260304_145933.jsonl
+2026-03-04 14:59:33,806 - INFO - ==================================================
+2026-03-04 14:59:33,806 - INFO - Reconstruction complete! Processed 24 examples
+2026-03-04 14:59:33,806 - INFO - Results saved to: results/ann_short_reconstructed_litellm/reconstructed_test_gpt5_20260304_145933.jsonl
+2026-03-04 14:59:33,806 - INFO - Log file: results/ann_short_reconstructed_litellm/reconstruction_20260304_143931.log
+2026-03-04 14:59:33,806 - INFO - ==================================================
