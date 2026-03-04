@@ -1,4 +1,4 @@
-NAME="ann_short_gen_gemini3"
+NAME="ann_short_gen_gpt4o"
 PROJECT_NAME="test1"
 HOME="/home/esvirido"
 PROJECT_DIR="$HOME/phd/test1"
