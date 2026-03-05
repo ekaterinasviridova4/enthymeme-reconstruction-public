@@ -28,8 +28,8 @@ Intermediate data generated for specific experiments.
 
 ### Standard Generation (Dialogue)
 Scripts located in `scripts/generation/` used to reconstruct implicit information.
-- **`full_gen_gemini.py`**: Generation script using Gemini/GPT models.
-- **`full_gen_mistral24.py`**: Generation script using Mistral models.
+- **`ann_full_gen_gemini.py`**: Generation script using Gemini/GPT models.
+- **`ann_full_gen_mistral24.py`**: Generation script using Mistral models.
 
 **Results:**
 - **`results/reconstructed_litellm/`**: Output files from Gemini/GPT generations.

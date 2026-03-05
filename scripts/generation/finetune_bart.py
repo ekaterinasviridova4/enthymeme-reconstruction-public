@@ -105,8 +105,7 @@ def main():
         model_inputs = tokenizer(inputs, max_length=args.max_length, truncation=True, padding="max_length")
 
         # Tokenize labels
-        with tokenizer.as_target_tokenizer():
-            labels = tokenizer(targets, max_length=args.max_length, truncation=True, padding="max_length")
+        labels = tokenizer(text_target=targets, max_length=args.max_length, truncation=True, padding="max_length")
         
         model_inputs["labels"] = labels["input_ids"]
 
