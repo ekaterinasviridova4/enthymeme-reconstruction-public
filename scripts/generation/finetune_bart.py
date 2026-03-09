@@ -134,6 +134,11 @@ def main():
     logger.info(f"Loading model: {args.model_name}")
     model = AutoModelForSeq2SeqLM.from_pretrained(args.model_name)
 
+    # Check vocab size mismatch and resize if needed (common source of index out of bounds)
+    if len(tokenizer) > model.config.vocab_size:
+        logger.warning(f"Resizing token embeddings: Tokenizer len ({len(tokenizer)}) > Model vocab size ({model.config.vocab_size})")
+        model.resize_token_embeddings(len(tokenizer))
+
     # Gradient checkpoint for memory efficiency if using LED
     if "led" in args.model_name:
         model.gradient_checkpointing_enable()
