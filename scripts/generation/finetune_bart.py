@@ -176,6 +176,11 @@ def main():
     logger.info("Verifying generation on a sample input...")
     input_text = raw_data[0]["input_text"]
     inputs = tokenizer(input_text, return_tensors="pt").to(model.device)
+    
+    if hasattr(model.config, "model_type") and model.config.model_type == "led":
+        inputs["global_attention_mask"] = torch.zeros_like(inputs["input_ids"])
+        inputs["global_attention_mask"][:, 0] = 1
+
     outputs = model.generate(**inputs, max_length=args.max_length)
     generated_text = tokenizer.decode(outputs[0], skip_special_tokens=True)
     logger.info(f"Input: {input_text[:100]}...")

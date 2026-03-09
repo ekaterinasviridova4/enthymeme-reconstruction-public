@@ -69,7 +69,7 @@ def main():
                 max_length=4096
             ).to(device)
 
-            if "led" in args.model_path:
+            if model.config.model_type == "led":
                  # Create global_attention_mask for LED
                  # Set global attention on the first token (<s>)
                  inputs["global_attention_mask"] = torch.zeros_like(inputs["input_ids"])
