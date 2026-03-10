@@ -70,6 +70,7 @@ def main():
     parser.add_argument("--seed", type=int, default=42, help="Random seed")
     parser.add_argument("--max_length", type=int, default=4096, help="Max sequence length")
     parser.add_argument("--limit_train_data", type=int, default=None, help="Limit number of training samples")
+    parser.add_argument("--gradient_checkpointing", action="store_true", help="Enable gradient checkpointing")
 
     args = parser.parse_args()
 
@@ -140,10 +141,10 @@ def main():
         model.resize_token_embeddings(len(tokenizer))
 
     # Gradient checkpoint for memory efficiency if using LED
-    if "led" in args.model_name:
+    if "led" in args.model_name and args.gradient_checkpointing:
         model.gradient_checkpointing_enable()
-        logger.info("Gradient checkpointing for LED")
-
+        logger.info("Gradient checkpointing enabled for LED")
+    
     # Training Args
     training_args = Seq2SeqTrainingArguments(
         output_dir=output_dir,
