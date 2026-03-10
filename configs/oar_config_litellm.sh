@@ -30,7 +30,7 @@ OAR_OUT=$(oarsub \
      source /home/esvirido/miniconda3/bin/activate /home/esvirido/miniconda3/envs/llm-env; \
      echo 'Starting implicitness reconstruction with gemini...'; \
      python3 scripts/generation/ann_full_gen_gemini.py \
-        --input_file data/dialogue/out_dial_json/dev_labeled.jsonl \
+        --input_file data/dialogue/out_dial_jsonl/dev_labeled.jsonl \
         --output_dir results_dev/ann_full_reconstructed_litellm \
         --model 'gemini/gemini-3-flash-preview' \
         --temperature 1.0; \
