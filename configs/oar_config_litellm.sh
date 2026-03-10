@@ -1,4 +1,4 @@
-NAME="ann_full_gen_gemini2.5"
+NAME="ann_full_gen_gemini3"
 PROJECT_NAME="test1"
 HOME="/home/esvirido"
 PROJECT_DIR="$HOME/phd/test1"
@@ -32,7 +32,7 @@ OAR_OUT=$(oarsub \
      python3 scripts/generation/ann_full_gen_gemini.py \
         --input_file data/dialogue/out_dial_json/dev_labeled.jsonl \
         --output_dir results_dev/ann_full_reconstructed_litellm \
-        --model 'gemini/gemini-2.5-flash' \
+        --model 'gemini/gemini-3-flash-preview' \
         --temperature 1.0; \
      echo 'LiteLLM text reconstruction completed.'
     " \

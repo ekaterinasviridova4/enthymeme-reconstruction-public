@@ -83,7 +83,7 @@ def parse_args():
     parser.add_argument(
         "--model",
         type=str,
-        default="gemini/gemini-2.5-flash",
+        default="gemini/gemini-3-flash-preview",
         help="Model to use (e.g., 'gemini/gemini-2.5-flash', 'gemini/gemini-3-flash-preview', 'openai/gpt-4o', 'openai/gpt-5')"
     )
     parser.add_argument(
@@ -152,7 +152,7 @@ INPUT TEXT:
 def save_predictions(predictions, output_dir):
     """Save reconstructed texts to JSONL file"""
     timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-    output_file = os.path.join(output_dir, f"reconstructed_test_gemini2.5_{timestamp}.jsonl")
+    output_file = os.path.join(output_dir, f"reconstructed_test_gemini3_{timestamp}.jsonl")
     
     with open(output_file, "w", encoding="utf-8") as f:
         for pred in predictions:
@@ -228,10 +228,10 @@ def main():
     # Process each text
     logging.info(f"Processing {len(data)} texts with model: {args.model}")
 
-    # # For Gemini 3
-    # if "gemini-3" in args.model.lower() and args.temperature < 1.0:
-    #     logging.warning(f"Warning: Temperature set to 1.0.")
-    #     args.temperature = 1.0
+    # For Gemini 3
+    if "gemini-3" in args.model.lower() and args.temperature < 1.0:
+        logging.warning(f"Warning: Temperature set to 1.0.")
+        args.temperature = 1.0
 
     predictions = []
     
