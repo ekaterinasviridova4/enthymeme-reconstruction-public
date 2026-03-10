@@ -1,4 +1,4 @@
-NAME="ann_short_gen_gemini3"
+NAME="ann_full_gen_gemini2.5"
 PROJECT_NAME="test1"
 HOME="/home/esvirido"
 PROJECT_DIR="$HOME/phd/test1"
@@ -29,10 +29,10 @@ OAR_OUT=$(oarsub \
      module load conda; \
      source /home/esvirido/miniconda3/bin/activate /home/esvirido/miniconda3/envs/llm-env; \
      echo 'Starting implicitness reconstruction with gemini...'; \
-     python3 scripts/generation/ann_short_gen_gemini.py \
-        --input_file data/processed/speaker_exchanges_test_labeled_20260302_100239.jsonl \
-        --output_dir results/ann_short_reconstructed_litellm \
-        --model 'gemini/gemini-3-flash-preview' \
+     python3 scripts/generation/ann_full_gen_gemini.py \
+        --input_file data/dialogue/out_dial_json/dev_labeled.jsonl \
+        --output_dir results_dev/ann_full_reconstructed_litellm \
+        --model 'gemini/gemini-2.5-flash' \
         --temperature 1.0; \
      echo 'LiteLLM text reconstruction completed.'
     " \
