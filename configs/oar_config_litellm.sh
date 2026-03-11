@@ -1,4 +1,4 @@
-NAME="ann_full_gen_gpt4o"
+NAME="ann_full_gen_gpt5"
 PROJECT_NAME="test1"
 HOME="/home/esvirido"
 PROJECT_DIR="$HOME/phd/test1"
@@ -32,7 +32,7 @@ OAR_OUT=$(oarsub \
      python3 scripts/generation/ann_full_gen_gemini.py \
         --input_file data/dialogue/out_dial_jsonl/dev_labeled.jsonl \
         --output_dir results_dev/ann_full_reconstructed_litellm \
-        --model 'openai/gpt-4o' \
+        --model 'openai/gpt-5' \
         --temperature 0.0; \
      echo 'LiteLLM text reconstruction completed.'
     " \
