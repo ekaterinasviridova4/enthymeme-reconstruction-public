@@ -1,4 +1,4 @@
-NAME="ann_full_gen_gpt5"
+NAME="ann_short_gen_gemini2.5"
 PROJECT_NAME="test1"
 HOME="/home/esvirido"
 PROJECT_DIR="$HOME/phd/test1"
@@ -7,15 +7,15 @@ LOGDIR="$HOME/logs"
 
 # Export API keys
 # Google API key
-#export GOOGLE_API_KEY=$(cat /home/esvirido/.google/api_key)
+export GOOGLE_API_KEY=$(cat /home/esvirido/.google/api_key)
 # OpenAI API key
-export OPENAI_API_KEY=$(cat /home/esvirido/.openai/api_key)
+#export OPENAI_API_KEY=$(cat /home/esvirido/.openai/api_key)
 
 # Make sure the log directory exists
 mkdir -p "$LOGDIR"
 
 # No GPU needed for API-based models!
-W_HOURS=4                  # Walltime in hours
+W_HOURS=2                  # Walltime in hours
 
 # Submit the job 
 OAR_OUT=$(oarsub \
@@ -25,14 +25,14 @@ OAR_OUT=$(oarsub \
     --stderr="$LOGDIR/%jobid%.stderr" \
     --l "nodes=1,walltime=$W_HOURS" \
     --notify "[ERROR,INFO]mail:$EMAIL" \
-    "export OPENAI_API_KEY=$OPENAI_API_KEY; \
+    "export GOOGLE_API_KEY=$GOOGLE_API_KEY; \
      module load conda; \
      source /home/esvirido/miniconda3/bin/activate /home/esvirido/miniconda3/envs/llm-env; \
-     echo 'Starting implicitness reconstruction with gpt4o...'; \
-     python3 scripts/generation/ann_full_gen_gemini.py \
-        --input_file data/dialogue/out_dial_jsonl/dev_labeled.jsonl \
-        --output_dir results_dev/ann_full_reconstructed_litellm \
-        --model 'openai/gpt-5' \
+     echo 'Starting implicitness reconstruction with gemini...'; \
+     python3 scripts/generation/ann_short_gen_gemini.py \
+        --input_file data/processed/speaker_exchanges_dev_labeled_20260302_101921.jsonl \
+        --output_dir results_dev/ann_short_reconstructed_litellm \
+        --model 'gemini/gemini-2.5-flash' \
         --temperature 0.0; \
      echo 'LiteLLM text reconstruction completed.'
     " \
