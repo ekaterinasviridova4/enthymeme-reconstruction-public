@@ -1,11 +1,11 @@
-NAME="ann_olmo_text_reconstruction"
+NAME="ann_mistral_text_reconstruction"
 PROJECT_NAME="test1"
 HOME="/home/esvirido"
 PROJECT_DIR="$HOME/phd/test1"
 EMAIL="ekaterina.sviridova@inria.fr"
 LOGDIR="$HOME/logs"
-#MODEL_ID="mistralai/Mistral-Small-3.2-24B-Instruct-2506"
-MODEL_ID="allenai/Olmo-3.1-32B-Instruct"
+MODEL_ID="mistralai/Mistral-Small-3.2-24B-Instruct-2506"
+#MODEL_ID="allenai/Olmo-3.1-32B-Instruct"
 export HUGGINGFACE_HUB_TOKEN=$(cat /home/esvirido/.huggingface/token)
 #export GOOGLE_API_KEY=$(cat /home/esvirido/.google/api_key)
 
@@ -31,9 +31,9 @@ OAR_OUT=$(oarsub \
      module load conda; \
      source /home/esvirido/miniconda3/bin/activate /home/esvirido/miniconda3/envs/llm-env; \
      echo 'Starting reconstruction with $MODEL_ID...'; \
-     python3 scripts/generation/ann_short_gen_mistral24.py \
-        --input_file data/processed/speaker_exchanges_test_labeled_20260302_100239.jsonl \
-        --output_dir results/ann_short_reconstructed_mistral_olmo \
+     python3 scripts/generation/ann_full_gen_mistral24.py \
+        --input_file data/dialogue/out_dial_jsonl/dev_labeled.jsonl \
+        --output_dir results_dev/ann_full_reconstructed_mistral_olmo \
         --model_id $MODEL_ID; \
      echo 'Reconstruction with $MODEL_ID completed.'
     " \
