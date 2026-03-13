@@ -1,0 +1,52 @@
+2026-03-12 21:32:07,401 - INFO - ==================================================
+2026-03-12 21:32:07,401 - INFO - Starting text reconstruction process
+2026-03-12 21:32:07,401 - INFO - Transformers version: 5.2.0
+2026-03-12 21:32:07,401 - INFO - BitsAndBytes version: 0.49.1
+2026-03-12 21:32:07,401 - INFO - Accelerate version: 1.12.0
+2026-03-12 21:32:07,401 - INFO - PyTorch version: 2.10.0+cu128
+2026-03-12 21:32:07,401 - INFO - CUDA available: True
+2026-03-12 21:32:07,401 - INFO - CUDA device count: 4
+2026-03-12 21:32:07,401 - INFO - GPU 0: Tesla V100-SXM2-32GB
+2026-03-12 21:32:07,401 - INFO - GPU 0 Memory: 31.73 GB
+2026-03-12 21:32:07,401 - INFO - GPU 1: Tesla V100-SXM2-32GB
+2026-03-12 21:32:07,401 - INFO - GPU 1 Memory: 31.73 GB
+2026-03-12 21:32:07,401 - INFO - GPU 2: Tesla V100-SXM2-32GB
+2026-03-12 21:32:07,401 - INFO - GPU 2 Memory: 31.73 GB
+2026-03-12 21:32:07,401 - INFO - GPU 3: Tesla V100-SXM2-32GB
+2026-03-12 21:32:07,401 - INFO - GPU 3 Memory: 31.73 GB
+2026-03-12 21:32:07,401 - INFO - Input file: data/dialogue/out_dial_jsonl/dev_labeled.jsonl
+2026-03-12 21:32:07,401 - INFO - Output directory: results_dev/ann_full_reconstructed_mistral_olmo
+2026-03-12 21:32:07,401 - INFO - Model: allenai/Olmo-3.1-32B-Instruct
+2026-03-12 21:32:07,401 - INFO - Seed: 42
+2026-03-12 21:32:07,401 - INFO - ==================================================
+2026-03-12 21:32:07,430 - INFO - Loading dataset...
+2026-03-12 21:32:07,454 - INFO - Loaded 7 examples
+2026-03-12 21:32:07,454 - INFO - Loading model...
+2026-03-12 21:32:07,454 - INFO - Loading model: allenai/Olmo-3.1-32B-Instruct
+2026-03-12 21:32:07,454 - INFO - Detected Olmo, using AutoModelForCausalLM
+2026-03-12 21:32:07,589 - INFO - HTTP Request: HEAD https://huggingface.co/allenai/Olmo-3.1-32B-Instruct/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-03-12 21:32:07,613 - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/allenai/Olmo-3.1-32B-Instruct/ac0587e4a7744a551c059d8cd17ba220bc940dae/config.json "HTTP/1.1 200 OK"
+2026-03-12 21:32:07,796 - INFO - HTTP Request: HEAD https://huggingface.co/allenai/Olmo-3.1-32B-Instruct/resolve/main/tokenizer_config.json "HTTP/1.1 307 Temporary Redirect"
+2026-03-12 21:32:07,919 - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/allenai/Olmo-3.1-32B-Instruct/ac0587e4a7744a551c059d8cd17ba220bc940dae/tokenizer_config.json "HTTP/1.1 200 OK"
+2026-03-12 21:32:08,095 - INFO - HTTP Request: GET https://huggingface.co/api/models/allenai/Olmo-3.1-32B-Instruct/tree/main/additional_chat_templates?recursive=false&expand=false "HTTP/1.1 404 Not Found"
+2026-03-12 21:32:08,224 - INFO - HTTP Request: GET https://huggingface.co/api/models/allenai/Olmo-3.1-32B-Instruct/tree/main?recursive=true&expand=false "HTTP/1.1 200 OK"
+2026-03-12 21:32:08,956 - INFO - HTTP Request: GET https://huggingface.co/api/models/allenai/Olmo-3.1-32B-Instruct "HTTP/1.1 200 OK"
+2026-03-12 21:32:09,081 - INFO - HTTP Request: HEAD https://huggingface.co/allenai/Olmo-3.1-32B-Instruct/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-03-12 21:32:09,103 - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/allenai/Olmo-3.1-32B-Instruct/ac0587e4a7744a551c059d8cd17ba220bc940dae/config.json "HTTP/1.1 200 OK"
+2026-03-12 21:41:54,690 - INFO - HTTP Request: HEAD https://huggingface.co/allenai/Olmo-3.1-32B-Instruct/resolve/main/generation_config.json "HTTP/1.1 307 Temporary Redirect"
+2026-03-12 21:41:54,820 - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/allenai/Olmo-3.1-32B-Instruct/ac0587e4a7744a551c059d8cd17ba220bc940dae/generation_config.json "HTTP/1.1 200 OK"
+2026-03-12 21:41:55,261 - INFO - Model loaded successfully
+2026-03-12 21:41:55,264 - INFO - Processing 7 texts...
+2026-03-12 21:44:17,998 - INFO - Generation finished. Reason: stop
+2026-03-12 21:45:56,820 - INFO - Generation finished. Reason: stop
+2026-03-12 21:47:14,723 - INFO - Generation finished. Reason: stop
+2026-03-12 21:48:33,109 - INFO - Generation finished. Reason: stop
+2026-03-12 21:50:18,820 - INFO - Generation finished. Reason: stop
+2026-03-12 21:53:28,882 - INFO - Generation finished. Reason: stop
+2026-03-12 21:54:03,757 - INFO - Generation finished. Reason: stop
+2026-03-12 21:54:03,761 - INFO - Reconstructed texts saved to results_dev/ann_full_reconstructed_mistral_olmo/reconstructed_dev_olmo_20260312_215403.jsonl
+2026-03-12 21:54:03,761 - INFO - ==================================================
+2026-03-12 21:54:03,761 - INFO - Reconstruction complete! Processed 7 examples
+2026-03-12 21:54:03,761 - INFO - Results saved to: results_dev/ann_full_reconstructed_mistral_olmo/reconstructed_dev_olmo_20260312_215403.jsonl
+2026-03-12 21:54:03,761 - INFO - Log file: results_dev/ann_full_reconstructed_mistral_olmo/reconstruction_20260312_213207.log
+2026-03-12 21:54:03,761 - INFO - ==================================================
