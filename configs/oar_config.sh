@@ -31,9 +31,9 @@ OAR_OUT=$(oarsub \
      module load conda; \
      source /home/esvirido/miniconda3/bin/activate /home/esvirido/miniconda3/envs/llm-env; \
      echo 'Starting reconstruction with $MODEL_ID...'; \
-     python3 scripts/generation/ann_full_gen_mistral24.py \
-        --input_file data/dialogue/out_dial_jsonl/dev_labeled.jsonl \
-        --output_dir results_dev/ann_full_reconstructed_mistral_olmo \
+     python3 scripts/generation/ann_short_gen_mistral24.py \
+        --input_file data/processed/speaker_exchanges_dev_labeled_20260302_101921.jsonl \
+        --output_dir results_dev/ann_short_reconstructed_mistral_olmo \
         --model_id $MODEL_ID; \
      echo 'Reconstruction with $MODEL_ID completed.'
     " \

@@ -84,7 +84,7 @@ def parse_args():
     parser.add_argument(
         "--output_dir",
         type=str,
-        default="../../results/ann_short_reconstructed_mistral_olmo",
+        default="../../results_dev/ann_short_reconstructed_mistral_olmo",
         help="Directory to save reconstructed outputs"
     )
     parser.add_argument(
@@ -181,7 +181,7 @@ OUTPUT:
 def save_predictions(predictions, output_dir):
     """Save reconstructed texts to JSONL file"""
     timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-    output_file = os.path.join(output_dir, f"reconstructed_test_olmo_{timestamp}.jsonl")
+    output_file = os.path.join(output_dir, f"reconstructed_dev_olmo_{timestamp}.jsonl")
     
     with open(output_file, "w", encoding="utf-8") as f:
         for pred in predictions:

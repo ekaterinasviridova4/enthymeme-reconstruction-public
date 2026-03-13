@@ -1,4 +1,4 @@
-NAME="ann_short_gen_gpt5"
+NAME="ann_full_gen_gpt5"
 PROJECT_NAME="test1"
 HOME="/home/esvirido"
 PROJECT_DIR="$HOME/phd/test1"
@@ -15,7 +15,7 @@ export OPENAI_API_KEY=$(cat /home/esvirido/.openai/api_key)
 mkdir -p "$LOGDIR"
 
 # No GPU needed for API-based models!
-W_HOURS=2                  # Walltime in hours
+W_HOURS=4                  # Walltime in hours
 
 # Submit the job 
 OAR_OUT=$(oarsub \
@@ -29,9 +29,9 @@ OAR_OUT=$(oarsub \
      module load conda; \
      source /home/esvirido/miniconda3/bin/activate /home/esvirido/miniconda3/envs/llm-env; \
      echo 'Starting implicitness reconstruction with gpt5...'; \
-     python3 scripts/generation/ann_short_gen_gemini.py \
-        --input_file data/processed/speaker_exchanges_dev_labeled_20260302_101921.jsonl \
-        --output_dir results_dev/ann_short_reconstructed_litellm \
+     python3 scripts/generation/ann_full_gen_gemini.py \
+        --input_file data/dialogue/out_dial_jsonl/dev_labeled.jsonl \
+        --output_dir results_dev/ann_full_reconstructed_litellm \
         --model 'openai/gpt-5' \
         --temperature 0.0; \
      echo 'LiteLLM text reconstruction completed.'
