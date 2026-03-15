@@ -1,0 +1,69 @@
+2026-03-14 21:20:04,233 - INFO - ==================================================
+2026-03-14 21:20:04,233 - INFO - Starting text reconstruction process
+2026-03-14 21:20:04,233 - INFO - Transformers version: 5.2.0
+2026-03-14 21:20:04,233 - INFO - BitsAndBytes version: 0.49.1
+2026-03-14 21:20:04,233 - INFO - Accelerate version: 1.12.0
+2026-03-14 21:20:04,233 - INFO - PyTorch version: 2.10.0+cu128
+2026-03-14 21:20:04,233 - INFO - CUDA available: True
+2026-03-14 21:20:04,233 - INFO - CUDA device count: 4
+2026-03-14 21:20:04,234 - INFO - GPU 0: Tesla V100-SXM2-32GB
+2026-03-14 21:20:04,234 - INFO - GPU 0 Memory: 31.73 GB
+2026-03-14 21:20:04,234 - INFO - GPU 1: Tesla V100-SXM2-32GB
+2026-03-14 21:20:04,234 - INFO - GPU 1 Memory: 31.73 GB
+2026-03-14 21:20:04,234 - INFO - GPU 2: Tesla V100-SXM2-32GB
+2026-03-14 21:20:04,234 - INFO - GPU 2 Memory: 31.73 GB
+2026-03-14 21:20:04,234 - INFO - GPU 3: Tesla V100-SXM2-32GB
+2026-03-14 21:20:04,234 - INFO - GPU 3 Memory: 31.73 GB
+2026-03-14 21:20:04,234 - INFO - Input file: data/processed/speaker_exchanges_dev_labeled_20260302_101921.jsonl
+2026-03-14 21:20:04,234 - INFO - Output directory: results_dev/ann_short_reconstructed_mistral_olmo
+2026-03-14 21:20:04,234 - INFO - Model: mistralai/Mistral-Small-3.2-24B-Instruct-2506
+2026-03-14 21:20:04,234 - INFO - Seed: 42
+2026-03-14 21:20:04,234 - INFO - ==================================================
+2026-03-14 21:20:04,271 - INFO - Loading dataset...
+2026-03-14 21:20:04,289 - INFO - Loaded 21 examples
+2026-03-14 21:20:04,290 - INFO - Loading model...
+2026-03-14 21:20:04,290 - INFO - Loading model: mistralai/Mistral-Small-3.2-24B-Instruct-2506
+2026-03-14 21:20:04,290 - INFO - Using Mistral loading
+2026-03-14 21:20:04,412 - INFO - HTTP Request: GET https://huggingface.co/api/models/mistralai/Mistral-Small-3.2-24B-Instruct-2506/tree/main?recursive=true&expand=false "HTTP/1.1 200 OK"
+2026-03-14 21:20:04,530 - INFO - HTTP Request: HEAD https://huggingface.co/mistralai/Mistral-Small-3.2-24B-Instruct-2506/resolve/main/tekken.json "HTTP/1.1 302 Found"
+2026-03-14 21:20:05,159 - INFO - Non special vocabulary size is 130072 with 1000 special tokens.
+2026-03-14 21:20:05,161 - INFO - Cutting non special vocabulary to first 130072 tokens.
+2026-03-14 21:20:05,804 - INFO - HTTP Request: HEAD https://huggingface.co/mistralai/Mistral-Small-3.2-24B-Instruct-2506/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-03-14 21:20:05,927 - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/mistralai/Mistral-Small-3.2-24B-Instruct-2506/95a6d26c4bfb886c58daf9d3f7332c857cb27b43/config.json "HTTP/1.1 200 OK"
+2026-03-14 21:20:06,125 - INFO - HTTP Request: HEAD https://huggingface.co/mistralai/Mistral-Small-3.2-24B-Instruct-2506/resolve/main/model.safetensors "HTTP/1.1 404 Not Found"
+2026-03-14 21:20:06,244 - INFO - HTTP Request: HEAD https://huggingface.co/mistralai/Mistral-Small-3.2-24B-Instruct-2506/resolve/main/model.safetensors.index.json "HTTP/1.1 307 Temporary Redirect"
+2026-03-14 21:20:06,363 - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/mistralai/Mistral-Small-3.2-24B-Instruct-2506/95a6d26c4bfb886c58daf9d3f7332c857cb27b43/model.safetensors.index.json "HTTP/1.1 200 OK"
+2026-03-14 21:20:06,492 - INFO - HTTP Request: GET https://huggingface.co/api/models/mistralai/Mistral-Small-3.2-24B-Instruct-2506/revision/main "HTTP/1.1 200 OK"
+2026-03-14 21:27:54,272 - INFO - HTTP Request: HEAD https://huggingface.co/mistralai/Mistral-Small-3.2-24B-Instruct-2506/resolve/main/generation_config.json "HTTP/1.1 307 Temporary Redirect"
+2026-03-14 21:27:54,404 - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/mistralai/Mistral-Small-3.2-24B-Instruct-2506/95a6d26c4bfb886c58daf9d3f7332c857cb27b43/generation_config.json "HTTP/1.1 200 OK"
+2026-03-14 21:27:54,842 - INFO - Model loaded successfully
+2026-03-14 21:27:54,845 - INFO - Processing 21 texts...
+2026-03-14 21:29:44,931 - INFO - Generation finished. Reason: stop
+2026-03-14 21:30:15,865 - INFO - Generation finished. Reason: stop
+2026-03-14 21:30:47,659 - INFO - Generation finished. Reason: stop
+2026-03-14 21:31:16,014 - INFO - Generation finished. Reason: stop
+2026-03-14 21:31:52,710 - INFO - Generation finished. Reason: stop
+2026-03-14 21:33:01,950 - INFO - Generation finished. Reason: stop
+2026-03-14 21:33:41,556 - INFO - Generation finished. Reason: stop
+2026-03-14 21:33:54,338 - INFO - Generation finished. Reason: stop
+2026-03-14 21:34:35,983 - INFO - Generation finished. Reason: stop
+2026-03-14 21:35:11,797 - INFO - Generation finished. Reason: stop
+2026-03-14 21:35:11,798 - INFO - Processed 10/21 examples
+2026-03-14 21:36:09,167 - INFO - Generation finished. Reason: stop
+2026-03-14 21:37:01,859 - INFO - Generation finished. Reason: stop
+2026-03-14 21:38:51,028 - INFO - Generation finished. Reason: stop
+2026-03-14 21:40:26,811 - INFO - Generation finished. Reason: stop
+2026-03-14 21:41:33,010 - INFO - Generation finished. Reason: stop
+2026-03-14 21:41:58,532 - INFO - Generation finished. Reason: stop
+2026-03-14 21:42:22,868 - INFO - Generation finished. Reason: stop
+2026-03-14 21:45:32,757 - INFO - Generation finished. Reason: stop
+2026-03-14 21:48:00,091 - INFO - Generation finished. Reason: stop
+2026-03-14 21:49:06,100 - INFO - Generation finished. Reason: stop
+2026-03-14 21:49:06,101 - INFO - Processed 20/21 examples
+2026-03-14 21:49:45,103 - INFO - Generation finished. Reason: stop
+2026-03-14 21:49:45,109 - INFO - Reconstructed texts saved to results_dev/ann_short_reconstructed_mistral_olmo/reconstructed_dev_mistral24_20260314_214945.jsonl
+2026-03-14 21:49:45,109 - INFO - ==================================================
+2026-03-14 21:49:45,109 - INFO - Reconstruction complete! Processed 21 examples
+2026-03-14 21:49:45,109 - INFO - Results saved to: results_dev/ann_short_reconstructed_mistral_olmo/reconstructed_dev_mistral24_20260314_214945.jsonl
+2026-03-14 21:49:45,109 - INFO - Log file: results_dev/ann_short_reconstructed_mistral_olmo/reconstruction_20260314_212004.log
+2026-03-14 21:49:45,109 - INFO - ==================================================
