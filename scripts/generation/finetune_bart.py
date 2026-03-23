@@ -144,6 +144,9 @@ def main():
     if "led" in args.model_name and args.gradient_checkpointing:
         model.gradient_checkpointing_enable()
         logger.info("Gradient checkpointing enabled for LED")
+
+    # Fix: Disable tying word embeddings to avoid size mismatches/warnings and potential errors
+    model.config.tie_word_embeddings = False
     
     # Training Args
     training_args = Seq2SeqTrainingArguments(
@@ -157,7 +160,7 @@ def main():
         num_train_epochs=args.epochs,
         predict_with_generate=True,
         logging_steps=1,
-        fp16=torch.cuda.is_available(), 
+        fp16=False, # Disable fp16 to prevent potential Overflow/NaNs causing device asserts
         push_to_hub=False,
     )
 
