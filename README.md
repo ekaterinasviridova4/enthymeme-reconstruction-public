@@ -1,60 +1,50 @@
 # Project Overview
 
-This project focuses on reconstructing implicit premises and claims in argumentative texts, using both standard generative models and Chain-of-Thought (CoT) prompting. The dataset consists of argumentative dialogues, processed in various formats to test different reconstruction techniques.
+This project focuses on reconstructing implicit premises and claims in argumentative texts, using different families of generative models and zero-shot prompting. 
+While the full reconstruction pipeline is operational and can be tested on the provided CMV datasets, the human-reconstructed gold-standard data (used for evaluation) will be published upon paper acceptance.
 
 ## 📂 Data Structure
 
-The data is organized into two main categories in the `data/` directory: **Non-dialogue** (linear text) and **Dialogue-structured** (speaker separated).
+The data is organized into **Dialogue-structured** (speaker separated) texts including raw (non-annotated) and human-annotated CMV text: 
 
-### Non-Dialogue Data (`data/linear/`)
-Original data formatted for LLMs without explicit dialogue separation in the output structure.
-- **`out_jsonl/`**: Standard dataset with Implicit/Explicit annotations.
-- **`out_fine_grained_jsonl/`**: Dataset with fine-grained annotations.
-- **`out_premise_claim_jsonl/`**: Dataset with premise and claim annotations.
-
-### Dialogue Data (`data/dialogue/`)
-Data preserving the dialogue structure with `speaker1` and `speaker2` labels.
-- **`out_dial_jsonl/`**: Standard dialogue dataset with Implicit/Explicit annotations.
+- **`out_dial_jsonl/`**: Dialogue dataset with Implicit/Explicit annotations.
 - **`out_dial_fine_grained_jsonl/`**: Dialogue dataset with fine-grained annotations.
 - **`out_dial_premise_claim_jsonl/`**: Dialogue dataset with premise and claim annotations.
 
-### Processed Data (`data/processed/`)
-Intermediate data generated for specific experiments.
-- **`speaker_exchanges_dev.jsonl`**: Extracted speaker exchanges used for CoT experiments (dev set).
-
 ---
 
-## 🤖 Generation & Reconstruction
+## 🤖 Reconstruction & Evaluation
 
-### Standard Generation (Dialogue)
 Scripts located in `scripts/generation/` used to reconstruct implicit information.
 - **`ann_full_gen_gemini.py`**: Generation script using Gemini/GPT models.
-- **`ann_full_gen_mistral24.py`**: Generation script using Mistral models.
+- **`ann_full_gen_mistral24.py`**: Generation script using Mistral/OLMo models.
 
-**Results:**
-- **`results/reconstructed_litellm/`**: Output files from Gemini/GPT generations.
-- **`results/reconstructed_mistral/`**: Output files from Mistral generations.
-
-### Chain of Thought (CoT) Experiments
-Experiments using Chain-of-Thought prompting on shorter dialogue segments.
-- **`scripts/processing/extract_speaker_exchanges.py`**: Script to extract specific speaker exchanges from the dialogues.
-- **`scripts/generation/cot_full_gen_gemini.py`**: Script to perform CoT generation on the extracted exchanges.
-- **`results/cot_reconstructed_litellm/`**: Output files from CoT experiments.
+Scripts located in `scripts/evaluation/` used to evaluate automatic reconstruction against human gold-standard reconstruction (available upon acceptance).
+- ** Fulltext scripts **: evaluation of complete reconstructions with BLEU ROUGE and SBERT.
+- ** Associations scripts **: evaluation of reconstruction pairs with BLEU ROUGE and SBERT.
 
 ---
 
 ## 🛠️ Data Processing Tools
 
-### Dialogue Structure Reconstruction
-Tools located in `scripts/processing/` for mapping dialogue labels back onto annotated outputs.
-- **`add_speaker_labels.py`**: A script that automatically adds `speaker1` and `speaker2` labels to the annotated `output` field of the data.
-  - **Usage**: Applied to `out_dial_jsonl` to create `_labeled.jsonl` files (e.g., `dev_labeled.jsonl`), enabling LLMs to process the output as a structured dialogue with implicit/explicit tags.
+### Files for breaking down and re-joining dialogues (speaker exchanges)
+Tools located in `scripts/processing/` for splitting dialogues into speaker exchanges and joining back the reconstructions.
 
 ---
 
 ## ⚙️ Configuration
 
 Configuration files for job submission (OAR scheduler) are located in `configs/`.
-- **`oar_config.sh`**: Config for Mistral generation.
+- **`oar_config.sh`**: Config for Mistral/OLMo generation.
 - **`oar_config_litellm.sh`**: Config for LiteLLM (Gemini/GPT) generation.
+
+---
+
+## 🛠️ Installation
+```bash
+# General dependencies
+pip install -r requirements.txt
+
+# For API-based reconstruction (LiteLLM)
+pip install -r requirements_litellm.txt
 

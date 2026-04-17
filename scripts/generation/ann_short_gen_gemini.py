@@ -15,7 +15,7 @@ from litellm import completion
 import logging
 from datetime import datetime
 
-# Enable dropping unsupported parameters (e.g. temperature=0 for gpt-5)
+# Enable dropping unsupported parameters
 litellm.drop_params = True
 
 # Configure logging
@@ -53,7 +53,7 @@ def load_jsonl_dataset(path):
             if not line.strip():
                 continue
             ex = json.loads(line)
-            # Load 'output' as annotated_text because it contains the <Implicit>/<Explicit> tags
+            # Load 'output' as annotated_text 
             annotated_text = ex.get("output", "").strip()
             if annotated_text:
                 texts.append({
@@ -77,13 +77,13 @@ def parse_args():
     parser.add_argument(
         "--output_dir",
         type=str,
-        default="../../results_dev/ann_short_reconstructed_litellm",
+        default="../../.../...",
         help="Directory to save reconstructed outputs"
     )
     parser.add_argument(
         "--model",
         type=str,
-        default="openai/gpt-5",
+        default="gemini/gemini-2.5-flash",
         help="Model to use (e.g., 'gemini/gemini-2.5-flash', 'gemini/gemini-3-flash-preview', 'openai/gpt-4o', 'openai/gpt-5')"
     )
     parser.add_argument(
@@ -152,7 +152,7 @@ INPUT TEXT:
 def save_predictions(predictions, output_dir):
     """Save reconstructed texts to JSONL file"""
     timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-    output_file = os.path.join(output_dir, f"reconstructed_dev_gpt5_{timestamp}.jsonl")
+    output_file = os.path.join(output_dir, f"reconstructed_set_modelname_{timestamp}.jsonl")
     
     with open(output_file, "w", encoding="utf-8") as f:
         for pred in predictions:

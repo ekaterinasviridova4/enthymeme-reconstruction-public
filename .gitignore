@@ -1,8 +1,32 @@
 .DS_Store
-LITELLM_USAGE.md
-evaluation
-extract_speaker_exchanges.py
-SPEAKER_EXCHANGES_README.md
-add_speaker_labels.py
-reproduce_issue.py
-debug_olmo_template.py
+olmo_zero_generation.log
+litellm_generation.log
+docs/
+.github/
+
+# Data to exclude for publication
+data/processed/
+data/linear/
+data/dialogue/out_dial_jsonl/dev_labeled_human_ann_obj.jsonl
+data/dialogue/out_dial_jsonl/dev_labeled_human_ann_subj.jsonl
+data/dialogue/out_dial_jsonl/train_labeled_human_ann_subj.jsonl
+data/dialogue/out_dial_jsonl/dev.jsonl
+data/dialogue/out_dial_jsonl/test.jsonl
+data/dialogue/out_dial_jsonl/train.jsonl
+data/dialogue/out_dial_jsonl/post_processed_dev.jsonl
+data/dialogue/out_dial_jsonl/post_processed_test.jsonl
+data/dialogue/out_dial_jsonl/post_processed_train.jsonl
+
+#Results to exclude for publication
+results_dev/
+results_test/
+
+# Scripts to exclude
+scripts/processing/add_speaker_labels.py
+generation/ann_finetuned_gen_bart.py
+generation/ann_full_gen_bart.py
+generation/finetune_bart.py
+
+# Configs to exclude
+configs/oar_config_bart_finetune.sh
+configs/oar_config_bart.sh

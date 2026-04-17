@@ -1,15 +1,15 @@
-NAME="ann_full_gen_gpt5"
-PROJECT_NAME="test1"
-HOME="/home/esvirido"
-PROJECT_DIR="$HOME/phd/test1"
-EMAIL="ekaterina.sviridova@inria.fr"
+NAME="api_reconstruction_job"
+PROJECT_NAME="your_project"
+HOME="/home/your_user"
+PROJECT_DIR="$HOME/path/to/project"
+EMAIL="your.email@example.com"
 LOGDIR="$HOME/logs"
 
 # Export API keys
 # Google API key
-#export GOOGLE_API_KEY=$(cat /home/esvirido/.google/api_key)
+#export GOOGLE_API_KEY=$(cat /your/key/here)
 # OpenAI API key
-export OPENAI_API_KEY=$(cat /home/esvirido/.openai/api_key)
+export OPENAI_API_KEY=$(cat /your/key/here)
 
 # Make sure the log directory exists
 mkdir -p "$LOGDIR"
@@ -27,12 +27,12 @@ OAR_OUT=$(oarsub \
     --notify "[ERROR,INFO]mail:$EMAIL" \
     "export OPENAI_API_KEY=$OPENAI_API_KEY; \
      module load conda; \
-     source /home/esvirido/miniconda3/bin/activate /home/esvirido/miniconda3/envs/llm-env; \
-     echo 'Starting implicitness reconstruction with gpt5...'; \
+     source $HOME/miniconda3/bin/activate your-env; \
+     echo 'Starting implicitness reconstruction...'; \
      python3 scripts/generation/ann_full_gen_gemini.py \
-        --input_file data/dialogue/out_dial_jsonl/dev_labeled.jsonl \
-        --output_dir results_dev/ann_full_reconstructed_litellm \
-        --model 'openai/gpt-5' \
+        --input_file path/to/your/input.jsonl \
+        --output_dir path/to/your/output_dir \
+        --model 'provider/model-id' \
         --temperature 0.0; \
      echo 'LiteLLM text reconstruction completed.'
     " \

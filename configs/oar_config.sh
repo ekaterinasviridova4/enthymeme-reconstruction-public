@@ -1,13 +1,12 @@
-NAME="ann_mistral_text_reconstruction"
-PROJECT_NAME="test1"
-HOME="/home/esvirido"
-PROJECT_DIR="$HOME/phd/test1"
-EMAIL="ekaterina.sviridova@inria.fr"
+NAME="reconstruction_job"
+PROJECT_NAME="your_project"
+HOME="/home/your_user"
+PROJECT_DIR="$HOME/path/to/project"
+EMAIL="your.email@example.com"
 LOGDIR="$HOME/logs"
-MODEL_ID="mistralai/Mistral-Small-3.2-24B-Instruct-2506"
-#MODEL_ID="allenai/Olmo-3.1-32B-Instruct"
-export HUGGINGFACE_HUB_TOKEN=$(cat /home/esvirido/.huggingface/token)
-#export GOOGLE_API_KEY=$(cat /home/esvirido/.google/api_key)
+#MODEL_ID="mistralai/Mistral-Small-3.2-24B-Instruct-2506"
+MODEL_ID="allenai/Olmo-3.1-32B-Instruct"
+export HUGGINGFACE_HUB_TOKEN=$(cat /your/key/here)
 
 # Make sure the log directory exists
 mkdir -p "$LOGDIR"
@@ -15,8 +14,8 @@ mkdir -p "$LOGDIR"
 
 W_HOURS=4                  # Walltime in hours
 L_NGPUS=4                  # Number of GPUs
-P_MINCUDACAPABILITY=6      # Minimum compute capability (6 for 1080Ti, 7 for V100/A100)
-P_MINGPUMEMORY=24000       # Minimum GPU memory in MB (Requesting 4x24GB = 96GB total)
+P_MINCUDACAPABILITY=7      # Minimum compute capability
+P_MINGPUMEMORY=24000       # Minimum GPU memory in MB
 
 # Submit the job
 OAR_OUT=$(oarsub \
@@ -29,11 +28,11 @@ OAR_OUT=$(oarsub \
     --notify "[ERROR,INFO]mail:$EMAIL" \
     "export HUGGINGFACE_HUB_TOKEN=$HUGGINGFACE_HUB_TOKEN; \
      module load conda; \
-     source /home/esvirido/miniconda3/bin/activate /home/esvirido/miniconda3/envs/llm-env; \
+     source $HOME/miniconda3/bin/activate your-env; \
      echo 'Starting reconstruction with $MODEL_ID...'; \
      python3 scripts/generation/ann_short_gen_mistral24.py \
-        --input_file data/processed/speaker_exchanges_dev_labeled_20260302_101921.jsonl \
-        --output_dir results_dev/ann_short_reconstructed_mistral_olmo \
+        --input_file path/to/your/input.jsonl \
+        --output_dir path/to/your/output_dir \
         --model_id $MODEL_ID; \
      echo 'Reconstruction with $MODEL_ID completed.'
     " \

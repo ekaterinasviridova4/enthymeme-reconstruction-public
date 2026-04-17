@@ -60,7 +60,7 @@ def load_jsonl_dataset(path):
             if not line.strip():
                 continue
             ex = json.loads(line)
-            # 'output' = annotated_text because it contains the <Implicit>/<Explicit> tags
+            # 'output' = annotated_text
             annotated_text = ex.get("output", "").strip()
             if annotated_text:
                 texts.append({
@@ -84,7 +84,7 @@ def parse_args():
     parser.add_argument(
         "--output_dir",
         type=str,
-        default="../../results_dev/ann_full_reconstructed_mistral_olmo",
+        default="../../.../...",
         help="Directory to save reconstructed outputs"
     )
     parser.add_argument(
@@ -181,7 +181,7 @@ OUTPUT:
 def save_predictions(predictions, output_dir):
     """Save reconstructed texts to JSONL file"""
     timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-    output_file = os.path.join(output_dir, f"reconstructed_dev_olmo_{timestamp}.jsonl")
+    output_file = os.path.join(output_dir, f"reconstructed_set_modelname_{timestamp}.jsonl")
     
     with open(output_file, "w", encoding="utf-8") as f:
         for pred in predictions:
@@ -249,7 +249,7 @@ def generate_reconstruction(model, tokenizer, text, max_new_tokens=16384):
              if generated_tokens[-1].item() in eos_ids:
                  stop_reason = "stop"
     
-    # Log generation details similar to ann_full_gen_gemini.py
+    # Log generation
     logging.info(f"Generation finished. Reason: {stop_reason}")
     if stop_reason == "length":
         logging.warning("WARNING: Generation was truncated due to token limit!")
