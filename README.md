@@ -20,8 +20,8 @@ Scripts located in `scripts/generation/` used to reconstruct implicit informatio
 - **`ann_full_gen_mistral24.py`**: Generation script using Mistral/OLMo models.
 
 Scripts located in `scripts/evaluation/` used to evaluate automatic reconstruction against human gold-standard reconstruction (available upon acceptance).
-- ** Fulltext scripts **: evaluation of complete reconstructions with BLEU ROUGE and SBERT.
-- ** Associations scripts **: evaluation of reconstruction pairs with BLEU ROUGE and SBERT.
+- Fulltext scripts: evaluation of complete reconstructions with BLEU ROUGE and SBERT.
+- Associations scripts: evaluation of reconstruction pairs with BLEU ROUGE and SBERT.
 
 ---
 

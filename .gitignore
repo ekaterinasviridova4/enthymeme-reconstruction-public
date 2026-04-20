@@ -23,9 +23,9 @@ results_test/
 
 # Scripts to exclude
 scripts/processing/add_speaker_labels.py
-generation/ann_finetuned_gen_bart.py
-generation/ann_full_gen_bart.py
-generation/finetune_bart.py
+scripts/generation/ann_finetuned_gen_bart.py
+scripts/generation/ann_full_gen_bart.py
+scripts/generation/finetune_bart.py
 
 # Configs to exclude
 configs/oar_config_bart_finetune.sh
