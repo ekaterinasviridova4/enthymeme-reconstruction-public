@@ -3,7 +3,7 @@
 This project focuses on reconstructing implicit premises and claims in argumentative texts, using different families of generative models and zero-shot prompting. 
 While the full reconstruction pipeline is operational and can be tested on the provided CMV datasets, the human-reconstructed gold-standard data (used for evaluation) will be published upon paper acceptance.
 
-## 📂 Data Structure
+## Data Structure
 
 The data is organized into **Dialogue-structured** (speaker separated) texts including raw (non-annotated) and human-annotated CMV text: 
 
@@ -13,7 +13,7 @@ The data is organized into **Dialogue-structured** (speaker separated) texts inc
 
 ---
 
-## 🤖 Reconstruction & Evaluation
+## Reconstruction & Evaluation
 
 Scripts located in `scripts/generation/` used to reconstruct implicit information.
 - **`ann_full_gen_gemini.py`**: Generation script using Gemini/GPT models.
@@ -25,18 +25,22 @@ Scripts located in `scripts/evaluation/` used to evaluate automatic reconstructi
 
 ---
 
-## 🛠️ Data Processing Tools
+## Data Processing Tools
 
 ### Files for breaking down and re-joining dialogues (speaker exchanges)
 Tools located in `scripts/processing/` for splitting dialogues into speaker exchanges and joining back the reconstructions.
 
 ---
 
-## ⚙️ Configuration
+## Configuration
 
 Configuration files for job submission (OAR scheduler) are located in `configs/`.
 - **`oar_config.sh`**: Config for Mistral/OLMo generation.
 - **`oar_config_litellm.sh`**: Config for LiteLLM (Gemini/GPT) generation.
+
+---
+## Evaluation Guidelines
+Evaluation guidelines file contains complete guidelines for human evaluation study.
 
 ---
 
