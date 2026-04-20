@@ -40,6 +40,7 @@ Configuration files for job submission (OAR scheduler) are located in `configs/`
 
 ---
 ## Evaluation Guidelines
+
 Evaluation guidelines file contains complete guidelines for human evaluation study.
 
 ---
