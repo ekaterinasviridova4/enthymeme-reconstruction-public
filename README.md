@@ -46,7 +46,7 @@ Evaluation guidelines file contains complete guidelines for human evaluation stu
 
 ---
 
-## 🛠️ Installation
+## Installation
 ```bash
 # General dependencies
 pip install -r requirements.txt
