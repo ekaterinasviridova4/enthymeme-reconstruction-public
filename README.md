@@ -1,6 +1,7 @@
-# Project Overview
+# Overview
 
-This project focuses on reconstructing implicit premises and claims in argumentative texts, using different families of generative models and zero-shot prompting. 
+This repository contains the implementation details of the paper "Better than the Gold Standard? Evaluating Human vs. LLM Enthymeme Reconstruction in Natural Language Argumentation".
+This work focuses on reconstructing implicit premises and claims in argumentative texts, using different families of generative models and zero-shot prompting. 
 While the full reconstruction pipeline is operational and can be tested on the provided CMV datasets, the human-reconstructed gold-standard data (used for evaluation) will be published upon paper acceptance.
 
 ## Data Structure
